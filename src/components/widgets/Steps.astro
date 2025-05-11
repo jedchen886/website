@@ -1,0 +1,116 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Timeline from '~/components/ui/Timeline.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Image from '~/components/common/Image.astro';
+import type { Steps as Props } from '~/types';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  items = [],
+  image = await Astro.slots.render('image'),
+  isReversed = false,
+
+  // Second set of steps
+  title2 = await Astro.slots.render('title2'),
+  subtitle2 = await Astro.slots.render('subtitle2'),
+  tagline2 = await Astro.slots.render('tagline2'),
+  items2 = [],
+  image2 = await Astro.slots.render('image2'),
+  isReversed2 = true, // Default to true for second set (opposite of default for first set)
+  showSecondSet = false,
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
+  <!-- First set of steps -->
+  <div class:list={['flex flex-col gap-8 md:gap-12', { 'md:flex-row-reverse': isReversed }, { 'md:flex-row': image }]}>
+    <div class:list={['md:py-4 md:self-center', { 'md:basis-1/2': image }, { 'w-full': !image }]}>
+      <Headline
+        title={title}
+        subtitle={subtitle}
+        tagline={tagline}
+        classes={{
+          container: 'text-left rtl:text-right',
+          title: 'text-3xl lg:text-4xl',
+          ...((classes?.headline as object) ?? {}),
+        }}
+      />
+      <Timeline items={items} classes={classes?.items as Record<string, never>} />
+    </div>
+    {
+      image && (
+        <div class="relative md:basis-1/2">
+          {typeof image === 'string' ? (
+            <Fragment set:html={image} />
+          ) : (
+            <Image
+              class="inset-0 object-cover object-top w-full rounded-md md:absolute md:h-full bg-gray-400 dark:bg-slate-700 shadow-none"
+              widths={[400, 768]}
+              sizes="(max-width: 768px) 100vw, 432px"
+              width={432}
+              height={768}
+              layout="cover"
+              src={image?.src}
+              alt={image?.alt || ''}
+            />
+          )}
+        </div>
+      )
+    }
+  </div>
+
+  <!-- Second set of steps (only rendered if showSecondSet is true) -->
+  {
+    showSecondSet && (
+      <div class="mt-16">
+        <div
+          class:list={[
+            'flex flex-col gap-8 md:gap-12',
+            { 'md:flex-row-reverse': isReversed2 },
+            { 'md:flex-row': image2 },
+          ]}
+        >
+          <div class:list={['md:py-4 md:self-center', { 'md:basis-1/2': image2 }, { 'w-full': !image2 }]}>
+            <Headline
+              title={title2}
+              subtitle={subtitle2}
+              tagline={tagline2}
+              classes={{
+                container: 'text-left rtl:text-right',
+                title: 'text-3xl lg:text-4xl',
+                ...((classes?.headline as object) ?? {}),
+              }}
+            />
+            <Timeline items={items2} classes={classes?.items as Record<string, never>} />
+          </div>
+          {image2 && (
+            <div class="relative md:basis-1/2">
+              {typeof image2 === 'string' ? (
+                <Fragment set:html={image2} />
+              ) : (
+                <Image
+                  class="inset-0 object-cover object-top w-full rounded-md md:absolute md:h-full bg-gray-400 dark:bg-slate-700 shadow-none"
+                  widths={[400, 768]}
+                  sizes="(max-width: 768px) 100vw, 432px"
+                  width={432}
+                  height={768}
+                  layout="cover"
+                  src={image2?.src}
+                  alt={image2?.alt || ''}
+                />
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+</WidgetWrapper>

@@ -1,0 +1,125 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from "astro:assets";
+import { Button } from "~/components/shadcn/button"
+
+import {
+	Table,
+	TableBody,
+	TableCaption,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "~/components/shadcn/table";
+
+import { Accordion } from "~/components/Accordion";
+
+const accordionData = [
+	{
+		title: "Is it accessible?",
+		description: "Yes. It adheres to the WAI-ARIA design pattern.",
+	},
+	{
+		title: "Is it styled?",
+		description:
+			"Yes. It comes with default styles that matches the other components' aesthetic.",
+	},
+	{
+		title: "Is it animated?",
+		description:
+			"Yes. It's animated by default, but you can disable it if you prefer.",
+	},
+];
+
+const invoices = [
+	{
+		invoice: "INV001",
+		paymentStatus: "Paid",
+		totalAmount: "$250.00",
+		paymentMethod: "Credit Card",
+	},
+	{
+		invoice: "INV002",
+		paymentStatus: "Pending",
+		totalAmount: "$150.00",
+		paymentMethod: "PayPal",
+	},
+	{
+		invoice: "INV003",
+		paymentStatus: "Unpaid",
+		totalAmount: "$350.00",
+		paymentMethod: "Bank Transfer",
+	},
+	{
+		invoice: "INV004",
+		paymentStatus: "Paid",
+		totalAmount: "$450.00",
+		paymentMethod: "Credit Card",
+	},
+	{
+		invoice: "INV005",
+		paymentStatus: "Paid",
+		totalAmount: "$550.00",
+		paymentMethod: "PayPal",
+	},
+	{
+		invoice: "INV006",
+		paymentStatus: "Pending",
+		totalAmount: "$200.00",
+		paymentMethod: "Bank Transfer",
+	},
+	{
+		invoice: "INV007",
+		paymentStatus: "Unpaid",
+		totalAmount: "$300.00",
+		paymentMethod: "Credit Card",
+	},
+];
+
+---
+<div class="grid sm:grid-cols-2 gap-10 mx-auto mt-24 pt-10 pb-10">
+    <div class="relative order-2 sm:order-1">
+      <div
+        class="absolute hidden md:block w-96 h-96 bg-purple-100 rounded-full right-0 top-1/3 -z-10">
+      </div>
+      <div
+        class="absolute hidden md:block w-44 h-44 bg-purple-100 rounded-full left-10 top-1/4 -z-10">
+      </div>
+
+ 
+ <body>
+
+<Button client:load variant="outline" size="lg">Interactive Button</Button>
+
+
+<Table>
+  <TableCaption>A list of your recent invoices.</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead className="w-[100px]">Invoice</TableHead>
+      <TableHead>Status</TableHead>
+      <TableHead>Method</TableHead>
+      <TableHead className="text-right">Amount</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {
+      invoices.map((invoice) => (
+        <TableRow key={invoice.invoice}>
+          <TableCell className="font-medium">{invoice.invoice}</TableCell>
+          <TableCell>{invoice.paymentStatus}</TableCell>
+          <TableCell>{invoice.paymentMethod}</TableCell>
+          <TableCell className="text-right">
+            {invoice.totalAmount}
+          </TableCell>
+        </TableRow>
+      ))
+    }
+  </TableBody>
+</Table>
+
+<Accordion data={accordionData} client:idle />
+
+
+  </div>

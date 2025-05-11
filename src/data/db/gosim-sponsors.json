@@ -1,0 +1,52 @@
+{
+    "sponsors": [
+      {
+        "id": "spotify",
+        "name": "Spotify",
+        "logo": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/spotify-grayscale.svg",
+        "website": "https://spotify.com"
+      },
+      {
+        "id": "microsoft",
+        "name": "Microsoft",
+        "logo": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/microsoft-grayscale.svg",
+        "website": "https://microsoft.com"
+      },
+      {
+        "id": "slack",
+        "name": "Slack",
+        "logo": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/slack-grayscale.svg",
+        "website": "https://slack.com"
+      },
+      {
+        "id": "salesforce",
+        "name": "Salesforce",
+        "logo": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/salesforce-grayscale.svg",
+        "website": "https://salesforce.com"
+      },
+      {
+        "id": "amazon",
+        "name": "Amazon",
+        "logo": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/amazon-grayscale.svg",
+        "website": "https://amazon.com"
+      },
+      {
+        "id": "meta",
+        "name": "Meta",
+        "logo": "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/meta-color.png",
+        "website": "https://meta.com"
+      },
+      {
+        "id": "google",
+        "name": "Google",
+        "logo": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/google-grayscale.svg",
+        "website": "https://google.com"
+      },
+      {
+        "id": "sap",
+        "name": "SAP",
+        "logo": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/sap-grayscale.svg",
+        "website": "https://sap.com"
+      }      
+    ]
+  }

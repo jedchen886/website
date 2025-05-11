@@ -1,0 +1,238 @@
+---
+import { Icon } from 'astro-icon/components'
+import speakersData from '~/data/db/gosim-speakers.json';
+
+const { days } = Astro.props;
+
+const getSpeaker = (id) => speakersData.speakers.find(s => s.id === id);
+---
+
+<section class="aliased dark:bg-gray-900 p-0">
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6 lg:py-4">
+    <div class="mt-8 lg:mt-12">
+      <!-- Sequential Days Display -->
+      {days.map((day, dayIndex) => (
+        <div class="mb-12">
+          <div class="flex justify-center mb-6">
+            <h2 class="w-full max-w-3xl px-6 py-3 text-2xl font-bold text-center text-gray-900 dark:text-white bg-indigo-100 dark:bg-gray-700 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600">
+              {day.title}
+            </h2>
+          </div>
+
+          <div class="px-4 py-4 md:px-6 lg:px-8 rounded-lg border border-gray-100 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
+            <!-- Track Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-6" role="tablist" aria-label="Tracks">
+              {day.tracks.map((track, trackIndex) => (
+                <button
+                  role="tab"
+                  aria-selected={trackIndex === 0 ? "true" : "false"}
+                  data-track-id={track.id}
+                  data-day-id={day.id}
+                  class={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors
+                      ${trackIndex === 0
+                      ? 'bg-indigo-600 text-white'
+                      : 'text-gray-600 bg-gray-200 hover:bg-gray-300 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600'}`}
+                  >
+                  {track.title}
+                </button>
+              ))}
+            </div>
+
+            <!-- Track Panels -->
+            <div class="mt-4">
+              {day.tracks.map((track, trackIndex) => (
+                <div
+                  role="tabpanel"
+                  data-track-panel-id={`${day.id}-${track.id}`}
+                  class={`${trackIndex === 0 ? 'block' : 'hidden'}`}
+                >
+                  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    {/* Left column - first half of events */}
+                    <div class="space-y-4">
+                      {track.events.slice(0, Math.ceil(track.events.length / 2)).map(event => (
+                        <article class="p-4 space-y-3 bg-white rounded-md border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                          <div class="flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400">
+                            <Icon name="tabler:clock" class="w-4 h-4" />
+                            <span>{event.time}</span>
+                          </div>
+
+                          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                            {event.title}
+                          </h3>
+
+                          {/* Event Description */}
+                          {event.description && (
+                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                              {event.description}
+                            </p>
+                          )}
+
+                          {/* Speakers Section */}
+                          {event.speakers?.length > 0 && (
+                            <div class="space-y-4 mt-3">
+                              {event.speakers.map(speakerId => {
+                                const speaker = getSpeaker(speakerId);
+                                return speaker ? (
+                                  <div class="flex items-center gap-3">
+                                    <img
+                                      src={speaker.avatar}
+                                      alt={speaker.name}
+                                      class="w-12 h-12 rounded-full object-cover"
+                                      loading="lazy"
+                                    />
+                                    <div>
+                                      <p class="text-gray-900 dark:text-white">{speaker.name}</p>
+                                      <p class="text-sm text-gray-500 dark:text-gray-400">{speaker.role}</p>
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+                                    <div>
+                                      <p class="text-gray-900 dark:text-white">Unknown Speaker</p>
+                                      <p class="text-sm text-gray-500 dark:text-gray-400">Speaker not found</p>
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </article>
+                      ))}
+                    </div>
+
+                    {/* Right column - second half of events */}
+                    <div class="space-y-4">
+                      {track.events.slice(Math.ceil(track.events.length / 2)).map(event => (
+                        <article class="p-4 space-y-3 bg-white rounded-md border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                          <div class="flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400">
+                            <Icon name="tabler:clock" class="w-4 h-4" />
+                            <span>{event.time}</span>
+                          </div>
+
+                          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                            {event.title}
+                          </h3>
+
+                          {/* Event Description */}
+                          {event.description && (
+                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                              {event.description}
+                            </p>
+                          )}
+
+                          {/* Speakers Section */}
+                          {event.speakers?.length > 0 && (
+                            <div class="space-y-4 mt-3">
+                              {event.speakers.map(speakerId => {
+                                const speaker = getSpeaker(speakerId);
+                                return speaker ? (
+                                  <div class="flex items-center gap-3">
+                                    <img
+                                      src={speaker.avatar}
+                                      alt={speaker.name}
+                                      class="w-12 h-12 rounded-full object-cover"
+                                      loading="lazy"
+                                    />
+                                    <div>
+                                      <p class="text-gray-900 dark:text-white">{speaker.name}</p>
+                                      <p class="text-sm text-gray-500 dark:text-gray-400">{speaker.role}</p>
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+                                    <div>
+                                      <p class="text-gray-900 dark:text-white">Unknown Speaker</p>
+                                      <p class="text-sm text-gray-500 dark:text-gray-400">Speaker not found</p>
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 text-center">
+<!--       <a
+        href="#"
+        class="inline-flex items-center text-lg font-medium text-blue-600 hover:underline dark:text-blue-500"
+      >
+        Buy tickets
+        <Icon name="tabler:arrow-right" class="ml-2 h-5 w-5" />
+      </a> -->
+    </div>
+  </div>
+
+  <script is:inline>
+    // Function to set up tab navigation
+    function setupTrackTabs() {
+      // Track tab navigation
+      const selectTrackTab = (selectedTab) => {
+        const trackId = selectedTab.dataset.trackId;
+        const dayId = selectedTab.dataset.dayId;
+        const combinedId = `${dayId}-${trackId}`;
+
+        // Get all track tabs within the same day
+        const dayTrackTabs = document.querySelectorAll(`[role="tab"][data-day-id="${dayId}"]`);
+
+        // Update track tabs within this day
+        dayTrackTabs.forEach(tab => {
+          tab.classList.remove('bg-indigo-600', 'text-white');
+          tab.classList.add('text-gray-600', 'bg-gray-200', 'dark:text-gray-300', 'dark:bg-gray-700', 'hover:bg-gray-300', 'dark:hover:bg-gray-600');
+          tab.setAttribute('aria-selected', 'false');
+        });
+
+        // Style selected track tab
+        selectedTab.classList.add('bg-indigo-600', 'text-white');
+        selectedTab.classList.remove('text-gray-600', 'bg-gray-200', 'hover:bg-gray-300', 'dark:text-gray-300', 'dark:bg-gray-700', 'dark:hover:bg-gray-600');
+        selectedTab.setAttribute('aria-selected', 'true');
+
+        // Get all track panels for this day
+        const trackPanels = document.querySelectorAll(`[role="tabpanel"][data-track-panel-id^="${dayId}-"]`);
+
+        // Hide all track panels
+        trackPanels.forEach(panel => panel.classList.add('hidden'));
+
+        // Show selected track panel
+        const selectedTrackPanel = document.querySelector(`[data-track-panel-id="${combinedId}"]`);
+        if (selectedTrackPanel) {
+          selectedTrackPanel.classList.remove('hidden');
+        }
+      };
+
+      // Add event listeners to all track tabs
+      document.querySelectorAll('[role="tab"][data-track-id]').forEach(tab => {
+        tab.addEventListener('click', () => selectTrackTab(tab));
+      });
+
+      // Initialize all first track tabs for each day
+      document.querySelectorAll('[role="tablist"][aria-label="Tracks"]').forEach(trackList => {
+        const firstTrackTab = trackList.querySelector('[role="tab"]');
+        if (firstTrackTab) {
+          selectTrackTab(firstTrackTab);
+        }
+      });
+    }
+
+    // Run setup immediately
+    setupTrackTabs();
+
+    // Also run when DOM is fully loaded (for initial page load)
+    document.addEventListener('DOMContentLoaded', setupTrackTabs);
+
+    // For SPA-like navigation in Astro/View transitions
+    document.addEventListener('astro:page-load', setupTrackTabs);
+    document.addEventListener('astro:after-swap', setupTrackTabs);
+  </script>
+</section>

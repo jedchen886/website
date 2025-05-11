@@ -1,0 +1,41 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import data from '~/data/db/db-sample.json';
+---
+
+<Layout>
+  <section class="mt-12">
+    <h2 class="text-accent dark:text-white highlight text-3xl font-semibold text-center mb-8 tracking-normal">Conference Schedule</h2>
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="overflow-x-auto rounded-lg border border-gray-200 shadow-sm mt-8">
+        <table class="w-full min-w-[600px] md:min-w-0 divide-y divide-gray-200 whitespace-normal">
+<!--           <caption class="caption-top">
+            Conference Schedule
+          </caption> -->
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-3 py-2 sm:px-4 sm:py-3 text-left text-xs sm:text-sm font-semibold text-gray-900 w-[25%]">Name</th>
+              <th class="px-3 py-2 sm:px-4 sm:py-3 text-left text-xs sm:text-sm font-semibold text-gray-900 w-[30%]">Title</th>
+              <th class="px-3 py-2 sm:px-4 sm:py-3 text-left text-xs sm:text-sm font-semibold text-gray-900">Abstract</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 bg-white">
+            {data.entries.map((entry) => (
+              <tr class="hover:bg-gray-50">
+                <td class="px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-medium text-gray-900 whitespace-nowrap">
+                  {entry.name}
+                </td>
+                <td class="px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm text-gray-700">
+                  {entry.title || <span class="text-gray-400 italic">-</span>}
+                </td>
+                <td class="px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm text-gray-700 break-words max-w-prose">
+                  {entry.abstract || <span class="text-gray-400 italic">-</span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</Layout>

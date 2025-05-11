@@ -1,0 +1,310 @@
+{
+  "speakers": [
+    {
+      "id": "ville-kuosmanen",
+      "name": "Ville Kuosmanen",
+      "role": "Founder at Voyage Robotics",
+      "avatar": "/images/speakers/ville-kuosmanen.jpg"
+    },
+    {
+      "id": "martino-russi",
+      "name": "Martino Russi",
+      "role": "Embodied Robotics Engineer at Hugging Face",
+      "avatar": "/images/speakers/martino-russi.jpeg"
+    },
+    {
+      "id": "rik-arends",
+      "name": "Rik Arends",
+      "role": "Co-Founder of Makepad",
+      "avatar": "/images/speakers/rik-arends.png"
+    },
+    {
+      "id": "guohao-li",
+      "name": "Guohao Li",
+      "role": "Founder of Camel-AI.org",
+      "avatar": "/images/speakers/guohao-li.png"
+    },
+    {
+      "id": "yiran-zhong",
+      "name": "Yiran Zhong",
+      "role": "Director of Research at MiniMax",
+      "avatar": "/images/speakers/yiran-zhong.png"
+    },
+    {
+      "id": "dongxu-huang",
+      "name": "Dongxu Huang",
+      "role": "Founder & CTO of PingCAP",
+      "avatar": "/images/speakers/dongxu-huang.jpeg"
+    },
+    {
+      "id": "chao-jia",
+      "name": "Chao Jia",
+      "role": "Vice President of Mianbi Intelligence",
+      "avatar": "/images/speakers/chao-jia.png"
+    },
+    {
+      "id": "xinrui-liu",
+      "name": "Xinrui Liu",
+      "role": "Developer Ecosystem Director at LangGenius",
+      "avatar": "/images/speakers/xinrui-liu.jpg"
+    },
+    {
+      "id": "angelo-corsaro",
+      "name": "Angelo Corsaro",
+      "role": "CEO and CTO of ZettaScale Technology",
+      "avatar": "/images/speakers/angelo-corsaro.png"
+    },
+    {
+      "id": "shiwei-liu",
+      "name": "Shiwei Liu",
+      "role": "Royal Society Newton International Fellow",
+      "avatar": "/images/speakers/shiwei-liu.jpg"
+    },
+    {
+      "id": "markus-tavenrath",
+      "name": "Markus Tavenrath",
+      "role": "Principal Engineer Developer Technology at NVIDIA",
+      "avatar": "/images/speakers/markus-tavenrath.jpg"
+    },
+    {
+      "id": "ruixue-ding",
+      "name": "Ruixue Ding",
+      "role": "Algorithm Expert at Alibaba Tongyi Lab",
+      "avatar": "/images/speakers/ruixue-ding.jpg"
+    },
+    {
+      "id": "siao-liu",
+      "name": "Siao Liu",
+      "role": "Researcher at BAAI",
+      "avatar": "/images/speakers/siao-liu.jpg"
+    },
+    {
+      "id": "tianyu-chen",
+      "name": "Tianyu Chen",
+      "role": "Ph.D Candidate at Peking University",
+      "avatar": "/images/speakers/tianyu-chen.jpeg"
+    },
+    {
+      "id": "sebastien-crozet",
+      "name": "Sebastien Crozet",
+      "role": "Co-founder and CTO Foresight Mining Software Corporation",
+      "avatar": "/images/speakers/sebastien-crozet.jpeg"
+    },
+    {
+      "id": "baosong-yang",
+      "name": "Baosong Yang",
+      "role": "Research Engineer at Alibaba Tongyi Lab",
+      "avatar": "/images/speakers/generic-profile.png"
+    },
+    {
+      "id": "ke-bao",
+      "name": "Ke Bao",
+      "role": "Member of LMSYS Org",
+      "avatar": "/images/speakers/ke-bao.jpeg"
+    },
+    {
+      "id": "yingfeng-zhang",
+      "name": "Yingfeng Zhang",
+      "role": "Co-Founder of InfiniFlow",
+      "avatar": "/images/speakers/yingfeng-zhang.png"
+    },
+    {
+      "id": "alexy-khrabrov",
+      "name": "Alexy Khrabrov",
+      "role": "AI Community Architect at Neo4j",
+      "avatar": "/images/speakers/alexy-khrabrov.jpg"
+    },
+    {
+      "id": "zhipeng-huang",
+      "name": "Zhipeng Huang",
+      "role": "Director of AI Open Source",
+      "avatar": "/images/speakers/zhipeng-huang.jpg"
+    },
+    {
+      "id": "fan-wang",
+      "name": "Fan Wang",
+      "role": "Researcher at the Embodied AI Center, AIRS",
+      "avatar": "/images/speakers/fan-wang.jpg"
+    },
+    {
+      "id": "matt-white",
+      "name": "Matt White",
+      "role": "GM of AI of Linux Foundation",
+      "avatar": "/images/speakers/matt-white.png"
+    },
+    {
+      "id": "huy-hoang-ha",
+      "name": "Huy Hoang Ha",
+      "role": "LLM Researcher at Menlo Research",
+      "avatar": "/images/speakers/huy-hoang-ha.jpg"
+    },
+    {
+      "id": "jinwei-gu",
+      "name": "Jinwei Gu",
+      "role": "Principal Research Scientist at NVIDIA",
+      "avatar": "/images/speakers/jinwei-gu.png"
+    },
+    {
+      "id": "greg-schoeninger",
+      "name": "Greg Schoeninger",
+      "role": "CEO at Oxen.ai",
+      "avatar": "/images/speakers/greg-schoeninger.jpeg"
+    },
+    {
+      "id": "yinping-ma",
+      "name": "Yinping Ma",
+      "role": "Engineer at Peking University",
+      "avatar": "/images/speakers/yinping-ma.jpg"
+    },
+    {
+      "id": "yanzhi-wang",
+      "name": "Yanzhi Wang",
+      "role": "Associate Professor, Electrical and Computer Engineering of Northwestern University",
+      "avatar": "/images/speakers/yanzhi-wang.png"
+    },
+    {
+      "id": "yongbin-li",
+      "name": "Yongbin Li",
+      "role": "Researcher of Alibaba Tongyi Lab",
+      "avatar": "/images/speakers/generic-profile.png"
+    },
+    {
+      "id": "cheng-chi",
+      "name": "Cheng Chi",
+      "role": "Researcher at BAAI",
+      "avatar": "/images/speakers/cheng-chi.jpeg"
+    },
+    {
+      "id": "cailean-osborne-phd",
+      "name": "Cailean Osborne, PhD",
+      "role": "Senior Researcher at Linux Foundation",
+      "avatar": "/images/speakers/cailean-osborne-phd.png"
+    },
+    {
+      "id": "min-zhang",
+      "name": "Min Zhang",
+      "role": "EU Director of Unitree Robotics",
+      "avatar": "/images/speakers/min-zhang.png"
+    },
+    {
+      "id": "diego-rojas",
+      "name": "Diego Rojas",
+      "role": "Research Engineer at Zhipu.AI",
+      "avatar": "/images/speakers/diego-rojas.jpeg"
+    },
+    {
+      "id": "guillaume-blaquiere",
+      "name": "Guillaume Blaquiere",
+      "role": "Group Data Architect Carrefour",
+      "avatar": "/images/speakers/guillaume-blaquiere.png"
+    },
+    {
+      "id": "philipp-oppermann",
+      "name": "Philipp Oppermann",
+      "role": "Dora Project Lead at DORA+Zenoh",
+      "avatar": "/images/speakers/philipp-oppermann.jpeg"
+    },
+    {
+      "id": "tbd",
+      "name": "TBD",
+      "role": "",
+      "avatar": "/images/speakers/generic-profile.png"
+    },
+    {
+      "id": "shanghang-zhang",
+      "name": "Shanghang Zhang",
+      "role": "Assistant Professor at the School of Computer Science, Peking University",
+      "avatar": "/images/speakers/shanghang-zhang.png"
+    },
+    {
+      "id": "james-yang",
+      "name": "James Yang",
+      "role": "Speaker at UTSC",
+      "avatar": "/images/speakers/james-yang.png"
+    },
+    {
+      "id": "chi-wang",
+      "name": "Chi Wang",
+      "role": "Research Scientist at Google DeepMind",
+      "avatar": "/images/speakers/chi-wang.png"
+    },
+    {
+      "id": "wei-jia",
+      "name": "Wei Jia",
+      "role": "Director at Zhipu AI",
+      "avatar": "/images/speakers/generic-profile.png"
+    },
+    {
+      "id": "yaowei-zheng",
+      "name": "Yaowei Zheng",
+      "role": "Ph.D. Student at Beihang University",
+      "avatar": "/images/speakers/yaowei-zheng.jpeg"
+    },
+    {
+      "id": "guang-liu",
+      "name": "Guang Liu",
+      "role": "Head of OpenSeek",
+      "avatar": "/images/speakers/guang-liu.jpg"
+    },
+    {
+      "id": "wang-yanzhi",
+      "name": "Wang Yanzhi",
+      "role": "Associate Professor, Electrical and Computer Engineering of Northwestern University",
+      "avatar": "/images/speakers/yanzhi-wang.png"
+    },
+    {
+      "id": "guilherme-penedo",
+      "name": "Guilherme Penedo",
+      "role": "ML Research Engineer at Hugging Face",
+      "avatar": "/images/speakers/guilherme-penedo.jpg"
+    },
+    {
+      "id": "xiyuan-wang",
+      "name": "Xiyuan Wang",
+      "role": "Senior Software Engineer at Huawei",
+      "avatar": "/images/speakers/xiyuan-wang.jpeg"
+    },
+    {
+      "id": "sirui-hong",
+      "name": "Sirui Hong",
+      "role": "Co-Founder of OpenManus",
+      "avatar": "/images/speakers/sirui-hong.jpg"
+    },
+    {
+      "id": "xin-dong",
+      "name": "Xin Dong",
+      "role": "Technical Expert in the Programming Language Lab of Huawei",
+      "avatar": "/images/speakers/xin-dong.jpg"
+    },
+    {
+      "id": "michael-yuan",
+      "name": "Michael Yuan",
+      "role": "Speaker at LlamaEdge",
+      "avatar": "/images/speakers/michael-yuan.png"
+    },
+    {
+      "id": "elie-bakouch",
+      "name": "Elie Bakouch",
+      "role": "Research Engineer at Hugging Face",
+      "avatar": "/images/speakers/elie-bakouch.jpeg"
+    },
+    {
+      "id": "yonghua-lin",
+      "name": "Yonghua Lin",
+      "role": "VP of BAAI",
+      "avatar": "/images/speakers/yonghua-lin.png"
+    },
+    {
+      "id": "han-xiao",
+      "name": "Han Xiao",
+      "role": "Founder & CEO of JinA AI",
+      "avatar": "/images/speakers/han-xiao.png"
+    },
+    {
+      "id": "jason-li",
+      "name": "Jason Li",
+      "role": "Senior VP at CSDN",
+      "avatar": "/images/speakers/jason-li.png"
+    }
+  ]
+}

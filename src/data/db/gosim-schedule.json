@@ -1,0 +1,640 @@
+{
+  "days": [
+    {
+      "id": "day-1",
+      "title": "Day 1: Tuesday, May 6th",
+      "tracks": [
+        {
+          "id": "ai-models",
+          "title": "AI Models",
+          "events": [
+            {
+              "time": "9:30  - 10:00",
+              "title": "Keynote",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "10:10 - 10:40",
+              "title": "Morning Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:40 - 11:20",
+              "title": "Open-R1: A fully open reproduction of DeepSeek-R1",
+              "description": "",
+              "speakers": ["guilherme-penedo"]
+            },
+            {
+              "time": "11:20 - 12:00",
+              "title": "OpenSeek: Collaborative Innovation for Next-Gen Models",
+              "description": "",
+              "speakers": ["guang-liu"]
+            },
+            {
+              "time": "12:00 - 14:00",
+              "title": "Lunch Break",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "14:00 - 14:40",
+              "title": "Decode DeepSeek: the Technological innovation and Its Influence on AI Ecosystem",
+              "description": "",
+              "speakers": ["jason-li"]
+            },
+            {
+              "time": "14:40 - 15:20",
+              "title": "Linear Next: The evolution of LLM Architecture",
+              "description": "",
+              "speakers": ["yiran-zhong"]
+            },
+            {
+              "time": "15:20 - 15:40",
+              "title": "Afternoon Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "15:40 - 16:20",
+              "title": "miniCPM",
+              "description": "",
+              "speakers": ["chao-jia"]
+            },
+            {
+              "time": "16:20 - 17:00",
+              "title": "Going Beyond Tokens for Code Large Language Models",
+              "description": "",
+              "speakers": ["diego-rojas"]
+            },
+            {
+              "time": "17:00 - 18:00",
+              "title": "Spotlight Demo",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "18:00 - 21:00",
+              "title": "VIP Diner",
+              "description": "",
+              "speakers": []
+            }
+          ]
+        },
+        {
+          "id": "ai-infra",
+          "title": "AI Infrastructure",
+          "events": [
+            {
+              "time": "9:30  - 10:00",
+              "title": "Keynote",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:10 - 10:40",
+              "title": "Morning Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:40 - 11:20",
+              "title": "BAAI FlagGem",
+              "description": "",
+              "speakers": ["yonghua-lin"]
+            },
+            {
+              "time": "11:20 - 12:00",
+              "title": "The best practice of training and inferencing on Ascend CANN",
+              "description": "",
+              "speakers": ["xiyuan-wang"]
+            },
+            {
+              "time": "12:00 - 14:00",
+              "title": "Lunch Break",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "14:00 - 14:40",
+              "title": "SGLang: Efficient LLM Serving Engine",
+              "description": "",
+              "speakers": ["ke-bao"]
+            },
+            {
+              "time": "14:40 - 15:20",
+              "title": "Open-source intelligent computing integrated management and utilization foundational software - SCOW and CraneSched",
+              "description": "",
+              "speakers": ["yinping-ma"]
+            },
+            {
+              "time": "15:20 - 15:40",
+              "title": "Afternoon Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "15:40 - 16:20",
+              "title": "verl: Hybrid Controller-based RLHF System",
+              "description": "",
+              "speakers": ["yaowei-zheng"]
+            },
+            {
+              "time": "16:20 - 17:00",
+              "title": "Datasets and Infrastructure for DeepSeek-R1 Style Reinforcement Learning (GRPO)",
+              "description": "",
+              "speakers": ["greg-schoeninger"]
+            },
+            {
+              "time": "17:00 - 18:00",
+              "title": "Spotlight Demo",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "18:00 - 21:00",
+              "title": "VIP Diner",
+              "description": "",
+              "speakers": []
+            }
+          ]
+        },
+        {
+          "id": "embodied-ai",
+          "title": "Embodied AI",
+          "events": [
+            {
+              "time": "9:30  - 10:00",
+              "title": "Keynote",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:10 - 10:40",
+              "title": "Morning Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:40 - 11:20",
+              "title": "TBD",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "11:20 - 12:00",
+              "title": "Zenoh Project",
+              "description": "",
+              "speakers": ["angelo-corsaro"]
+            },
+            {
+              "time": "12:00 - 14:00",
+              "title": "Lunch Break",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "14:00 - 14:40",
+              "title": "Distributed dataflows in Dora using Zenoh",
+              "description": "",
+              "speakers": ["philipp-oppermann"]
+            },
+            {
+              "time": "14:40 - 15:20",
+              "title": "Integrating Feedback and Learning in Closed Loop: Toward General-Purpose Embodied AI Systems",
+              "description": "",
+              "speakers": ["fan-wang"]
+            },
+            {
+              "time": "15:20 - 15:40",
+              "title": "Afternoon Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "15:40 - 16:20",
+              "title": "Building robotic applications with open-source VLA models",
+              "description": "",
+              "speakers": ["ville-kuosmanen"]
+            },
+            {
+              "time": "16:20 - 17:00",
+              "title": "Spatial Reasoning LLM: Enhancing 2D & 3D Understanding for Robotic Manipulation and Navigation",
+              "description": "",
+              "speakers": ["huy-hoang-ha"]
+            },
+            {
+              "time": "17:00 - 18:00",
+              "title": "Spotlight Demo",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "18:00 - 21:00",
+              "title": "VIP Diner",
+              "description": "",
+              "speakers": []
+            }
+          ]
+        },
+        {
+          "id": "ai-apps",
+          "title": "AI Applications",
+          "events": [
+            {
+              "time": "9:30  - 10:00",
+              "title": "Keynote",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:10 - 10:40",
+              "title": "Morning Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:40 - 11:20",
+              "title": "AG2: The Open-Source AgentOS for Agentic AI",
+              "description": "",
+              "speakers": ["chi-wang"]
+            },
+            {
+              "time": "11:20 - 12:00",
+              "title": "CangjieMagic : New Choices for Developers in the Age of Large Models",
+              "description": "",
+              "speakers": ["xin-dong"]
+            },
+            {
+              "time": "12:00 - 14:00",
+              "title": "Lunch Break",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "14:00 - 14:40",
+              "title": "AI Coding",
+              "description": "",
+              "speakers": ["yongbin-li"]
+            },
+            {
+              "time": "14:40 - 15:20",
+              "title": "TBD",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "15:20 - 15:40",
+              "title": "Afternoon Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "15:40 - 16:20",
+              "title": "Makepad AI Coding",
+              "description": "",
+              "speakers": ["rik-arends"]
+            },
+            {
+              "time": "16:20 - 17:00",
+              "title": "Tech together, Powered by Dify",
+              "description": "",
+              "speakers": ["xinrui-liu"]
+            },
+            {
+              "time": "17:00 - 18:00",
+              "title": "Spotlight Demo",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "18:00 - 21:00",
+              "title": "VIP Diner",
+              "description": "",
+              "speakers": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "day-2",
+      "title": "Day 2: Wednesday, May 7th",
+      "tracks": [
+        {
+          "id": "ai-models",
+          "title": "AI Models",
+          "events": [
+            {
+              "time": "9:30  - 10:00",
+              "title": "Keynote",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "10:10 - 10:40",
+              "title": "Morning Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:40 - 11:20",
+              "title": "Qwen",
+              "description": "",
+              "speakers": ["baosong-yang"]
+            },
+            {
+              "time": "11:20 - 12:00",
+              "title": "Olmo",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "12:00 - 14:00",
+              "title": "Lunch Break",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "14:00 - 14:40",
+              "title": "Pre-training of smol and large LLM",
+              "description": "",
+              "speakers": ["elie-bakouch"]
+            },
+            {
+              "time": "14:40 - 15:20",
+              "title": "Demysifying LLM training --- towards fully open-source LLM from pre-training to reinforcement learning",
+              "description": "",
+              "speakers": ["yanzhi-wang"]
+            },
+            {
+              "time": "15:20 - 15:40",
+              "title": "Afternoon Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "15:40 - 16:20",
+              "title": "Google Gemma",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "16:20 - 17:00",
+              "title": "The Curse of Depth in Large Language Models",
+              "description": "",
+              "speakers": ["shiwei-liu"]
+            },
+            {
+              "time": "17:00 - 18:00",
+              "title": "Spotlight Demo",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "18:00 - 21:00",
+              "title": "Social Gathering",
+              "description": "",
+              "speakers": []
+            }
+          ]
+        },
+        {
+          "id": "ai-infra",
+          "title": "AI Infrastructure",
+          "events": [
+            {
+              "time": "9:30  - 10:00",
+              "title": "Keynote",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:10 - 10:40",
+              "title": "Morning Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:40 - 11:20",
+              "title": "LAION dataset and infra",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "11:20 - 12:00",
+              "title": "OminiX Enables Conversational AI",
+              "description": "",
+              "speakers": ["yanzhi-wang"]
+            },
+            {
+              "time": "12:00 - 14:00",
+              "title": "Lunch Break",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "14:00 - 14:40",
+              "title": "Docker",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "14:40 - 15:20",
+              "title": "TBD",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "15:20 - 15:40",
+              "title": "Afternoon Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "15:40 - 16:20",
+              "title": "Khronos in the World of Open Source and Machine Learning",
+              "description": "",
+              "speakers": ["markus-tavenrath"]
+            },
+            {
+              "time": "16:20 - 17:00",
+              "title": "WGML: the story of building a new high-performance, cross-platform, on-device inference frework.",
+              "description": "",
+              "speakers": ["sebastien-crozet"]
+            },
+            {
+              "time": "17:00 - 18:00",
+              "title": "Spotlight Demo",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "18:00 - 21:00",
+              "title": "Social Gathering",
+              "description": "",
+              "speakers": []
+            }
+          ]
+        },
+        {
+          "id": "embodied-ai",
+          "title": "Embodied AI",
+          "events": [
+            {
+              "time": "9:30  - 10:00",
+              "title": "Keynote",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:10 - 10:40",
+              "title": "Morning Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:40 - 11:20",
+              "title": "How to Build Your Humanoid",
+              "description": "",
+              "speakers": ["martino-russi"]
+            },
+            {
+              "time": "11:20 - 12:00",
+              "title": "Towards a Cerebrum-Cerebellum Collaboration Frework for Large Embodied Models",
+              "description": "",
+              "speakers": ["cheng-chi"]
+            },
+            {
+              "time": "12:00 - 14:00",
+              "title": "Lunch Break",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "14:00 - 14:40",
+              "title": "G1 Open Source dataset and Humanoid Robot from Unitree Robotics",
+              "description": "",
+              "speakers": ["min-zhang"]
+            },
+            {
+              "time": "14:40 - 15:20",
+              "title": "Think Small, Act Big: Primitive Prompt Learning for Lifelong Robot Manipulation",
+              "description": "",
+              "speakers": ["siao-liu"]
+            },
+            {
+              "time": "15:20 - 15:40",
+              "title": "Afternoon Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "15:40 - 16:20",
+              "title": "Rerun",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "16:20 - 17:00",
+              "title": "Pollen Robots",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "17:00 - 18:00",
+              "title": "Spotlight Demo",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "18:00 - 21:00",
+              "title": "Social Gathering",
+              "description": "",
+              "speakers": []
+            }
+          ]
+        },
+        {
+          "id": "ai-apps",
+          "title": "AI Applications",
+          "events": [
+            {
+              "time": "9:30  - 10:00",
+              "title": "Keynote",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:10 - 10:40",
+              "title": "Morning Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "10:40 - 11:20",
+              "title": "Cel.ai",
+              "description": "",
+              "speakers": ["guohao-li"]
+            },
+            {
+              "time": "11:20 - 12:00",
+              "title": "OpenManus: Empowering LLM-based Agent Applications via Frework and Capability Evolution",
+              "description": "",
+              "speakers": ["sirui-hong"]
+            },
+            {
+              "time": "12:00 - 14:00",
+              "title": "Lunch Break",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "14:00 - 14:40",
+              "title": "RAGFlow: Leading the Open-Source Revolution in Enterprise-Grade Retrieval-Augmented Generation",
+              "description": "",
+              "speakers": ["yingfeng-zhang"]
+            },
+            {
+              "time": "14:40 - 15:20",
+              "title": "OAKS: The Open Agentic AI Knowledge Stack",
+              "description": "",
+              "speakers": ["alexy-khrabrov"]
+            },
+            {
+              "time": "15:20 - 15:40",
+              "title": "Afternoon Coffee",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "15:40 - 16:20",
+              "title": "TBD",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "16:20 - 17:00",
+              "title": "TBD",
+              "description": "",
+              "speakers": ["tbd"]
+            },
+            {
+              "time": "17:00 - 18:00",
+              "title": "Spotlight Demo",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "time": "18:00 - 21:00",
+              "title": "Social Gathering",
+              "description": "",
+              "speakers": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+---
+// Import the new font
+import '@fontsource/roboto'; // Example for Roboto font
+import '@fontsource/noto-sans'; // Example for Roboto font
+import '@fontsource/poppins'; // Example for Roboto font
+import '@fontsource/manrope'; // Example for Manrope font
+
+import '@fontsource-variable/inter';
+
+// 'DM Sans'
+// Nunito
+// Dosis
+// Outfit
+// Roboto
+// Literata
+// 'IBM Plex Sans'
+// Karla
+// Poppins
+// 'Fira Sans'
+// 'Libre Franklin'
+// Inconsolata
+// Raleway
+// Oswald
+// 'Space Grotesk'
+// Urbanist
+---
+
+<style is:inline>
+  :root {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Inter Variable';
+    --aw-font-heading: 'noto-sans', 'Inter Variable'; /* Add the new font to the custom property */
+    --aw-letter-spacing-heading: 0.02em; /* Define custom letter spacing for headings */
+
+    --aw-color-primary: rgb(1 97 239);
+    --aw-color-secondary: rgb(1 84 207);
+    --aw-color-accent: rgb(109 40 217);
+
+    --aw-color-text-heading: rgb(0 0 0);
+    --aw-color-text-default: rgb(16 16 16);
+    --aw-color-text-muted: rgb(16 16 16 / 66%);
+    --aw-color-bg-page: rgb(255 255 255);
+
+    --aw-color-bg-page-dark: rgb(3 6 32);
+
+    ::selection {
+      background-color: lavender;
+    }
+  }
+
+  .dark {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Inter Variable';
+    --aw-font-heading: 'manrope', 'noto-sans', 'Inter Variable'; /* Add the new font to the custom property for dark mode */
+    --aw-letter-spacing-heading: 0.05em; /* Define custom letter spacing for headings in dark mode */
+
+    --aw-color-primary: rgb(1 97 239);
+    --aw-color-secondary: rgb(1 84 207);
+    --aw-color-accent: rgb(109 40 217);
+
+    --aw-color-text-heading: rgb(247, 248, 248);
+    --aw-color-text-default: rgb(229 236 246);
+    --aw-color-text-muted: rgb(229 236 246 / 66%);
+    --aw-color-bg-page: rgb(3 6 32);
+
+    ::selection {
+      background-color: black;
+      color: snow;
+    }
+  }
+
+  /* Apply custom letter spacing to headings */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: var(--aw-letter-spacing-heading);
+  }
+  /* Apply noto-sans font to h1, h2, and h3 */
+  h1, h2, h3, h4, h5, h6 {
+  font-family: 'noto-sans', var(--aw-font-heading);
+  }
+</style>

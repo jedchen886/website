@@ -1,0 +1,652 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Gosim from '~/components/widgets/Gosim.astro';
+// import ShadcnDemo from '~/components/ShadcnDemo.astro';
+// import AnimataDemo from '~/components/AnimataDemo.astro';
+
+// import Sponsors from '~/components/widgets/Sponsors.astro';
+import Brands from '~/components/widgets/Brands.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+// import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+// import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+// import CallToAction from '~/components/widgets/CallToAction.astro';
+import Highlight from '~/components/Highlight.astro';
+
+import { getCollection } from 'astro:content';
+import { Picture } from 'astro:assets';
+import Container from '~/components/widgets/Container.astro';
+
+// Filter team entries with 'draft: false' & date before current date
+const publishedSpeakers = await getCollection('speaker', ({ data }) => {
+  return !data.draft && data.name !== 'TBD' && data.publishDate < new Date();
+});
+
+// function getPrettyTrackName(track) {
+//   const trackMap = {
+//     'ai-infra': 'AI Infrastructure',
+//     'ai-apps': 'AI Applications',
+//     'ai-model': 'AI Models',
+//     'embodied-ai': 'Embodied AI',
+//     pytorch: 'PyTorch AI Day',
+//   };
+
+//   return trackMap[track] || track; // Return the mapped name or the original if no mapping exists
+// }
+
+const metadata = {
+  title: 'GOSIM AI Paris 2025',
+  description:
+    'GOSIM AI Paris 2025 is a gathering of open-source AI projects, developers, researchers, and industry sponsors to share knowledge, learn from each other, and collaborate.',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Propose a Talk',
+        href: 'https://cfp.gosim.org',
+        target: '_blank',
+        icon: 'tabler:arrow-right',
+      },
+      {
+        variant: 'primary',
+        text: 'Apply for Spotlight',
+        href: 'https://spotlight.gosim.org/ai2025',
+        target: '_blank',
+        icon: 'tabler:arrow-right',
+        class: 'bg-blue-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded', // Add Tailwind CSS classes here
+      },
+    ]}
+    bg={`
+      <div class="absolute inset-0">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-100">
+          <source src="/images/gosim-paris.mp4" type="video/mp4" />
+        </video>
+      </div>
+    `}
+    tagline="May 6-7, 2025"
+  >
+    <Fragment slot="title">
+      <span class="text-pink-200 text-6x md:text-7xl lg:text-8xl tracking-tight dark:text-white highlight">
+        GOSIM AI Paris</span
+      >
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <div class="mt-20">
+        <span class="hidden sm:inline text-2xl text-white">
+          <span class="font-semibold">Paris</span>, the City of Light, transforms into the City of Artificial Brilliance
+          this May. GOSIM AI 2025 invites visionaries, disruptors, and pioneers to converge at
+          <a
+            href="https://stationf.co/"
+            class="text-sky-300 dark:text-white font-semibold highlight"
+            target="_blank"
+            rel="noopener noreferrer">Station F, a crucible of innovation,</a
+          >
+          to shape the next frontier of AI.
+        </span>
+      </div>
+    </Fragment>
+  </Hero>
+
+  <Brands
+    title="Proudly Sponsored by"
+    subtitle=""
+    icons={[]}
+    size={'large'}
+    images={[
+      {
+        src: '~/assets/images/brands/1msai.png',
+        alt: '1ms.ai',
+      },
+      {
+        src: '~/assets/images/brands/huawei.png',
+        alt: 'Huawei',
+      },
+      {
+        src: '~/assets/images/brands/csdn.png',
+        alt: 'CSDN',
+      },
+    ]}
+    isDark={false}
+    classes={{ container: 'max-w-6xl' }}
+    bg={`
+      <div class="absolute inset-0 dark:bg-transparent"></div>
+    `}
+  />
+
+  <!-- GOSIM Widget ******************* -->
+  <Gosim />
+
+  <!-- <ShadcnDemo /> -->
+  <!-- <AnimataDemo /> -->
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    stats={[
+      { title: 'Conference Tracks', amount: '5' },
+      { title: 'Talks', amount: '50+' },
+      { title: 'Demos', amount: '20+' },
+      { title: 'Attendees', amount: '500+' },
+    ]}
+  />
+
+  <!-- <Sponsors /> -->
+
+  <Highlight />
+
+  <Features2
+    id="why-attend"
+    tagline="Why You Need to Attend"
+    title="Régale-toi au festin de l’IA"
+    subtitle="From foundational models to open-source breakthroughs, this is where ideas ignite. Join leaders and experts as they explore the most pressing challenges and the most promising opportunities in AI, from ethical considerations to the AGI future."
+    items={[
+      {
+        title: 'French Flair, Global Impact',
+        description:
+          'Showcasing the harmony between open-source ingenuity and technological excellence—immerse yourself in a world where savoir-faire meets groundbreaking innovation, setting the stage for a global AI revolution across 5 visionary tracks.',
+        icon: 'mdi:paris',
+      },
+      {
+        title: 'Open-Source & Industry Collaboration',
+        description:
+          'Cultivating a powerful synergy between academia, thriving open-source communities, and visionary industry leaders to drive AI breakthroughs, accelerate innovation, and shape the future of intelligent systems together.',
+        icon: 'tabler:brand-open-source',
+      },
+      {
+        title: 'World-Class Open-Source AI',
+        description:
+          'Stay at the cutting edge with insights from the most impactful open-source AI projects, including Huggingface, DeepSeek, Qwen, OpenSeek, Open-R1, PyTorch,  SGlang, Dify, OpenManus, AG2, Gaia, Camel, LLM360, Moxin, Dora, Lerobot, Zenoh, and over 40 other groundbreaking projects, and emerging trailblazers.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Unparalleled Networking',
+        description:
+          'UConnect with 500+ open-source AI project leaders, researchers, and practitioners driving the AI landscape forward.',
+        icon: 'raphael:people',
+      },
+      {
+        title: 'Hands-On Workshops',
+        description:
+          'Experience real-time coding labs, interactive AI tool demos, and expert-led sessions designed to provide practical skills and deep technical insights.',
+        icon: 'grommet-icons:workshop',
+      },
+      {
+        title: 'Showcase of AI Startups',
+        description:
+          'Witness the unveiling of groundbreaking AI projects from some of the most innovative startups pushing the boundaries of technology.',
+        icon: 'tdesign:play-demo',
+      },
+    ]}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    id="tracks"
+    title="5 Conference Tracks"
+    subtitle="The innovation is already here. Are you?"
+    tagline="Joining the the world of open-source AI"
+    items={[
+      {
+        title: 'AI Model',
+        description:
+          'Shaping the Future with Open-Source AI: Unleashing world-class performance in LLMs, multi-modal AI, cutting-edge image and video generation models, and pioneering on-device small LLMs pushing the boundaries of AI efficiency and accessibility.',
+        icon: 'hugeicons:neural-network',
+      },
+      {
+        title: 'AI Infra',
+        description:
+          'Building Scalable AI with Open-Source Innovation: Advancing AI training, inference, fine-tuning, reinforcement learning frameworks, optimized on-device inference solutions, and seamless large-scale cloud deployment to enable next-generation AI capabilities.',
+        icon: 'carbon:infrastructure-classic',
+      },
+      {
+        title: 'AI Apps',
+        description:
+          'Transforming Industries with Open-Source AI: Leveraging community-driven AI models to revolutionize healthcare, finance, and creative tools, while integrating open-source AI app development frameworks, agentic tools, Retrieval-Augmented Generation (RAGs), front-end AI applications, personal AI assistants, future AI operating systems, and smart AI hardware.',
+        icon: 'carbon:application-mobile',
+      },
+      {
+        title: 'Embodied AI',
+        description:
+          'Propelling Open-Source Robotics Forward: Innovating community-driven robot design, expanding openly available datasets, developing advanced visual language models, and shaping policy frameworks that define the future of autonomous systems.',
+        icon: 'tabler:robot-face',
+      },
+      {
+        title: 'PyTorch AI Paris Day',
+        description:
+          'A dedicated space for AI practitioners, researchers, and engineers to explore the latest advancements in deep learning with PyTorch. From cutting-edge model development to scalable deployment, this track offers expert insights, hands-on sessions, and discussions shaping the future of AI with PyTorch.',
+        icon: 'tabler:brand-python',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-purple-100 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <Container id="speakers">
+    <div id="speakers" class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">Empowering the world with Open-Source.</h2>
+      <p class="text-lg leading-relaxed text-slate-500">
+        The GOSIM AI Paris 2025 speaker lineup is a diverse group of open-source leaders and developers who are
+        passionate about sharing their knowledge and expertise with the community. From foundational models to
+        cutting-edge research, our speakers will cover a wide range of topics to help you stay at the forefront of AI
+        innovation.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-500">
+        Here are some of the speakers that are planning to join us at the conference with more to be announced:
+      </p>
+    </div>
+    <style>
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <div class="grid md:grid-cols-4 gap-10 mx-auto max-w-4xl my-12">
+      {
+        publishedSpeakers.map((speakerEntry) => (
+          <div class="group relative">
+            <div class="w-full aspect-square rounded-b-lg overflow-hidden transition-transform duration-500 ease-in-out transform group-hover:scale-105 group-hover:shadow-lg">
+              {/* {speakerEntry.data.track && (
+              <div class="w-full bg-indigo-600/80 text-white text-xs py-1 px-2 text-center rounded-t-lg mt-0">
+                {Array.isArray(speakerEntry.data.track)
+                  ? speakerEntry.data.track.map((t) => getPrettyTrackName(t)).join(' • ')
+                  : getPrettyTrackName(speakerEntry.data.track)}
+              </div>
+            )} */}
+
+              <div class="w-full h-full object-cover object-center rounded-b-lg">
+                <Picture
+                  src={speakerEntry.data.avatar.src}
+                  alt={speakerEntry.data.avatar.alt}
+                  sizes="(max-width: 800px) 100vw, 400px"
+                  width={400}
+                  height={400}
+                  class="w-full h-full object-cover object-center rounded-lg"
+                />
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-b from-white/30 to-black/70 opacity-50 rounded-lg group-hover:from-black/50 group-hover:to-black/90 group-hover:opacity-70 transition-all duration-500" />
+            </div>
+
+            <div class="absolute inset-0 flex flex-col items-center p-4 text-center text-white transition-all duration-500 rounded-lg">
+              <h2 class="text-md translate-y-[-100%] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 pt-2">
+                {speakerEntry.data.name}
+              </h2>
+              <div class="w-full mt-auto transition-all duration-300">
+                <h2 class="text-md group-hover:opacity-0 transition-opacity duration-300">{speakerEntry.data.name}</h2>
+                <h3 class="text-xs opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                  {speakerEntry.data.title}
+                </h3>
+              </div>
+              {speakerEntry.data.topic && (
+                <p class="text-xs font-light opacity-0 group-hover:opacity-100 absolute bottom-4 left-0 right-0 px-4 transition-opacity duration-300">
+                  {speakerEntry.data.topic}
+                </p>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+
+  <Content
+    id="spotlight"
+    title="GOSIM AI Spotlight"
+    tagline="Join the Developers of Tomorrow"
+    subtitle="Step into the realm of innovation at GOSIM AI Spotlight—where Europe’s rich tradition of creativity meets the cutting edge of open-source AI. Join us in this GOSIM AI co-located event that celebrates collaboration, diversity, and the pioneering spirit of our vibrant continent."
+    isReversed
+    items={[
+      {
+        title: 'On-Site Demo',
+        description:
+          'Socializing with 15 most innovative open-source AI projects from worldwide. Seeking collaborations, partnerships, and sponsroship.',
+        icon: 'fluent:desktop-flow-24-regular',
+      },
+      {
+        title: 'Project Pitch:',
+        description: `Understanding the big idea behind the personal endeavor to conquer the challenges of the future. The future is now, and we're here to make it happen.`,
+        icon: 'fluent:presenter-24-regular',
+      },
+    ]}
+    callToAction={{
+      variant: 'primary',
+      text: 'Apply Now',
+      href: 'https://spotlight.gosim.org/ai2025',
+      target: '_blank',
+      icon: 'tabler:external-link',
+    }}
+    image={{ src: '~/assets/images/spotlight-demo.jpg', alt: 'Spotlight Image' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-normal dark:text-white sm:text-3xl mb-2">
+        Learning from the Innovators <br />
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-yellow-40 dark:bg-transparent"></div>
+      <!-- Content Widget **************** -->
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero-bk07.png')"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Steps Widget ****************** -->
+
+  <!-- <Brands
+    title="Partnerships & Collaborations"
+    subtitle="GOSIM is proud to partner with these organizations to being the best events to the open-source coummunity. We thank all the speakers and their respective organizations for their support."
+    icons={[]}
+    images={[
+      {
+        src: '~/assets/images/brands/qwen.png',
+        alt: 'Qwen',
+      },
+      {
+        src: '~/assets/images/brands/huggingface.png',
+        alt: 'Hugging Face',
+      },
+      {
+        src: '~/assets/images/brands/baai.png',
+        alt: 'BAAI',
+      },
+      {
+        src: '~/assets/images/brands/deepmind.png',
+        alt: 'Google DeepMind',
+      },
+      {
+        src: '~/assets/images/brands/khronosgroup.png',
+        alt: 'Khronos Group',
+      },
+
+      {
+        src: '~/assets/images/brands/pytorch.png',
+        alt: 'PyTorch',
+      },
+      {
+        src: '~/assets/images/brands/vllm.png',
+        alt: 'vLLM',
+      },
+      {
+        src: '~/assets/images/brands/ragflow.png',
+        alt: 'RAGFlow',
+      },
+
+      {
+        src: '~/assets/images/brands/lf-research-color.svg',
+        alt: 'Linux Foundation',
+      },
+      {
+        src: '~/assets/images/brands/aifc.png',
+        alt: 'AIFC',
+      },
+      {
+        src: '~/assets/images/brands/apache.png',
+        alt: 'Apache Software Foundation',
+      },
+      {
+        src: '~/assets/images/brands/lf-gen-ai.png',
+        alt: 'LF Generative AI Commons',
+      },
+      {
+        src: '~/assets/images/brands/openwallet.svg',
+        alt: 'Open Wallet',
+      },
+      {
+        src: '~/assets/images/brands/sw-heritage.png',
+        alt: 'Softawre Heritage',
+      },
+      {
+        src: '~/assets/images/brands/eclipse-foundation.png',
+        alt: 'Eclipse Foundation',
+      },
+
+      {
+        src: '~/assets/images/brands/mindspore.png',
+        alt: 'MindSpore',
+      },
+      {
+        src: '~/assets/images/brands/flagopen.png',
+        alt: 'FlagOpen',
+      },
+      {
+        src: '~/assets/images/brands/sgl.png',
+        alt: 'SGLang',
+      },
+
+      {
+        src: '~/assets/images/brands/unitree.png',
+        alt: 'Unitree Robotics',
+      },
+      {
+        src: '~/assets/images/brands/lerobot.png',
+        alt: 'LeRobot',
+      },
+      {
+        src: '~/assets/images/brands/dora.png',
+        alt: 'Dora',
+      },
+
+      {
+        src: '~/assets/images/brands/airs.png',
+        alt: 'AIRS',
+      },
+      {
+        src: '~/assets/images/brands/ustoc.png',
+        alt: 'University of Science and Technology of China',
+      },
+      {
+        src: '~/assets/images/brands/peking-university.png',
+        alt: 'Peking University',
+      },
+      {
+        src: '~/assets/images/brands/zenoh.png',
+        alt: 'Zenoh',
+      },
+      {
+        src: '~/assets/images/brands/neo4j.png',
+        alt: 'neo4j',
+      },
+      {
+        src: '~/assets/images/brands/makepad.png',
+        alt: 'Makepad',
+      },
+      {
+        src: '~/assets/images/brands/camelai.png',
+        alt: 'Camel AI',
+      },
+      {
+        src: '~/assets/images/brands/spring.png',
+        alt: 'Spring',
+      },
+      {
+        src: '~/assets/images/brands/zhipuai.png',
+        alt: 'Zhipu AI',
+      },
+      {
+        src: '~/assets/images/brands/mianbi.png',
+        alt: 'Mianbi',
+      },
+      {
+        src: '~/assets/images/brands/koyeb.jpg',
+        alt: 'Koyeb',
+      },
+
+      {
+        src: '~/assets/images/brands/metagpt.png',
+        alt: 'MetaGPT',
+      },
+      {
+        src: '~/assets/images/brands/ag2.png',
+        alt: 'AG2',
+      },
+      {
+        src: '~/assets/images/brands/osi.png',
+        alt: 'Open Source Initiative',
+      },
+      {
+        src: '~/assets/images/brands/minimax.png',
+        alt: 'MiniMax',
+      },
+      {
+        src: '~/assets/images/brands/moxin.png',
+        alt: 'Moxin LLM',
+      },
+    ]}
+  /> -->
+
+  <Steps
+    title="Upcoming GOSIM Events"
+    items={[
+      {
+        title: 'May 6-7, 2025: <a href="#"><span class="font-medium text-indigo-600">GOSIM AI Paris</span></a>',
+        description: 'Expected to be our best conference yet, plan to visit us in Paris this year!',
+        icon: 'mdi:paris',
+      },
+      {
+        title:
+          'May 6-7, 2025: <a href="https://spotlight.gosim.org/ai2025"><span class="font-medium text-indigo-600">GOSIM AI Spotlight</span></a>',
+        description: 'Spotlight new up and coming AI projects, co-located at GOSIM AI Paris',
+        icon: 'mdi:paris',
+      },
+      {
+        title:
+          'May 13-14, 2025: <a href="https://spotlight.gosim.org/rust2025"><span class="font-medium text-indigo-600">GOSIM Rust Spotlight</span></a>',
+        description: 'Join us in the co-located Spotlight event with RustWeek',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/gosim-events-2025.jpg',
+      alt: 'GOSIM 2025 Events',
+    }}
+    title2="Previous Events"
+    items2={[
+      {
+        title:
+          'September 23-26, 2023: <a href="https://conference2023.gosim.org"><span class="font-medium text-indigo-600">GOSIM Shanghai</span></a>',
+        description:
+          'The essence of the GOSIM workshop and conference revolves around championing and enhancing open-source contributions and utilization.',
+        icon: 'mingcute:tower-2-line',
+      },
+      {
+        title:
+          'May 6, 2024: <a href="https://europe2024.gosim.org"><span class="font-medium text-indigo-600">GOSIM Europe</span></a>',
+        description:
+          'Held in the Netherlands at Lijm & Cultuur, we saw a huge turnout with multiple different break-out areas.',
+        icon: 'twemoji:flag-netherlands',
+      },
+      {
+        title:
+          'October 17-18, 2024: <a href="https://china2024.gosim.org"><span class="font-medium text-indigo-600">GOSIM Beijing</span></a>',
+        description:
+          'The GOSIM Beijing conference, attracted more than 1700 attendees, makes it the largest GOSIM event so far.',
+        icon: 'mingcute:palace-2-line',
+      },
+    ]}
+    image2={{
+      src: '~/assets/images/gosim-events.png',
+      alt: 'GOSIM Past Events',
+    }}
+    showSecondSet={true}
+    bg={`
+      <div class="absolute inset-0 bg-indigo-50 dark:bg-transparent"></div>
+    `}
+  />
+
+  <!-- HighlightedPosts Widget *******
+
+  <BlogLatestPosts
+    title="Find out more content in our Blog"
+    information={`The blog is used to display AstroWind documentation.
+                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
+                        Astro is a very interesting technology. Thanks.
+                `}
+  />
+
+   -->
+
+  <!-- FAQs Widget *******************
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Why AstroWind?',
+        description:
+          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+      },
+      {
+        title: 'What do I need to start?',
+        description:
+          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+      },
+      {
+        title: 'How to install the Astro + Tailwind CSS template?',
+        description:
+          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
+      },
+      {
+        title: "What's something that you don't understand?",
+        description:
+          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+      },
+      {
+        title: 'What is something that you would like to try again?',
+        description:
+          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+      },
+      {
+        title: 'If you could only ask one question to each person you meet, what would that question be?',
+        description:
+          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+      },
+    ]}
+  />
+-->
+
+  <!-- CallToAction Widget ***********
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get template',
+        href: 'https://github.com/onwidget/astrowind',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
+      waste more time! :P
+    </Fragment>
+  </CallToAction>
+
+  -->
+</Layout>

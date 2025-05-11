@@ -1,0 +1,14 @@
+---
+//import EventSchedule from '~/components/widgets/EventSchedule.astro';
+import EventScheduleTabs from '~/components/widgets/EventScheduleTabs.astro';
+//import scheduleData from '~/data/db/gosim-schedule.json';
+import scheduleTabsData from '~/data/db/gosim-schedule.json';
+
+//const schedule = scheduleData.schedule;
+const schedule = scheduleTabsData.days;
+---
+
+<!-- <EventSchedule schedule={schedule} />
+ -->
+
+<EventScheduleTabs days={schedule} />
