@@ -17,6 +17,8 @@ import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehype
 
 import react from '@astrojs/react';
 
+import expressiveCode from 'astro-expressive-code';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const hasExternalScripts = false;
@@ -30,7 +32,7 @@ export default defineConfig({
 
   integrations: [tailwind({
     applyBaseStyles: false,
-  }), sitemap(), mdx(), icon({
+  }), sitemap(), expressiveCode(), mdx(), icon({
     include: {
       tabler: ['*'],
       'flat-color-icons': [
