@@ -6,61 +6,57 @@ import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Schedules',
-      href: "/schedules",
-    },
-    {
-      text: 'Speakers',
-      href: "/#speakers",
-    },
-/*     {
-      text: 'Sponsors',
-      href: "/sponsors",
-    }, */
-    {
-      text: 'Co-Located Events',
+      text: 'Products',
       links: [
         {
-          text: 'PyTorch AI Paris Day',
+          text: 'ADORA 1',
+          href: '/#adora1-mini',
+        },
+        {
+          text: 'ADORA 2',
+          href: '/#adora2-mini',
+        },
+
+      ],
+     },
+    {
+      text: 'Solutions',
+      links: [
+        {
+          text: 'Research & Education',
           href: '/',
         },
         {
-          text: 'Open-Source AI Strategy Forum',
-          href: '/os-ai-strategy-forum',
+          text: 'Home',
+          href: '/',
         },
         {
-          text: 'GOSIM AI Spotlight',
-          href: 'https://spotlight.gosim.org/ai2025',
+          text: 'Business',
+          href: '/',
         },
       ],
+    },
+    {
+      text: 'Open-Source',
+      href: '/',
+
     },
     {
       text: 'About',
       links: [
         {
-          text: 'Why Attend',
-          href: '/#why-attend',
-        },
-                {
-          text: 'Tracks',
-          href: "/#tracks",
+          text: 'Company',
+          href: '/',
         },
         {
-          text: 'Venue - Station F',
-          href: "https://stationf.co/",
+          text: 'Contact',
+          href: "/",
         },
-        {
-          text: 'Be a Volunteer',
-          href: 'https://docs.google.com/forms/d/e/1FAIpQLSc62kJczw7lr-l0JAAbkabeIrrPPAD7OWyzwDopTD0L4HC6EQ/viewform',
-        },
-        {
-          text: 'Volunteers List',
-          href: '/volunteers',
-        },
+
       ],
     },
   ],
-  actions: [{ text: 'Early Bird Tickets', href: 'https://gosimaiparis.eventbrite.com/', target: '_blank' }],
+  actions: [{ text: 'Order Now', href: 'https://www.kippal.ai/', target: '_blank' }],
 };
 
 export const footerData = {

@@ -1,0 +1,50 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import adora1mini from '~/assets/images/product/adora-1-mini-red.png';
+---
+
+<div class="grid sm:grid-cols-2 gap-10 mx-auto mt-2 pt-20 pb-16">
+  <div class="relative order-2 sm:order-1">
+    <Image
+      format="avif"
+      src={adora1mini}
+      alt="Adora 1 Mini"
+      loading="lazy"
+    />
+  </div>
+  <div class="place-self-center order-1 sm:order-2 px-6 sm:px-0">
+    <h3 class="text-2xl text-center md:text-start text-gray-800 tracking-tight -mt-2">
+      <span class="text-gray-600"><strong>ADORA 1 Mini</strong></span>
+      {' '}
+    </h3>
+    <p class="text-lg max-w-sm mt-4 leading-relaxed text-slate-500">
+     单臂轮式移动机器人，是一款基于 dora-rs 开源中间件精心开发的室内轻量移动机械臂操作平台。它兼具高性价比与卓越性能，以亲民的价格为用户带来可靠的使用体验。其设计精巧，专为室内使用场景打造，无论是科研实验、教学实践还是日常服务场景，都能高效满足多样化需求 。
+
+    </p>
+    <ul class="grid mt-4 text-left gap-y-4">
+      <li class="flex items-center gap-3 text-slate-800">
+        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
+
+        <span class="text-slate-600">室内的多模态智能作业</span>
+      </li>
+
+      <li class="flex items-center gap-3 text-slate-800">
+        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
+
+        <span class="text-slate-600">高效精细动作数据采集</span>
+      </li>
+
+      <li class="flex items-center gap-3 text-slate-800">
+        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
+
+        <span class="text-slate-600">支持DORA等二次开发</span>
+      </li>
+            <li class="flex items-center gap-3 text-slate-800">
+        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
+
+        <span class="text-slate-600">具身智能科研生态支持</span>
+      </li>
+    </ul>
+  </div>
+</div>
