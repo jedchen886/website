@@ -37,6 +37,10 @@ export const headerData = {
       ],
     },
     {
+      text: 'Blog',
+      href: '/blog',
+    },
+    {
       text: 'Open-Source',
       href: '/',
 
@@ -72,21 +76,21 @@ export const footerData = {
     // },
 
     {
-      title: 'GOSIM',
+      title: 'KIPPAL Robotics',
       links: [
-        { text: 'Home', href: 'https://gosim.org' },
-        { text: 'Blog', href: 'https://blog.gosim.org' },
-        { text: 'Spotlight', href: 'https://spotlight.gosim.org' },
-        { text: 'Call for Proposal', href: 'https://cfp.gosim.org' },
+        { text: 'Home', href: 'https://www.kippal.ai' },
+        { text: 'Blog', href: 'https://www.kippal.ai/blog' },
+        { text: 'About', href: 'https://www.kippal.ai/About' },
+
       ],
     },
   ],
-  secondaryLinks: [
+/*   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
     { text: 'Code of Conduct', href: getPermalink('/code-of-conduct') },
-  ],
-  socialLinks: [
+  ], */
+/*   socialLinks: [
     { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/gosimfoundation' },
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/gosim-foundation' },
     { ariaLabel: 'Mastodon', icon: 'tabler:brand-mastodon', href: 'https://mastodon.social/@gosim' },
@@ -94,9 +98,9 @@ export const footerData = {
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/gosimfoundation' },
     { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://www.youtube.com/@GOSIMFoundation' },
     // { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-  ],
+  ], */
   footNote: `
-    <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="/images/favicon.svg" alt="gosim logo" loading="lazy"></img>
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://www.gosim.org/"> GOSIM Foundation</a> · All rights reserved.
+    <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="/images/favicon.svg" alt="kippal logo" loading="lazy"></img>
+    Made by <a class="text-blue-600 underline dark:text-muted" href="https://www.kippal.ai/">KIPPAL Robotics</a> · All rights reserved.
   `,
 };

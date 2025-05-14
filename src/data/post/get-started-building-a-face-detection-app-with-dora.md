@@ -1,5 +1,5 @@
 ---
-publishDate: 2023-08-12T00:00:00Z
+publishDate: 2025-05-13T00:00:00Z
 author: John Smith
 title: 使用 DORA-rs 构建摄像头人脸检测应用攻略
 excerpt: 从零起步构建一个基于dora的相机人脸检测小应用
