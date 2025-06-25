@@ -1,8 +1,5 @@
 // import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
-import { getPermalink } from './utils/permalinks';
-
-
 export const headerData = {
   links: [
     {
@@ -16,9 +13,8 @@ export const headerData = {
           text: 'ADORA 2',
           href: '/#adora2-mini',
         },
-
       ],
-     },
+    },
     {
       text: 'Solutions',
       links: [
@@ -74,14 +70,12 @@ export const footerData = {
     //     { text: 'Resources', href: '#' },
     //   ],
     // },
-
     {
       title: 'KIPPAL Robotics',
       links: [
-        { text: 'Home', href: 'https://www.kippal.ai' },
-        { text: 'Blog', href: 'https://www.kippal.ai/blog' },
-        { text: 'About', href: 'https://www.kippal.ai/About' },
-
+        { text: 'Home', href: '/' },
+        { text: 'Blog', href: '/blog' },
+        { text: 'About', href: '/' },
       ],
     },
   ],
