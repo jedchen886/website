@@ -6,12 +6,20 @@ export const headerData = {
       text: 'Products',
       links: [
         {
+          text: 'ADORA 2',
+          href: '/#adora2-mini',
+        },
+        {
+          text: 'ADORA 2 Pro',
+          href: '/#adora2-pro',
+        },
+        {
           text: 'ADORA 1',
           href: '/#adora1-mini',
         },
         {
-          text: 'ADORA 2',
-          href: '/#adora2-mini',
+          text: 'ADORA 1 Pro',
+          href: '/#adora1-pro',
         },
       ],
     },
@@ -44,19 +52,19 @@ export const headerData = {
     {
       text: 'About',
       links: [
-        {
-          text: 'Company',
-          href: '/',
-        },
+        // {
+        //   text: 'Company',
+        //   href: '/',
+        // },
         {
           text: 'Contact',
-          href: "/",
+          href: "/about",
         },
 
       ],
     },
   ],
-  actions: [{ text: 'Order Now', href: 'https://www.kippal.ai/', target: '_blank' }],
+  actions: [{ text: 'Order Now', href: '/#order' }],
 };
 
 export const footerData = {

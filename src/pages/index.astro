@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
+import StepsKippal from '~/components/widgets/StepsKippal.astro';
 import Adora1Mini from '~/components/product/Adora1-Mini.astro';
 import Adora1Pro from '~/components/product/Adora1-Pro.astro';
 import Adora2Pro from '~/components/product/Adora2-Pro.astro';
@@ -26,8 +27,6 @@ import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import Container from '~/components/widgets/Container.astro';
 
-
-
 // function getPrettyTrackName(track) {
 //   const trackMap = {
 //     'ai-infra': 'AI Infrastructure',
@@ -42,8 +41,7 @@ import Container from '~/components/widgets/Container.astro';
 
 const metadata = {
   title: 'KIPPAL Robotics',
-  description:
-    'KIPPAL Robotics is a collaborative open-source robot for home and business.',
+  description: 'KIPPAL Robotics is a collaborative open-source robot for home and business.',
   ignoreTitleTemplate: true,
 };
 ---
@@ -53,12 +51,10 @@ const metadata = {
 
   <Hero
     actions={[
-
       {
         variant: 'primary',
         text: 'Get Yours',
-        href: 'https://www.kippal.ai',
-        target: '_blank',
+        href: '/#order',
         icon: 'tabler:arrow-right',
         class: 'bg-yellow-200 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded', // Add Tailwind CSS classes here
       },
@@ -70,12 +66,11 @@ const metadata = {
     `}
   >
     <Fragment slot="title">
-    <div class="mt-40">
-
-      <span class="text-gray-50 text-6x md:text-7xl lg:text-8xl tracking-tight dark:text-white highlight">
-        Meet Your Robot Pal</span
-      >
-    </div>
+      <div class="mt-40">
+        <span class="text-gray-50 text-6x md:text-7xl lg:text-8xl tracking-tight dark:text-white highlight">
+          Meet Your Robot Pal</span
+        >
+      </div>
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -85,32 +80,29 @@ const metadata = {
         </span>
       </div>
     </Fragment>
-
-
   </Hero>
-
-
 
   <!-- GOSIM Widget ******************* -->
 
-
-<div id="adora2-mini">
-  <Adora2Mini />
-</div>
-<Adora2Pro />
-
-<div id="adora1-mini">
-  <Adora1Mini />
-</div>
-
-<Adora1Pro />
+  <div id="adora2-mini">
+    <Adora2Mini />
+  </div>
+  <div id="adora2-pro">
+    <Adora2Pro />
+  </div>
+  <div id="adora1-mini">
+    <Adora1Mini />
+  </div>
+  <div id="adora1-pro">
+    <Adora1Pro />
+  </div>
 
   <!-- <ShadcnDemo /> -->
   <!-- <AnimataDemo /> -->
 
   <!-- Stats Widget ****************** -->
 
-<!--   <Stats
+  <!--   <Stats
     stats={[
       { title: 'Conference Tracks', amount: '5' },
       { title: 'Talks', amount: '50+' },
@@ -119,17 +111,29 @@ const metadata = {
     ]}
   /> -->
 
+  <ProductFeatureCN />
 
-   <ProductFeatureCN  />
+  <BlogLatestPosts title="Find out more content in our Blog" information={``} />
 
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={``}
+  <StepsKippal
+    id="order"
+    title="How to Order"
+    subtitle="Contact us via email or via WeChat"
+    items={[
+      {
+        title: 'Email us',
+        description: 'info@xinxun-robot.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'WeChat us',
+        description: 'ID: nhuang',
+        icon: 'tabler:link',
+      },
+    ]}
   />
 
-
-<!--
+  <!--
   <FAQs
     title="Frequently Asked Questions"
     subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
