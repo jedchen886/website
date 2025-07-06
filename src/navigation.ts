@@ -3,54 +3,59 @@
 export const headerData = {
   links: [
     {
-      text: 'Products',
+      text: '产品', //Products
       links: [
         {
-          text: 'ADORA 2',
-          href: '/#adora2-mini',
+          text: 'ADORA1 pro',
+          href: '/#adora1-pro',
         },
         {
-          text: 'ADORA 2 Pro',
-          href: '/#adora2-pro',
-        },
-        {
-          text: 'ADORA 1',
+          text: 'ADORA1 mini',
           href: '/#adora1-mini',
         },
         {
-          text: 'ADORA 1 Pro',
-          href: '/#adora1-pro',
+          text: 'ADORA2 Pro',
+          href: '/#adora2-pro',
+        },
+        {
+          text: 'ADORA2 Mini',
+          href: '/#adora2-mini',
         },
       ],
     },
     {
-      text: 'Solutions',
+      text: '行业方案', //Solutions
       links: [
         {
-          text: 'Research & Education',
+          text: '研究与教育', //Research & Education
           href: '/',
         },
         {
-          text: 'Home',
+          text: '家庭', 
           href: '/',
         },
         {
-          text: 'Business',
+          text: '商业', //Commercial
           href: '/',
         },
       ],
     },
     {
-      text: 'Blog',
+      text: '新闻中心', //Blog
       href: '/blog',
     },
     {
-      text: 'Open-Source',
+      text: 'DORA开源社区', //DORA Open Source Community
       href: '/',
 
     },
     {
-      text: 'About',
+      text: '服务与支持', //Services & Support
+      href: '/',
+
+    },
+    {
+      text: '关于我们', //About Us
       links: [
         // {
         //   text: 'Company',
@@ -64,7 +69,7 @@ export const headerData = {
       ],
     },
   ],
-  actions: [{ text: 'Order Now', href: '/#order' }],
+  actions: [{ text: '购买与合作', href: '/#order' }],
 };
 
 export const footerData = {
