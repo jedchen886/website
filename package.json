@@ -1,7 +1,7 @@
 {
-  "name": "gosim-ai-paris-2025",
-  "version": "1.0.0-beta.50",
-  "description": "GOSIM AI Paris 2025 Conference",
+  "name": "kippal-ai-2025",
+  "version": "1.0.0-beta.10",
+  "description": "Kippal robotics website",
   "type": "module",
   "private": true,
   "engines": {

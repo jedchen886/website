@@ -6,12 +6,8 @@ export const headerData = {
       text: '产品', //Products
       links: [
         {
-          text: 'ADORA1 pro',
-          href: '/#adora1-pro',
-        },
-        {
-          text: 'ADORA1 mini',
-          href: '/#adora1-mini',
+          text: 'ADORA2 Max',
+          href: '/#adora2-max',
         },
         {
           text: 'ADORA2 Pro',
@@ -21,7 +17,15 @@ export const headerData = {
           text: 'ADORA2 Mini',
           href: '/#adora2-mini',
         },
-      ],
+        {
+          text: 'ADORA1 Pro',
+          href: '/#adora1-pro',
+        },
+        {
+          text: 'ADORA1 Mini',
+          href: '/#adora1-mini',
+        },
+              ],
     },
     {
       text: '行业方案', //Solutions
@@ -56,17 +60,17 @@ export const headerData = {
     },
     {
       text: '关于我们', //About Us
-      links: [
+      href: '/',
+      //links: [
         // {
         //   text: 'Company',
         //   href: '/',
         // },
-        {
-          text: 'Contact',
-          href: "/about",
-        },
-
-      ],
+        //{
+        //  text: 'Contact',
+        //  href: "/about",
+        //},
+      //],
     },
   ],
   actions: [{ text: '购买与合作', href: '/#order' }],

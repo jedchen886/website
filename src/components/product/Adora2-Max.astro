@@ -1,21 +1,22 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
-import adora2pro from '~/assets/images/product/adora-2-pro-white.png';
+import adora2max from '~/assets/images/product/adora-2-max-white.png';
 ---
 
 <div class="grid sm:grid-cols-2 gap-10 mx-auto mt-2 pt-20 pb-16">
-  <div class="relative order-2 sm:order-2">
+  <div class="relative order-1 sm:order-1">
     <Image
       format="avif"
-      src={adora2pro}
-      alt="Adora2 Pro"
+      src={adora2max}
+      alt="Adora2 Max"
       loading="lazy"
     />
   </div>
-  <div class="place-self-center order-1 sm:order-1 px-6 sm:px-0">
+
+  <div class="place-self-center order-2 sm:order-2 px-6 sm:px-0">
     <h3 class="text-2xl text-center md:text-start text-gray-800 tracking-tight -mt-2">
-      <span class="text-gray-600"><strong>ADORA2 Pro</strong></span>
+      <span class="text-gray-600"><strong>ADORA2 Max</strong></span>
       {' '}
     </h3>
     <p class="text-lg max-w-sm mt-4 leading-relaxed text-slate-500">
