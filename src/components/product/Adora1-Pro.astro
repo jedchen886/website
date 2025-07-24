@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import adora1pro from '~/assets/images/product/adora-1-pro-black.png';
+import Hero from '~/components/widgets/Hero.astro';
 ---
 
 <div class="grid sm:grid-cols-2 gap-10 mx-auto mt-2 pt-20 pb-16">
@@ -19,20 +20,20 @@ import adora1pro from '~/assets/images/product/adora-1-pro-black.png';
       {' '}
     </h3>
     <p class="text-lg max-w-sm mt-4 leading-relaxed text-slate-500">
-     单臂轮式移动机器人，是一款基于 dora-rs 开源中间件精心开发的室内轻量移动机械臂操作平台。它兼具高性价比与卓越性能，以亲民的价格为用户带来可靠的使用体验。其设计精巧，专为室内使用场景打造，无论是科研实验、教学实践还是日常服务场景，都能高效满足多样化需求 。
+     ADORA1 PRO四轮机器人，标配直流无刷伺服电机轮毂，适合在室内外各类场景使用，大载重，强越野；机械臂具有7或6个自由度，设计轻量且灵活，适应多种应用场景；配备激光雷达和视觉传感器，能实时捕捉周围环境信息，实现精准定位避障，完成既定任务。
 
     </p>
     <ul class="grid mt-4 text-left gap-y-4">
       <li class="flex items-center gap-3 text-slate-800">
         <Icon name="ph:check-circle-fill" class="w-5 h-5" />
 
-        <span class="text-slate-600">室内的多模态智能作业</span>
+        <span class="text-slate-600">室内外各类大载重场景</span>
       </li>
 
       <li class="flex items-center gap-3 text-slate-800">
         <Icon name="ph:check-circle-fill" class="w-5 h-5" />
 
-        <span class="text-slate-600">高效精细动作数据采集</span>
+        <span class="text-slate-600">多模态模仿与智能作业</span>
       </li>
 
       <li class="flex items-center gap-3 text-slate-800">
@@ -46,5 +47,17 @@ import adora1pro from '~/assets/images/product/adora-1-pro-black.png';
         <span class="text-slate-600">具身智能科研生态支持</span>
       </li>
     </ul>
+    <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: '了解更多',
+        //text: 'Get Yours',
+        href: '/#order',
+        icon: 'tabler:arrow-right',
+        class: 'bg-yellow-200 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded', // Add Tailwind CSS classes here
+      },
+    ]}
+  </Hero>
   </div>
 </div>

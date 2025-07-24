@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import adora1mini from '~/assets/images/product/adora-1-mini-white.png';
+import Hero from '~/components/widgets/Hero.astro';
 ---
 
 <div class="grid sm:grid-cols-2 gap-10 mx-auto mt-2 pt-20 pb-16">
@@ -19,7 +20,7 @@ import adora1mini from '~/assets/images/product/adora-1-mini-white.png';
       {' '}
     </h3>
     <p class="text-lg max-w-sm mt-4 leading-relaxed text-slate-500">
-     单臂轮式移动机器人，是一款基于 dora-rs 开源中间件精心开发的室内轻量移动机械臂操作平台。它兼具高性价比与卓越性能，以亲民的价格为用户带来可靠的使用体验。其设计精巧，专为室内使用场景打造，无论是科研实验、教学实践还是日常服务场景，都能高效满足多样化需求 。
+     ADORA1 Mini机器人，标配轻量级AGV移动底盘小车，灵活小巧，适合在室内场景使用；机械臂设计轻量且灵活，具有7或6个自由度，能执行复杂精细的操作；配备激光雷达和视觉传感器，能实时捕捉周围环境信息，实现精准定位避障，完成既定任务。
 
     </p>
     <ul class="grid mt-4 text-left gap-y-4">
@@ -46,5 +47,17 @@ import adora1mini from '~/assets/images/product/adora-1-mini-white.png';
         <span class="text-slate-600">具身智能科研生态支持</span>
       </li>
     </ul>
+    <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: '了解更多',
+        //text: 'Get Yours',
+        href: '/#order',
+        icon: 'tabler:arrow-right',
+        class: 'bg-yellow-200 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded', // Add Tailwind CSS classes here
+      },
+    ]}
+  </Hero>
   </div>
 </div>
