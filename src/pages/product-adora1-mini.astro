@@ -1,0 +1,44 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Adora1 Mini',
+};
+---
+
+<Layout metadata={metadata}>
+    <!-- features -->
+    <Features3
+    columns={2}
+    isBeforeContent={true}
+    title="ADORA1 Mini"
+    subtitle="轻量经济型的室内单臂轮式机器人"
+    items={[
+      {
+        title: '持续学习与适应能力',
+        description:
+          'Adora机器人搭载具身人工智能，能够通过与环境互动以及用户直接教学不断进化。不同于传统工业机器人受限于严格的规则，Adora机器人可以动态适应并提升自身能力。',
+        icon: 'carbon:machine-learning-model',
+      },
+      {
+        title: '轻松任务训练',
+        description:
+          'Adora机器人配备直观的数据采集工具，可以轻松掌握用户演示的家庭任务，包括清洁、整理桌面、洗衣、拾取水果，甚至烹饪，让日常生活更加轻松。',
+        icon: 'mdi:teaching',
+      },
+      {
+        title: '多模态自然交互',
+        description:
+          'Adora机器人大脑具备视觉和语言输入理解能力，用户可以通过语言或视觉指令自然、轻松地与机器人互动，实现无缝沟通。',
+        icon: 'mdi:account-voice',
+      },
+      {
+        title: '社区驱动的快速提升',
+        description:
+          'Adora机器人连接活跃的社区，通过共享知识与经验形成集体“大脑”，实现所有机器人技能的快速提升，持续增强机器人的效能。',
+        icon: 'raphael:people',
+      },      
+    ]}
+  />
+</Layout>

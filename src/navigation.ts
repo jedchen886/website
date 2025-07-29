@@ -3,6 +3,10 @@
 export const headerData = {
   links: [
     {
+      text: '主页', //Home
+      href: '/',
+    },
+    {
       text: '产品', //Products
       links: [
         {
@@ -23,7 +27,7 @@ export const headerData = {
         },
         {
           text: 'ADORA1 Mini',
-          href: '/#adora1-mini',
+          href: '/product-adora1-mini',
         },
               ],
     },
@@ -54,11 +58,11 @@ export const headerData = {
     },
     {
       text: '服务与支持', //Services & Support
-      href: '/',
+      href: '/404',
     },
     {
       text: '关于我们', //About Us
-      href: '/',
+      href: '/about',
       //links: [
         // {
         //   text: 'Company',
