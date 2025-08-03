@@ -11,19 +11,19 @@ export const headerData = {
       links: [
         {
           text: 'ADORA2 Max',
-          href: '/#adora2-max',
+          href: '/product-adora2-max',
         },
         {
           text: 'ADORA2 Pro',
-          href: '/#adora2-pro',
+          href: '/product-adora2-pro',
         },
         {
           text: 'ADORA2 Mini',
-          href: '/#adora2-mini',
+          href: '/product-adora2-mini',
         },
         {
           text: 'ADORA1 Pro',
-          href: '/#adora1-pro',
+          href: '/product-adora1-pro',
         },
         {
           text: 'ADORA1 Mini',
@@ -94,23 +94,23 @@ export const footerData = {
       links: [
         {
           text: 'ADORA2 Max',
-          href: '/#adora2-max',
+          href: '/product-adora2-max',
         },
         {
           text: 'ADORA2 Pro',
-          href: '/#adora2-pro',
+          href: '/product-adora2-pro',
         },
         {
           text: 'ADORA2 Mini',
-          href: '/#adora2-mini',
+          href: '/product-adora1-mini',
         },
         {
           text: 'ADORA1 Pro',
-          href: '/#adora1-pro',
+          href: '/product-adora1-pro',
         },
         {
           text: 'ADORA1 Mini',
-          href: '/#adora1-mini',
+          href: '/product-adora1-mini',
         },
       ],
     },
