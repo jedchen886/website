@@ -33,20 +33,7 @@ export const headerData = {
     },
     {
       text: '行业方案', //Solutions
-      links: [
-        {
-          text: '研究与教育', //Research & Education
-          href: '/',
-        },
-        {
-          text: '家庭', 
-          href: '/',
-        },
-        {
-          text: '商业', //Commercial
-          href: '/',
-        },
-      ],
+      href: '/industry-solutions',
     },
     {
       text: '新闻中心', //Blog
@@ -63,16 +50,6 @@ export const headerData = {
     {
       text: '关于我们', //About Us
       href: '/about',
-      //links: [
-        // {
-        //   text: 'Company',
-        //   href: '/',
-        // },
-        //{
-        //  text: 'Contact',
-        //  href: "/about",
-        //},
-      //],
     },
   ],
   actions: [{ text: '购买与合作', href: '/#order' }],
@@ -102,7 +79,7 @@ export const footerData = {
         },
         {
           text: 'ADORA2 Mini',
-          href: '/product-adora1-mini',
+          href: '/product-adora2-mini',
         },
         {
           text: 'ADORA1 Pro',
@@ -132,11 +109,11 @@ export const footerData = {
         },
         {
           text: '新闻中心',
-          href: '/',
+          href: '/blog',
         },
         {
           text: '联系我们',
-          href: '/',
+          href: '/about',
         },
       ],
     },
