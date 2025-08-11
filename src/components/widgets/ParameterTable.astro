@@ -1,0 +1,115 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { Features as Props } from '~/types';
+import {
+	Table,
+	TableBody,
+	TableCaption,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "~/components/shadcn/table";
+
+interface ParameterTableCell {
+  module?: string;
+  content?: string;
+  parameter?: string;
+}
+
+interface MyTableCell extends ParameterTableCell {
+  MyTableCells1?: Array<MyTableCell>;
+}
+
+interface TableHeadContent {
+  tablehead1?: string;
+  tablehead2?: string;
+  tablehead3?: string;
+}
+
+interface MyTableHead extends TableHeadContent {
+  MyTableHeads?: Array<MyTableHead>;
+}
+
+const {
+  title = await Astro.slots.render('标题'),
+  subtitle = await Astro.slots.render('副标题'),
+  tagline = await Astro.slots.render('标语'),
+  MyTableHeads = [],
+  MyTableCells1 = [],
+  MyTableCells2 = [],
+  MyTableCells3 = [],
+  MyTableCells4 = [],
+  MyTableCells5 = [],
+  MyTableCells6 = [],
+  MyTableCells7 = [],
+  MyTableCells8 = [],
+  MyTableCells9 = [],
+  MyTableCells10 = [],
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+---
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`${classes?.container ?? ''}`}
+  bg={bg}
+>
+<Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+
+	<Table class="w-full center">
+  		<TableCaption></TableCaption>
+
+  		<TableHeader>
+    	  <TableRow key="{MyTableHeads[0].tablehead1}">
+      		<TableHead className="text-center text-blue-500 font-bold">{MyTableHeads[0].tablehead1}</TableHead>
+      		<TableHead className="text-center text-blue-500 font-bold">{MyTableHeads[0].tablehead2}</TableHead>
+      		<TableHead className="text-center text-blue-500 font-bold">{MyTableHeads[0].tablehead3}</TableHead>
+    	  </TableRow>
+  		</TableHeader>
+
+		<TableBody>
+		{
+		  MyTableCells1.length > 0 && MyTableCells1.map((mytabcell1, index1) => (
+			index1 === 0 ? (
+		  <TableRow key={mytabcell1.module}>
+		  		<TableHead className="text-center font-bold" rowSpan={MyTableCells1.length}>{mytabcell1.module}</TableHead>
+		  		<TableCell className="text-center">{mytabcell1.content}</TableCell>
+		  		<TableCell className="text-left">{mytabcell1.parameter}</TableCell>
+		  </TableRow>
+		  ) : (
+  	      <TableRow key="{mytabcell1.module}">
+          		<TableCell className="text-center">{mytabcell1.content}</TableCell>
+          		<TableCell className="text-left">{mytabcell1.parameter}</TableCell>
+          </TableRow>
+          )
+		    ))
+	  	}
+
+		{
+		  MyTableCells2.length > 0 && MyTableCells2.map((mytabcell2, index2) => (
+			index2 === 0 ? (
+		  <TableRow key={mytabcell2.module}>
+		  		<TableHead className="text-center font-bold" rowSpan={MyTableCells2.length}>{mytabcell2.module}</TableHead>
+		  		<TableCell className="text-center">{mytabcell2.content}</TableCell>
+		  		<TableCell className="text-left">{mytabcell2.parameter}</TableCell>
+		  </TableRow>
+		  ) : (
+  	      <TableRow key="{mytabcell2.module}">
+          		<TableCell className="text-center">{mytabcell2.content}</TableCell>
+          		<TableCell className="text-left">{mytabcell2.parameter}</TableCell>
+          </TableRow>
+          )
+		    ))
+	  	}
+
+		</TableBody>
+
+	</Table>
+</WidgetWrapper>

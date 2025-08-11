@@ -1,6 +1,6 @@
 ---
 import Features4 from '~/components/widgets/Features4.astro';
-import ListItem from '~/components/widgets/ListItem.astro';
+import ParameterTable from '~/components/widgets/ParameterTable.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import adora1minifeature1 from '~/assets/images/product/adora1-mini/adora1-mini-feature1.png';
 import adora1minifeature2 from '~/assets/images/product/adora1-mini/adora1-mini-feature2.png';
@@ -8,7 +8,7 @@ import adora1minifeature3 from '~/assets/images/product/adora1-mini/adora1-mini-
 import adora1minifeature4 from '~/assets/images/product/adora1-mini/adora1-mini-feature4.png';
 
 const metadata = {
-  title: 'Adora1 Mini',
+  title: 'Adora2 Pro',
 };
 ---
 
@@ -68,7 +68,7 @@ const metadata = {
     columns={2}
     isBeforeContent={true}
     title="应用场景"
-    subtitle="ADORA1 mini的应用场景"
+    subtitle="ADORA2 mini的应用场景"
     items={[
       {
         title: '家务劳动',
@@ -112,28 +112,74 @@ const metadata = {
       },
     ]}
   />
+  
+  <!-- 参数规格 -->
+  <ParameterTable 
+    title="Adora2 Pro参数规格"
+    subtitle="主要的软件和硬件参数"
 
-  <!-- 参数规格  -->
-  <ListItem
-    title="参数规格"
-    subtitle=""
-    tagline=""
-    links={[
+    MyTableHeads = {[
       {
-        toptitle: '软件规格',
-        links: [
-          { text: '操作系统', href: '/product-adora1-mini', ariaLabel: '产品介绍' },
-          { text: 'Dora版本号', href: '/product-adora1-mini/specs', ariaLabel: '技术规格' },
-        ],
-      },
-      {
-        toptitle: '硬件规格',
-        links: [
-          { text: '激光雷达', href: '/product-adora1-mini/manual', ariaLabel: '用户手册' },
-          { text: '照相机', href: '/product-adora1-mini/faq', ariaLabel: '常见问题' },
-          { text: '机械臂', href: '/product-adora1-mini/support', ariaLabel: '客户支持' },
-        ],
+        tablehead1: "模块",
+        tablehead2: "内容",
+        tablehead3: "参数",
       },
     ]}
-    /ListItem>
+
+    MyTableCells1 = {[
+	  {
+		 module: "整体参数",
+		 content: "产品重量",
+		 parameter: "约30KG",
+	  },
+	  {
+		 module: "整体参数",
+		 content: "总体尺寸",
+		 parameter: "不含机械臂：约480mm(宽)*716mm(长)*1386mm(高)，含机械臂：约755mm(宽)*716mm(长)*1386mm(高)",
+	  },
+	  {
+		 module: "整体参数",
+		 content: "工作时长",
+		 parameter: "约2H",
+	  },
+	  {
+		 module: "整体参数",
+		 content: "最大速度",
+		 parameter: "约1.2m/s",
+	  },
+	  {
+		 module: "整体参数",
+		 content: "电池容量",
+		 parameter: "24V 20AH",
+	  },
+	  {
+		 module: "整体参数",
+		 content: "接口",
+		 parameter: "电源开关，急停按钮*1，USB*2，网口*1，HDMI*1，天线延长线口*1",
+	  },
+   ]}
+
+   MyTableCells2 = {[
+	  {
+		 module: "轮式底盘",
+		 content: "尺寸",
+		 parameter: "长716*宽480*高XXXmm",
+	  },
+	  {
+		 module: "轮式底盘",
+		 content: "载重",
+		 parameter: "80KG",
+	  },
+	  {
+		 module: "轮式底盘",
+		 content: "电机类型",
+		 parameter: "直流无刷伺服电机",
+	  },
+	  {
+		 module: "轮式底盘",
+		 content: "转向方式",
+		 parameter: "双轮差速原地转向",
+	  },
+   ]}
+  />
 </Layout>
