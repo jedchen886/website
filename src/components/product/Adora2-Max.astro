@@ -3,6 +3,8 @@ import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import adora2max from '~/assets/images/product/adora2-max/adora-2-max-white.png';
 import Hero from '~/components/widgets/Hero.astro';
+//import { getPermalink } from '~/utils/permalinks';
+//import Button from '~/components/ui/Button.astro';
 ---
 
 <div class="grid sm:grid-cols-2 gap-10 mx-auto mt-2 pt-20 pb-16">
@@ -48,7 +50,20 @@ import Hero from '~/components/widgets/Hero.astro';
         <span class="text-slate-600">具身智能科研生态支持</span>
       </li>
     </ul>
-  <Hero
+  <!-- Add button
+    <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade pt-5">
+     <Button
+      variant="primary"
+      text="了解更多"
+      href="/product-adora2-max"
+      icon="tabler:arrow-right"
+      type="button"
+      class="w-auto sm:mb-0 shadow-none  bg-blue-500 hover:bg-indigo-500 focus:outline-none"
+     >
+     </Button>
+    </div>
+ -->
+    <Hero
     actions={[
       {
         variant: 'primary',
@@ -59,6 +74,6 @@ import Hero from '~/components/widgets/Hero.astro';
         class: 'bg-yellow-200 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded', // Add Tailwind CSS classes here
       },
     ]}
-  </Hero>
+    </Hero>
   </div>
 </div>

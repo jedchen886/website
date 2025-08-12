@@ -45,7 +45,24 @@ export const headerData = {
     },
     {
       text: '服务与支持', //Services & Support
-      href: '/404',
+      links: [
+        {
+          text: '客户服务',
+          href: '/customer-service',
+        },
+        {
+          text: '帮助中心',
+          href: '/',
+        },
+        {
+          text: '资源与下载中心',
+          href: '/',
+        },
+        {
+          text: '服务条款与政策',
+          href: '/',
+        },
+      ],
     },
     {
       text: '关于我们', //About Us
@@ -57,15 +74,6 @@ export const headerData = {
 
 export const footerData = {
   links: [
-    // {
-    //   title: 'Product',
-    //   links: [
-    //     { text: 'Features', href: '#' },
-    //     { text: 'Team', href: '#' },
-    //     { text: 'Enterprise', href: '#' },
-    //     { text: 'Resources', href: '#' },
-    //   ],
-    // },
     {
       title: '产品',
       links: [
@@ -135,7 +143,7 @@ export const footerData = {
       links: [
         {
           text: '客户服务',
-          href: '/',
+          href: '/customer-service',
         },
         {
           text: '帮助中心',

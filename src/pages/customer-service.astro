@@ -1,0 +1,61 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Features4 from '~/components/widgets/Features4.astro';
+import adora1minifeature1 from '~/assets/images/product/adora1-mini/adora1-mini-feature1.png';
+
+const metadata = {
+  title: 'Custom service',
+};
+---
+
+<Layout metadata={metadata}>
+<!--
+  <Headline 
+  title="客户服务"
+  subtitle=""
+  tagline=""
+  classes={classes?.headline as Record<string, string>} />
+/>  -->
+  <Features4
+    id="customer-service"
+    columns={3}
+    isDark={false}
+    isBeforeContent={true}
+    title="客户服务"
+    subtitle="欢迎使用Adora新讯智能客户服务，新讯智能为您提供7×24小时多样化支持计划和专家服务，解决您的售前/售后问题。"
+    items={[
+      {
+        title: '微信公众号',
+        description: '请添加微信公众号：xxxxxxx',
+        icon: 'tabler:brand-wechat',
+        //image: {
+        //  src: adora1minifeature1,
+        //  alt: 'adora1 Mini Feature 1'
+        //},
+      },
+      {
+        title: '邮箱',
+        description: 'XXXX@XXXXX',
+        icon: 'tabler:mail',
+        //image: {
+        //  src: adora1minifeature1,
+        //  alt: 'adora1 Mini Feature 1'
+        //},
+      },
+      {
+        title: '联系电话',
+        description: '139XXXXXXXX',
+        icon: 'tabler:phone',
+        //image: {
+        //  src: adora1minifeature1,
+        //  alt: 'adora1 Mini Feature 1'
+        //},
+      },
+      {
+        title: '采购下单',
+        description: '请点击前往<a href="/" class="text-blue-500 text-bold hover:underline">购买与合作</a>，填写相关信息。',
+        icon: 'tabler:headset',
+      },
+    ]}
+  />
+</Layout>
