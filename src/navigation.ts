@@ -52,7 +52,7 @@ export const headerData = {
         },
         {
           text: '帮助中心',
-          href: '/',
+          href: '/FAQ',
         },
         {
           text: '资源与下载中心',
@@ -147,7 +147,7 @@ export const footerData = {
         },
         {
           text: '帮助中心',
-          href: '/',
+          href: '/FAQ',
         },
         {
           text: '资源与下载中心',
@@ -160,20 +160,7 @@ export const footerData = {
       ],
     },
   ],
-/*   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
-    { text: 'Code of Conduct', href: getPermalink('/code-of-conduct') },
-  ], */
-/*   socialLinks: [
-    { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/gosimfoundation' },
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/gosim-foundation' },
-    { ariaLabel: 'Mastodon', icon: 'tabler:brand-mastodon', href: 'https://mastodon.social/@gosim' },
-    { ariaLabel: 'BlueSky', icon: 'tabler:brand-bluesky', href: 'https://bsky.app/profile/gosimfoundation.bsky.social' },
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/gosimfoundation' },
-    { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://www.youtube.com/@GOSIMFoundation' },
-    // { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-  ], */
+
   footNote: `
     <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="/images/favicon.svg" alt="kippal logo" loading="lazy"></img>
     2025 <a class="text-blue-500 underline dark:text-muted" href="https://www.kippal.ai/">KIPPAL Robotics</a>  版权所有

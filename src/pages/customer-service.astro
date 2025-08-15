@@ -1,6 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Features4 from '~/components/widgets/Features4.astro';
+import Features5 from '~/components/widgets/Features5.astro';
 import adora1minifeature1 from '~/assets/images/product/adora1-mini/adora1-mini-feature1.png';
 
 const metadata = {
@@ -9,14 +9,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-<!--
-  <Headline 
-  title="客户服务"
-  subtitle=""
-  tagline=""
-  classes={classes?.headline as Record<string, string>} />
-/>  -->
-  <Features4
+    <Features5
     id="customer-service"
     columns={3}
     isDark={false}
@@ -25,8 +18,8 @@ const metadata = {
     subtitle="欢迎使用Adora新讯智能客户服务，新讯智能为您提供7×24小时多样化支持计划和专家服务，解决您的售前/售后问题。"
     items={[
       {
-        title: '微信公众号',
-        description: '请添加微信公众号：xxxxxxx',
+        title: '微信',
+        description: '请添加微信号：xxxxxxx',
         icon: 'tabler:brand-wechat',
         //image: {
         //  src: adora1minifeature1,
@@ -55,6 +48,53 @@ const metadata = {
         title: '采购下单',
         description: '请点击前往<a href="/" class="text-blue-500 text-bold hover:underline">购买与合作</a>，填写相关信息。',
         icon: 'tabler:headset',
+      },
+    ]}
+  />
+
+  <Features5
+    id="customer-service"
+    columns={4}
+    isDark={false}
+    isBeforeContent={true}
+    title="社交媒体"
+    subtitle=""
+    items={[
+      {
+        title: '微信公众号',
+        description: '请扫码添加微信公众号：',
+        icon: 'tabler:brand-wechat',
+        image: {
+          src: adora1minifeature1,
+          alt: 'adora1 Mini Feature 1'
+        },
+      },
+      {
+        title: '哔哩哔哩',
+        description: 'XXXX',
+        icon: 'tabler:brand-bilibili',
+        //image: {
+        //  src: adora1minifeature1,
+        //  alt: 'adora1 Mini Feature 1'
+        //},
+      },
+      {
+        title: '腾讯视频',
+        description: 'XXXXXXXX',
+        icon: 'tabler:brand-qq',
+        //image: {
+        //  src: adora1minifeature1,
+        //  alt: 'adora1 Mini Feature 1'
+        //},
+      },
+      {
+        title: '抖音',
+        description: 'XXXXXXX',
+        icon: 'tabler:brand-tiktok',
+        //image: {
+        //  src: adora1minifeature1,
+        //  alt: 'adora1 Mini Feature 1'
+        //},
       },
     ]}
   />
