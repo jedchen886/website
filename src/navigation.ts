@@ -162,7 +162,7 @@ export const footerData = {
   ],
 
   footNote: `
-    <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="/images/favicon.svg" alt="kippal logo" loading="lazy"></img>
-    2025 <a class="text-blue-500 underline dark:text-muted" href="https://www.kippal.ai/">KIPPAL Robotics</a>  版权所有
+    <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="/images/favicon.svg" alt="DORA logo" loading="lazy"></img>
+    2025 <a class="text-blue-500 underline dark:text-muted" href="https://www.dorarobotics.com/">DORA Robotics</a>  版权所有，网站图片和内容仅供参考
   `,
 };

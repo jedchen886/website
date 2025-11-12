@@ -1,6 +1,6 @@
 site:
-  name: KIPPAL Robotics
-  site: 'https://www.kippal.ai/'
+  name: DORA Robotics
+  site: 'https://www.dorarobotics.com/'
   base: '/'
   trailingSlash: false
 
@@ -9,22 +9,22 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: KIPPAL Robotics
-    template: '%s — KIPPAL'
+    default: DORA Robotics
+    template: '%s — DORA'
   description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: KIPPAL Robotics
+    site_name: DORA Robotics
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@kippal'
-    site: '@kippal'
+    handle: '@dorarobotics'
+    site: '@dorarobotics'
     cardType: summary_large_image
 
 i18n:

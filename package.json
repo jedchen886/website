@@ -1,7 +1,7 @@
 {
-  "name": "kippal-ai-2025",
+  "name": "dorarobotics-com-2025",
   "version": "1.0.0-beta.10",
-  "description": "Kippal robotics website",
+  "description": "DORA robotics website",
   "type": "module",
   "private": true,
   "engines": {
