@@ -2,11 +2,14 @@
 import Features4 from '~/components/widgets/Features4.astro';
 import ParameterTable from '~/components/widgets/ParameterTable.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import adora1minifeature1 from '~/assets/images/product/adora1-mini/adora1-mini-feature1.png';
-import adora1minifeature2 from '~/assets/images/product/adora1-mini/adora1-mini-feature2.png';
-import adora1minifeature3 from '~/assets/images/product/adora1-mini/adora1-mini-feature3.png';
-import adora1minifeature4 from '~/assets/images/product/adora1-mini/adora1-mini-feature4.png';
-
+import adora1minifeature1 from '~/assets/images/product/adora2-mini/adora1-mini-feature1.png';
+import adora1minifeature2 from '~/assets/images/product/adora2-mini/adora1-mini-feature2.png';
+//import adora1minifeature3 from '~/assets/images/product/adora2-mini/adora1-mini-feature3.png';
+//import adora1minifeature4 from '~/assets/images/product/adora2-mini/adora1-mini-feature4.png';
+import adora2miniapply1 from '~/assets/images/product/adora2-mini/adora1-mini-apply1.png';
+import adora2miniapply2 from '~/assets/images/product/adora2-mini/adora1-mini-apply2.png';
+//import adora2miniapply3 from '~/assets/images/product/adora2-mini/adora1-mini-apply3.png';
+//import adora2miniapply4 from '~/assets/images/product/adora2-mini/adora1-mini-apply4.png';
 const metadata = {
   title: 'Adora2 Mini',
 };
@@ -18,12 +21,12 @@ const metadata = {
     columns={2}
     isBeforeContent={true}
     title="ADORA2 Mini"
-    subtitle="轻量经济型的室内单臂轮式机器人"
+    subtitle="经济型室内轮式机器人"
     items={[
       {
-        title: '持续学习与适应能力',
+        title: '经济便捷的机器人平台',
         description:
-          'Adora机器人搭载具身人工智能，能够通过与环境互动以及用户直接教学不断进化。不同于传统工业机器人受限于严格的规则，Adora机器人可以动态适应并提升自身能力。',
+          'ADORA2 Mini机器人采用经济型设计，搭载便捷灵活的的底盘，适用于多种室内环境，方便用户进行机器人数据采集、研究与教学实践。',
         icon: '',
         image: {
           src: adora1minifeature1,
@@ -31,17 +34,17 @@ const metadata = {
         },
       },
       {
-        title: '轻松任务训练',
+        title: '高效精细动作数据采集',
         description:
-          'Adora机器人配备直观的数据采集工具，可以轻松掌握用户演示的家庭任务，包括清洁、整理桌面、洗衣、拾取水果，甚至烹饪，让日常生活更加轻松。',
+          'ADORA2 Mini机器人搭配低成本高精度机械臂和直观的数据采集工具，适用于进行批量数据采集的工作，包括家庭生活、科研学习、工厂生产等各种场景。',
         icon: '',
         image: {
           src: adora1minifeature2,
           alt: 'adora1 Mini Feature 2'
         },
       },
-      {
-        title: '多模态自然交互',
+/*      {
+        title: '便于算法快速开发部署',
         description:
           'Adora机器人大脑具备视觉和语言输入理解能力，用户可以通过语言或视觉指令自然、轻松地与机器人互动，实现无缝沟通。',
         icon: '',
@@ -51,7 +54,7 @@ const metadata = {
         },        
       },
       {
-        title: '社区驱动的快速提升',
+        title: '具身智能科研生态友好',
         description:
           'Adora机器人连接活跃的社区，通过共享知识与经验形成集体“大脑”，实现所有机器人技能的快速提升，持续增强机器人的效能。',
         icon: '',
@@ -59,7 +62,7 @@ const metadata = {
           src: adora1minifeature4,
           alt: 'adora1 Mini Feature 4'
         },
-      },
+      }, */
     ]}
   />
 
@@ -68,26 +71,16 @@ const metadata = {
     columns={2}
     isBeforeContent={true}
     title="应用场景"
-    subtitle="ADORA2 mini的应用场景"
+    subtitle="ADORA2 Mini的应用场景"
     items={[
-      {
-        title: '家务劳动',
-        description:
-          '',
-        icon: '',
-        image: {
-          src: adora1minifeature1,
-          alt: 'adora1 Mini apply1'
-        },
-      },
       {
         title: '数据采集',
         description:
           '',
         icon: '',
         image: {
-          src: adora1minifeature2,
-          alt: 'adora1 Mini apply2'
+          src: adora2miniapply1,
+          alt: 'adora2 Mini apply1'
         },
       },
       {
@@ -96,8 +89,18 @@ const metadata = {
           '',
         icon: '',
         image: {
-          src: adora1minifeature3,
-          alt: 'adora1 Mini apply3'
+          src: adora2miniapply2,
+          alt: 'adora2 Mini apply2'
+        },
+      },
+/*      {
+        title: '家务劳动',
+        description:
+          '',
+        icon: '',
+        image: {
+          src: adora2miniapply3,
+          alt: 'adora2 Mini apply3'
         },        
       },
       {
@@ -106,10 +109,10 @@ const metadata = {
           '',
         icon: '',
         image: {
-          src: adora1minifeature4,
-          alt: 'adora1 Mini apply4'
+          src: adora2miniapply4,
+          alt: 'adora2 Mini apply4'
         },
-      },
+      }, */
     ]}
   />
   
