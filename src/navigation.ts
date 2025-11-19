@@ -10,6 +10,18 @@ export const headerData = {
       text: '产品', //Products
       links: [
         {
+          text: 'ADORA1 Pro',
+          href: '/product-adora1-pro',
+        },
+//      {  
+//          text: 'ADORA1 Mini',
+//          href: '/product-adora1-mini',
+//        },
+//      {  
+//          text: 'ADORA1 Nano',
+//          href: '/product-adora1-nano',
+//        },
+        {
           text: 'ADORA2 Max',
           href: '/product-adora2-max',
         },
@@ -21,15 +33,7 @@ export const headerData = {
           text: 'ADORA2 Mini',
           href: '/product-adora2-mini',
         },
-        {
-          text: 'ADORA1 Pro',
-          href: '/product-adora1-pro',
-        },
-        {
-          text: 'ADORA1 Mini',
-          href: '/product-adora1-mini',
-        },
-              ],
+             ],
     },
     {
       text: '行业方案', //Solutions
@@ -54,13 +58,13 @@ export const headerData = {
           text: '帮助中心',
           href: '/FAQ',
         },
-        {
-          text: '资源与下载中心',
-          href: '/',
-        },
+//        {
+//          text: '资源与下载中心',
+//          href: '/',
+//        },
         {
           text: '服务条款与政策',
-          href: '/',
+          href: '/privacy'
         },
       ],
     },
@@ -69,7 +73,7 @@ export const headerData = {
       href: '/about',
     },
   ],
-  actions: [{ text: '购买与合作', href: '/#order' }],
+  actions: [{ text: '购买与合作', href: '/customer-service' }],
 };
 
 export const footerData = {
@@ -77,6 +81,18 @@ export const footerData = {
     {
       title: '产品',
       links: [
+        {
+          text: 'ADORA1 Pro',
+          href: '/product-adora1-pro',
+        },
+//        {
+//          text: 'ADORA1 Mini',
+//          href: '/product-adora1-mini',
+//        },
+//        {
+//          text: 'ADORA1 Nano',
+//          href: '/product-adora1-nano',
+//        },
         {
           text: 'ADORA2 Max',
           href: '/product-adora2-max',
@@ -88,14 +104,6 @@ export const footerData = {
         {
           text: 'ADORA2 Mini',
           href: '/product-adora2-mini',
-        },
-        {
-          text: 'ADORA1 Pro',
-          href: '/product-adora1-pro',
-        },
-        {
-          text: 'ADORA1 Mini',
-          href: '/product-adora1-mini',
         },
       ],
     },
@@ -113,7 +121,7 @@ export const footerData = {
       links: [
         {
           text: '公司简介',
-          href: '/',
+          href: '/about',
         },
         {
           text: '新闻中心',
@@ -121,7 +129,7 @@ export const footerData = {
         },
         {
           text: '联系我们',
-          href: '/about',
+          href: '/customer-service',
         },
       ],
     },
@@ -130,11 +138,11 @@ export const footerData = {
       links: [
         {
           text: '购买咨询',
-          href: '/',
+          href: '/customer-service',
         },
         {
           text: '合作洽谈',
-          href: '/',
+          href: '/customer-service',
         },
       ],
     },
@@ -149,13 +157,13 @@ export const footerData = {
           text: '帮助中心',
           href: '/FAQ',
         },
-        {
-          text: '资源与下载中心',
-          href: '/',
-        },
+//        {
+//          text: '资源与下载中心',
+//          href: '/',
+//        },
         {
           text: '服务条款与政策',
-          href: '/',
+          href: '/privacy',
         },
       ],
     },

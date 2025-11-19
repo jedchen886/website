@@ -7,13 +7,14 @@ import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About us',
+  title: '关于我们',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <!-- Hero Widget *******************
 
+  
   <Hero
     tagline="About us"
     image={{
@@ -32,8 +33,9 @@ const metadata = {
       Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
     </Fragment>
   </Hero>
+ -->
 
-  <!-- Stats Widget ****************** -->
+  <!-- Stats Widget ******************
 
   <Stats
     title="Statistics about us"
@@ -44,37 +46,38 @@ const metadata = {
       { title: 'Awards', amount: '24' },
     ]}
   />
+ -->
 
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
+    title="公司简介"
+    subtitle="DORA机器人团队依托柳州市新讯智能科技有限公司开展工作，基本情况："
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Educational',
+        title: '团队性质',
         description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+          '新讯公司是DORA开源机器人中间件项目的生态公司。DORA（Dataflow Oriented Robotics Architecture）是一个先进的端边云协同自动驾驶及机器人中间件框架，深度适配国产昇腾/瑞芯微/NVIDIA等芯片，提供高性能的数据流计算平台。',
+        icon: '',
       },
       {
-        title: 'Interior Design',
+        title: '核心成员',
         description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+          '团队成员来自国内外知名院校，与清华大学、中国科技大学、北京邮电大学、北京理工大学、北京科技大学、重庆邮电大学等高校，以及开放原子基金会、北京智源研究院、深开鸿等机构保持深度合作。团队立足DORA中间件社区，专注具身智能机器人本体开发和推广。',
+        icon: '',
       },
       {
-        title: 'Photography',
+        title: '机器人产品',
         description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
+          '目前公司已推出教育和工业两大系列单双臂四轮移动机器人，广泛应用于科研教育、园区安防、工业自动化和智能家居等领域。产品通过Dora-rs中间件实现了与各操作系统生态的无缝对接，并充分发挥各AI芯片的算力优势。',
+        icon: '',
       },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
+  <!-- Features3 Widget **************
 
   <Features3
     columns={3}
@@ -121,33 +124,33 @@ const metadata = {
       src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
       alt: 'Colorful Image',
     }}
-  />
+  />  -->
 
-  <!-- Steps2 Widget ****************** -->
+  <!-- Steps2 Widget ******************
 
   <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    title="愿景和理念"
+    subtitle=""
     items={[
       {
-        title: 'Customer-centric approach',
+        title: '团队愿景',
         description:
           'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
       },
       {
-        title: 'Constant Improvement',
+        title: '团队使命',
         description:
           'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
       },
       {
-        title: 'Ethical Practices',
+        title: '团队文化',
         description:
           'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
       },
     ]}
-  />
+  />  -->
 
-  <!-- Steps2 Widget ****************** -->
+  <!-- Steps2 Widget ******************
 
   <Steps2
     title="Achievements"
@@ -176,35 +179,35 @@ const metadata = {
         icon: 'tabler:award',
       },
     ]}
-  />
+  />  -->
 
-  <!-- Features2 Widget ************** -->
+  <!-- Features2 Widget **************
 
   <Features2
-    title="Our locations"
+    title="团队地址"
     tagline="Find us"
     columns={4}
     items={[
       {
-        title: 'EE.UU',
+        title: '美国',
         description: '1234 Lorem Ipsum St, 12345, Miami',
       },
       {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
+        title: '北京',
+        description: '北京市海淀区中关村东路8号五道口东升大厦裙楼二楼204室',
       },
       {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
+        title: '重庆',
+        description: '重庆市渝北区仙桃街道仙桃数据谷A08',
       },
       {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
+        title: '深圳',
+        description: '深圳罗湖区童乐路2号天玺一号A座3002',
       },
     ]}
-  />
+  /> -->
 
-  <!-- Features2 Widget ************** -->
+  <!-- Features2 Widget ************** 
 
   <Features2
     title="Technical Support"
@@ -224,5 +227,5 @@ const metadata = {
         icon: 'tabler:headset',
       },
     ]}
-  />
+  /> -->
 </Layout>

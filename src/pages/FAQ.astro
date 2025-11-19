@@ -17,38 +17,39 @@ const metadata = {
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'Why AstroWind?',
+        title: '1. 机器人按下电源开关后不能正常启动？',
         description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+          "检查电压电量表，如果发现电压电量表不亮或所显示电压或电量处于红色区域时，立即给机器人充电。",
       },
       {
-        title: 'What do I need to start?',
+        title: '2. 机器人上电启动后无法遥控移动或者拨动遥控的时候无法让机器人动起来？',
         description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+          '先检查遥控器是否打开，连接到机器人，然后看看机器人的急停按钮是否松开。如果上述检查没问题就按照前述遥控器操作说明检查，确认遥控器模式设置是否正确。',
       },
       {
-        title: 'How to install the Astro + Tailwind CSS template?',
+        title: '3. 机器人底盘上位机无法控制？',
         description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
+          "先检查遥控器是否打开，一般遥控器优先级是最高级的，如果遥控器打开可以选择关掉遥控器或者把遥控器模式设置开关拨到中间档位，可以做到远程刹车功能，也支持上位机通讯。",
       },
       {
-        title: "What's something that you don't understand?",
+        title: "4. 机械臂状态锁死或没有反应?",
         description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+          "检查机械臂系统的网络是否正常，可以用ping机械臂ip。通过示教器软件面板检查问题原因。重启机械臂系统，确认问题是否依旧存在。",
       },
       {
-        title: 'What is something that you would like to try again?',
+        title: '5. 夹爪不能正确开合？',
         description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+          "确定机械臂处于正常状态，利用夹爪上电5s会自动开合自检来确定夹爪问题。可以通过拔出机械臂和夹爪的连线航插，再插入来给夹爪重新上电",
       },
       {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
+        title: '6. 机器人电压电量压表处于接近红色区域（低电量，低电压）？',
         description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+          "如果发现电压电量表显示电压或电量处于快到红色区域时，应该尽快给机器人充电。",
       },
     ]}
   />
 
+   <!-- 
   <FAQs
     title=""
     subtitle="售后处理"
@@ -164,6 +165,6 @@ const metadata = {
           "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
       },
     ]}
-  />
+  /> -->
 
 </Layout>
