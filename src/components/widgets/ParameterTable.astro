@@ -109,6 +109,57 @@ const {
 		    ))
 	  	}
 
+		{
+		  MyTableCells3.length > 0 && MyTableCells3.map((mytabcell3, index3) => (
+			index3 === 0 ? (
+		  <TableRow key={mytabcell3.module}>
+		  		<TableHead className="text-center font-bold" rowSpan={MyTableCells3.length}>{mytabcell3.module}</TableHead>
+		  		<TableCell className="text-center">{mytabcell3.content}</TableCell>
+		  		<TableCell className="text-left">{mytabcell3.parameter}</TableCell>
+		  </TableRow>
+		  ) : (
+  	      <TableRow key="{mytabcell3.module}">
+          		<TableCell className="text-center">{mytabcell3.content}</TableCell>
+          		<TableCell className="text-left">{mytabcell3.parameter}</TableCell>
+          </TableRow>
+          )
+		    ))
+	  	}
+
+       {
+		  MyTableCells4.length > 0 && MyTableCells4.map((mytabcell4, index4) => (
+			index4 === 0 ? (
+		  <TableRow key={mytabcell4.module}>
+		  		<TableHead className="text-center font-bold" rowSpan={MyTableCells4.length}>{mytabcell4.module}</TableHead>
+		  		<TableCell className="text-center">{mytabcell4.content}</TableCell>
+		  		<TableCell className="text-left">{mytabcell4.parameter}</TableCell>
+		  </TableRow>
+		  ) : (
+  	      <TableRow key="{mytabcell4.module}">
+          		<TableCell className="text-center">{mytabcell4.content}</TableCell>
+          		<TableCell className="text-left">{mytabcell4.parameter}</TableCell>
+          </TableRow>
+          )
+		    ))
+	  	}
+
+       {
+		  MyTableCells5.length > 0 && MyTableCells5.map((mytabcell5, index5) => (
+			index5 === 0 ? (
+		  <TableRow key={mytabcell5.module}>
+		  		<TableHead className="text-center font-bold" rowSpan={MyTableCells5.length}>{mytabcell5.module}</TableHead>
+		  		<TableCell className="text-center">{mytabcell5.content}</TableCell>
+		  		<TableCell className="text-left">{mytabcell5.parameter}</TableCell>
+		  </TableRow>
+		  ) : (
+  	      <TableRow key="{mytabcell5.module}">
+          		<TableCell className="text-center">{mytabcell5.content}</TableCell>
+          		<TableCell className="text-left">{mytabcell5.parameter}</TableCell>
+          </TableRow>
+          )
+		    ))
+	  	}
+
 		</TableBody>
 
 	</Table>
