@@ -1,0 +1,194 @@
+---
+import Features4 from '~/components/widgets/Features4.astro';
+import ParameterTable from '~/components/widgets/ParameterTable.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import adora1nanofeature1 from '~/assets/images/product/adora1-nano/adora-1-nano-feature1.png';
+import adora1nanofeature2 from '~/assets/images/product/adora1-nano/adora-1-nano-feature2.png';
+//import adora1minifeature3 from '~/assets/images/product/adora2-mini/adora1-mini-feature3.png';
+//import adora1minifeature4 from '~/assets/images/product/adora2-mini/adora1-mini-feature4.png';
+import adora1nanoapply1 from '~/assets/images/product/adora1-nano/adora-1-nano-apply1.png';
+import adora1nanoapply2 from '~/assets/images/product/adora1-nano/adora-1-nano-apply2.png';
+//import adora2miniapply3 from '~/assets/images/product/adora2-mini/adora1-mini-apply3.png';
+//import adora2miniapply4 from '~/assets/images/product/adora2-mini/adora1-mini-apply4.png';
+const metadata = {
+  title: 'Adora1 Nano机器人',
+};
+---
+
+<Layout metadata={metadata}>
+    <!-- features -->
+    <Features4
+    columns={2}
+    isBeforeContent={true}
+    title="ADORA1 Nano"
+    subtitle="面向教学的低成本移动抓取机器人"
+    items={[
+      {
+        title: '支持完整的AI模型学习',
+        description:
+          'ADORA1 Nano内置全套AI训练管线、抓取、视觉模型、开箱即用；配套了AI和机器人学习课程数据采集与训练工具箱，支持完整的AI模型学习',
+        icon: '',
+        image: {
+          src: adora1nanofeature1,
+          alt: 'adora1 Nano Feature 1'
+        },
+      },
+      {
+        title: '开源的硬件设计和代码',
+        description:
+          'ADORA1 Nano机器人硬件设计和配套的Dora中间件代码开源，方便用户进行二次开发和定制。',
+        icon: '',
+        image: {
+          src: adora1nanofeature2,
+          alt: 'adora1 Nano Feature 2'
+        },
+      },
+/*      {
+        title: '低成本适合教育和研究',
+        description:
+          'Adora机器人大脑具备视觉和语言输入理解能力，用户可以通过语言或视觉指令自然、轻松地与机器人互动，实现无缝沟通。',
+        icon: '',
+        image: {
+          src: adora1minifeature3,
+          alt: 'adora1 Mini Feature 3'
+        },        
+      },
+      {
+        title: '多种AI算法和仿真支持',
+        description:
+          'Adora机器人连接活跃的社区，通过共享知识与经验形成集体“大脑”，实现所有机器人技能的快速提升，持续增强机器人的效能。',
+        icon: '',
+        image: {
+          src: adora1minifeature4,
+          alt: 'adora1 Mini Feature 4'
+        },
+      }, */
+    ]}
+  />
+
+  <!-- Apply -->
+    <Features4
+    columns={2}
+    isBeforeContent={true}
+    title="应用场景"
+    subtitle="ADORA1 Nano的应用场景"
+    items={[
+      {
+        title: '具身智能学习',
+        description:
+          '',
+        icon: '',
+        image: {
+          src: adora1nanoapply1,
+          alt: 'adora1 Nano apply1'
+        },
+      },
+      {
+        title: '科研教学',
+        description:
+          '',
+        icon: '',
+        image: {
+          src: adora1nanoapply2,
+          alt: 'adora1 Nano apply2'
+        },
+      },
+/*      {
+        title: '家务劳动',
+        description:
+          '',
+        icon: '',
+        image: {
+          src: adora2miniapply3,
+          alt: 'adora2 Mini apply3'
+        },        
+      },
+      {
+        title: '工业操作',
+        description:
+          '',
+        icon: '',
+        image: {
+          src: adora2miniapply4,
+          alt: 'adora2 Mini apply4'
+        },
+      }, */
+    ]}
+  />
+  
+  <!-- 参数规格 -->
+  <ParameterTable 
+    title="Adora1 Nano参数规格"
+    subtitle="主要的软件和硬件参数"
+
+    MyTableHeads = {[
+      {
+        tablehead1: "模块",
+        tablehead2: "内容",
+        tablehead3: "参数",
+      },
+    ]}
+
+    MyTableCells1 = {[
+	  {
+		 module: "整机参数",
+		 content: "产品重量",
+		 parameter: "约5KG",
+	  },
+	  {
+		 module: "整机参数",
+		 content: "最大移动速度",
+		 parameter: "1.2m/s",
+	  },
+    {
+		 module: "整机参数",
+		 content: "最大坡度",
+		 parameter: "25°",
+	  },
+    {
+		 module: "整机参数",
+		 content: "工作时长",
+		 parameter: "3H",
+	  },
+   ]}
+
+   MyTableCells2 = {[
+	  {
+		 module: "算力单元",
+		 content: "主板配置",
+		 parameter: "Jetson/昇腾",
+	  },
+    {
+		 module: "算力单元",
+		 content: "操作系统",
+		 parameter: "Ubuntu/开源鸿蒙OS",
+	  },
+    ]}
+
+    MyTableCells3 = {[
+	  {
+		 module: "视觉和距离传感器",
+		 content: "相机",
+		 parameter: "3个",
+	  },
+	  {
+		 module: "视觉和距离传感器",
+		 content: "激光雷达",
+		 parameter: "无",
+	  },
+   ]}
+
+    MyTableCells4 = {[
+	  {
+		 module: "机械臂和末端执行器",
+		 content: "机械臂配置",
+		 parameter: "2只/6自由度",
+	  },
+    {
+		 module: "机械臂和末端执行器",
+		 content: "最大抓握重量",
+		 parameter: "0.2kg",
+	  },
+   ]}
+  />
+</Layout>

@@ -17,10 +17,10 @@ export const headerData = {
 //          text: 'ADORA1 Mini',
 //          href: '/product-adora1-mini',
 //        },
-//      {  
-//          text: 'ADORA1 Nano',
-//          href: '/product-adora1-nano',
-//        },
+        {  
+          text: 'ADORA1 Nano',
+          href: '/product-adora1-nano',
+        },
         {
           text: 'ADORA2 Max',
           href: '/product-adora2-max',
@@ -37,7 +37,7 @@ export const headerData = {
     },
     {
       text: '行业方案', //Solutions
-      href: '/industry-solutions',
+      href: '/solutions',
     },
     {
       text: '新闻中心', //Blog
@@ -89,10 +89,10 @@ export const footerData = {
 //          text: 'ADORA1 Mini',
 //          href: '/product-adora1-mini',
 //        },
-//        {
-//          text: 'ADORA1 Nano',
-//          href: '/product-adora1-nano',
-//        },
+        {
+          text: 'ADORA1 Nano',
+          href: '/product-adora1-nano',
+        },
         {
           text: 'ADORA2 Max',
           href: '/product-adora2-max',
@@ -125,7 +125,7 @@ export const footerData = {
         },
         {
           text: '新闻中心',
-          href: '/blog',
+          href: '/news',
         },
         {
           text: '联系我们',
