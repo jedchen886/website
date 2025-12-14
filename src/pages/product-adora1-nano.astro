@@ -11,22 +11,43 @@ import adora1nanoapply2 from '~/assets/images/product/adora1-nano/adora-1-nano-a
 import adora2nanoapply3 from '~/assets/images/product/adora1-nano/adora-1-nano-apply3.png';
 import adora2nanoapply4 from '~/assets/images/product/adora1-nano/adora-1-nano-apply4.png';
 const metadata = {
-  title: 'Adora1 Nano机器人',
+  title: 'Adora 1 Nano机器人',
 };
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full">
+      <img
+        src="/images/adora-1-nano-school-clean.png"
+        alt="ADORA 1 Nano"
+        class="w-full h-auto"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="bg-black/20 backdrop-blur-sm px-8 py-6 rounded-2xl">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold text-center">
+            ADORA 1 Nano
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mt-4 text-center">
+            面向教学的低成本移动抓取机器人
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <!-- features -->
     <Features4
     columns={2}
     isBeforeContent={true}
-    title="ADORA1 Nano"
-    subtitle="面向教学的低成本移动抓取机器人"
+    title="产品特点"
+    subtitle="ADORA 1 Nano 的核心优势"
     items={[
       {
         title: '支持完整的AI模型学习',
         description:
-          'ADORA1 Nano内置全套AI训练管线、抓取、视觉模型、开箱即用；配套了AI和机器人学习课程数据采集与训练工具箱，支持完整的AI模型学习',
+          'ADORA 1 Nano内置全套AI训练管线、抓取、视觉模型、开箱即用；配套了AI和机器人学习课程数据采集与训练工具箱，支持完整的AI模型学习',
         icon: '',
         image: {
           src: adora1nanofeature1,
@@ -36,7 +57,7 @@ const metadata = {
       {
         title: '开源的硬件设计和代码',
         description:
-          'ADORA1 Nano机器人硬件设计和配套的Dora中间件代码开源，方便用户进行二次开发和定制。',
+          'ADORA 1 Nano机器人硬件设计和配套的Dora中间件代码开源，方便用户进行二次开发和定制。',
         icon: '',
         image: {
           src: adora1nanofeature2,
@@ -71,7 +92,7 @@ const metadata = {
     columns={2}
     isBeforeContent={true}
     title="应用场景"
-    subtitle="ADORA1 Nano的应用场景"
+    subtitle="ADORA 1 Nano的应用场景"
     items={[
       {
         title: '具身智能学习',
@@ -118,7 +139,7 @@ const metadata = {
   
   <!-- 参数规格 -->
   <ParameterTable 
-    title="Adora1 Nano参数规格"
+    title="Adora 1 Nano参数规格"
     subtitle="主要的软件和硬件参数"
 
     MyTableHeads = {[

@@ -12,17 +12,38 @@ import adora2maxapply3 from '~/assets/images/product/adora2-max/adora2-max-apply
 import adora2maxapply4 from '~/assets/images/product/adora2-max/adora2-max-apply4.png';
 
 const metadata = {
-  title: 'Adora2 Max机器人',
+  title: 'Adora 2 Max机器人',
 };
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full">
+      <img
+        src="/images/adora-2-max-hospital-clean.png"
+        alt="ADORA 2 Max"
+        class="w-full h-auto"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="bg-black/20 backdrop-blur-sm px-8 py-6 rounded-2xl">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold text-center">
+            ADORA 2 Max
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mt-4 text-center">
+            四轮升降臂通用型移动式机器人
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <!-- features -->
     <Features4
     columns={2}
     isBeforeContent={true}
-    title="ADORA2 Max"
-    subtitle="四轮升降臂通用型移动式机器人"
+    title="产品特点"
+    subtitle="ADORA 2 Max 的核心优势"
     items={[
       {
         title: '升降臂使用场景更宽广',
@@ -37,7 +58,7 @@ const metadata = {
       {
         title: '高效精细动作数据采集',
         description:
-          'ADORA2 Max机器人配备高精度机械臂和直观的数据采集工具，可以轻松记录演示的工作任务，包括家庭桌面整理、洗衣叠衣，拿取物品；工业搬取转运等等。',
+          'ADORA 2 Max机器人配备高精度机械臂和直观的数据采集工具，可以轻松记录演示的工作任务，包括家庭桌面整理、洗衣叠衣，拿取物品；工业搬取转运等等。',
         icon: '',
         image: {
           src: adora2maxfeature2,
@@ -47,7 +68,7 @@ const metadata = {
       {
         title: '语音和视频多模态交互',
         description:
-          'ADORA2 Max机器人大脑具备视觉和语言输入理解能力，用户可以通过语言或视觉指令自然、轻松地与机器人互动，实现无缝沟通。',
+          'ADORA 2 Max机器人大脑具备视觉和语言输入理解能力，用户可以通过语言或视觉指令自然、轻松地与机器人互动，实现无缝沟通。',
         icon: '',
         image: {
           src: adora2maxfeature3,
@@ -57,7 +78,7 @@ const metadata = {
       {
         title: '具身智能科研生态支持',
         description:
-          'ADORA2 Max机器人连接活跃的机器人社区生态，通过共享知识与经验形成集体“大脑”，实现所有机器人技能的快速提升，持续增强机器人的效能。',
+          'ADORA 2 Max机器人连接活跃的机器人社区生态，通过共享知识与经验形成集体“大脑”，实现所有机器人技能的快速提升，持续增强机器人的效能。',
         icon: '',
         image: {
           src: adora2maxfeature4,
@@ -72,7 +93,7 @@ const metadata = {
     columns={2}
     isBeforeContent={true}
     title="应用场景"
-    subtitle="ADORA2 Max的应用场景"
+    subtitle="ADORA 2 Max的应用场景"
     items={[
       {
         title: '家务劳动',
@@ -119,7 +140,7 @@ const metadata = {
   
   <!-- 参数规格 -->
   <ParameterTable 
-    title="Adora2 Max参数规格"
+    title="Adora 2 Max参数规格"
     subtitle="主要的软件和硬件参数"
 
     MyTableHeads = {[

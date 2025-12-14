@@ -1,63 +1,19 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
+import ProductCard from './ProductCard.astro';
 import adora2mini from '~/assets/images/product/adora2-mini/adora-2-mini-white.png';
-import Hero from '~/components/widgets/Hero.astro';
 ---
 
-<div class="grid sm:grid-cols-2 gap-10 mx-auto mt-2 pt-20 pb-16">
-  <div class="relative order-1 sm:order-1">
-    <Image
-      format="avif"
-      src={adora2mini}
-      alt="Adora2 Mini"
-      loading="lazy"
-    />
-  </div>
-
-  <div class="place-self-center order-2 sm:order-2 px-6 sm:px-0">
-    <h3 class="text-2xl text-center md:text-start text-gray-800 tracking-tight -mt-2">
-      <span class="text-gray-600"><strong>ADORA2 Mini</strong></span>
-      {' '}
-    </h3>
-    <p class="text-lg max-w-sm mt-4 leading-relaxed text-slate-500">
-     ADORA2 Mini是一个基于Dora开源机器人中间件自研的经济型室内轮式机器人研究、算法验证、教学平台，助力具身智能研究、AI算法验证以及相关教学实践。
-    </p>
-    <ul class="grid mt-4 text-left gap-y-4">
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">经济便捷的机器人平台</span>
-      </li>
-
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">高效精细动作数据采集</span>
-      </li>
-
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">便于算法快速开发部署</span>
-      </li>
-            <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">具身智能科研生态友好</span>
-      </li>
-    </ul>
-    <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: '了解更多',
-        //text: 'Get Yours',
-        href: '/product-adora2-mini',
-        icon: 'tabler:arrow-right',
-        class: 'bg-yellow-200 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded', // Add Tailwind CSS classes here
-      },
-    ]}
-  </Hero>
-  </div>
-</div>
+<ProductCard
+  image={adora2mini}
+  imageAlt="Adora 2 Mini"
+  title="ADORA 2 Mini"
+  description="ADORA 2 Mini是一个基于Dora开源机器人中间件自研的经济型室内轮式机器人研究、算法验证、教学平台，助力具身智能研究、AI算法验证以及相关教学实践。"
+  features={[
+    { text: '经济便捷的机器人平台', icon: 'lowcost' },
+    { text: '高效精细动作数据采集', icon: 'data' },
+    { text: '便于算法快速开发部署', icon: 'agile' },
+    { text: '具身智能科研生态友好', icon: 'ecosystem' },
+  ]}
+  ctaLink="/product-adora2-mini"
+  imagePosition="left"
+/>

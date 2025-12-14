@@ -20,30 +20,20 @@ const metadata = {
 };
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} defaultNavTheme="dark">
 
   <!-- Hero Widget ******************* -->
   <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: '购买与合作',
-        //text: 'Get Yours',
-        href: '/customer-service',
-        icon: 'tabler:arrow-right',
-        class: 'bg-yellow-200 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded', // Add Tailwind CSS classes here
-      },
-    ]}
     bg={`
       <div class="absolute inset-0">
-        <div class="w-full h-full bg-cover bg-center" style="background-image: url('/images/adora-head-page.png');"></div>
+        <div class="w-full h-full bg-cover bg-center" style="background-image: url('/images/robot-family-pixar.png');"></div>
       </div>
     `}
   >
     <Fragment slot="title">
       <div class="mt-40">
-        <span class="text-gray-50 text-6x md:text-7xl lg:text-8xl tracking-tight dark:text-white highlight">
-          遇见您的机器人朋友</span
+        <span class="text-gray-50 text-5xl md:text-6xl lg:text-7xl tracking-tight dark:text-white highlight">
+          我是你的机器人朋友</span
         >
       </div>
     </Fragment>
@@ -84,7 +74,27 @@ const metadata = {
 
   <BlogLatestPosts title="新闻中心" information={``} />
 
-   <!-- 
+  <!-- Gradient CTA Section (Beijing2025 style) -->
+  <section class="section-gradient py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        开启您的机器人之旅
+      </h2>
+      <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        ADORA机器人助力科研教育、商业应用与家庭生活，让智能触手可及
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/customer-service" class="cta-btn-gradient">
+          <span>购买与合作</span>
+        </a>
+        <a href="/about" class="cta-btn-gradient">
+          <span>了解更多</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+   <!--
   <StepsDORA
     id="order"
     title="How to Order"

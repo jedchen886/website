@@ -12,22 +12,43 @@ import adora1proapply3 from '~/assets/images/product/adora1-pro/adora1-pro-apply
 import adora1proapply4 from '~/assets/images/product/adora1-pro/adora1-pro-apply4.png';
 
 const metadata = {
-  title: 'Adora1 Pro机器人',
+  title: 'Adora 1 Pro机器人',
 };
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full">
+      <img
+        src="/images/adora-1-pro-warehouse-clean.png"
+        alt="ADORA 1 Pro"
+        class="w-full h-auto"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="bg-black/20 backdrop-blur-sm px-8 py-6 rounded-2xl">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold text-center">
+            ADORA 1 Pro
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mt-4 text-center">
+            四轮单臂机器人
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <!-- features -->
     <Features4
     columns={2}
     isBeforeContent={true}
-    title="ADORA1 Pro"
-    subtitle="ADORA1 Pro四轮单臂机器人"
+    title="产品特点"
+    subtitle="ADORA 1 Pro 的核心优势"
     items={[
       {
         title: '适合室内外各类大载重场景',
         description:
-          'ADORA1 Pro四轮机器人采用刚性底盘，配备直流无刷伺服电机轮毂，能够承载80KG重量，适应复杂地形，实现轻度越野能力。',
+          'ADORA 1 Pro四轮机器人采用刚性底盘，配备直流无刷伺服电机轮毂，能够承载80KG重量，适应复杂地形，实现轻度越野能力。',
         icon: '',
         image: {
           src: adora1profeature1,
@@ -37,7 +58,7 @@ const metadata = {
       {
         title: '自主导航多车协同',
         description:
-          'ADORA1 Pro四轮机器人配备激光雷达和视觉传感器，配合DORA系统支持，能够实现自主导航和避障功能，支持多车协同。',
+          'ADORA 1 Pro四轮机器人配备激光雷达和视觉传感器，配合DORA系统支持，能够实现自主导航和避障功能，支持多车协同。',
         icon: '',
         image: {
           src: adora1profeature2,
@@ -47,7 +68,7 @@ const metadata = {
       {
         title: '多模态自然交互',
         description:
-          'ADORA1 Pro大脑具备视觉和语言输入理解能力，用户可以通过语言或视觉指令自然、轻松地与机器人互动，实现无缝沟通。',
+          'ADORA 1 Pro大脑具备视觉和语言输入理解能力，用户可以通过语言或视觉指令自然、轻松地与机器人互动，实现无缝沟通。',
         icon: '',
         image: {
           src: adora1profeature3,
@@ -57,7 +78,7 @@ const metadata = {
       {
         title: '支持DORA二次开发',
         description:
-          'ADORA1 Pro连接活跃的社区，通过共享知识与经验，支持二次开发，持续增强机器人的能力。',
+          'ADORA 1 Pro连接活跃的社区，通过共享知识与经验，支持二次开发，持续增强机器人的能力。',
         icon: '',
         image: {
           src: adora1profeature4,
@@ -72,7 +93,7 @@ const metadata = {
     columns={2}
     isBeforeContent={true}
     title="应用场景"
-    subtitle="ADORA1 Pro的应用场景"
+    subtitle="ADORA 1 Pro的应用场景"
     items={[
       {
         title: '数据采集',
@@ -119,7 +140,7 @@ const metadata = {
   
   <!-- 参数规格 -->
   <ParameterTable 
-    title="Adora1 Pro参数规格"
+    title="Adora 1 Pro参数规格"
     subtitle="主要的软件和硬件参数"
 
     MyTableHeads = {[

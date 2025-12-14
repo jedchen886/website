@@ -1,63 +1,19 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
+import ProductCard from './ProductCard.astro';
 import adora1nano from '~/assets/images/product/adora1-nano/adora-1-nano-white.png';
-import Hero from '~/components/widgets/Hero.astro';
 ---
 
-<div class="grid sm:grid-cols-2 gap-10 mx-auto mt-2 pt-20 pb-16">
-  <div class="relative order-1 sm:order-1">
-    <Image
-      format="avif"
-      src={adora1nano}
-      alt="Adora1 Nano"
-      loading="lazy"
-    />
-  </div>
-
-  <div class="place-self-center order-2 sm:order-2 px-6 sm:px-0">
-    <h3 class="text-2xl text-center md:text-start text-gray-800 tracking-tight -mt-2">
-      <span class="text-gray-600"><strong>Adora1 Nano</strong></span>
-      {' '}
-    </h3>
-    <p class="text-lg max-w-sm mt-4 leading-relaxed text-slate-500">
-     ADORA1 Nano机器人是一款面向教学的低成本移动抓取机器人，搭载轻量6自由度智能机械臂、视觉传感器、移动底盘等组件。配有开源软件可以为AI模型训练提供从数据采集训练和推理全套服务，适合做基于晟腾或者开源鸿蒙系统下的大模型双臂移动抓取教育和研究。
-    </p>
-    <ul class="grid mt-4 text-left gap-y-4">
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">支持完整的AI模型学习</span>
-      </li>
-
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">开源的硬件设计和代码</span>
-      </li>
-
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">低成本适合教育和研究</span>
-      </li>
-            <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">多种AI算法和仿真支持</span>
-      </li>
-    </ul>
-    <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: '了解更多',
-        //text: 'Get Yours',
-        href: '/product-adora1-nano',
-        icon: 'tabler:arrow-right',
-        class: 'bg-yellow-200 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded', // Add Tailwind CSS classes here
-      },
-    ]}
-  </Hero>
-  </div>
-</div>
+<ProductCard
+  image={adora1nano}
+  imageAlt="Adora 1 Nano"
+  title="Adora 1 Nano"
+  description="ADORA 1 Nano机器人是一款面向教学的低成本移动抓取机器人，搭载轻量6自由度智能机械臂、视觉传感器、移动底盘等组件。配有开源软件可以为AI模型训练提供从数据采集训练和推理全套服务。"
+  features={[
+    { text: '支持完整的AI模型学习', icon: 'ai' },
+    { text: '开源的硬件设计和代码', icon: 'opensource' },
+    { text: '低成本适合教育和研究', icon: 'lowcost' },
+    { text: '多种AI算法和仿真支持', icon: 'simulation' },
+  ]}
+  ctaLink="/product-adora1-nano"
+  imagePosition="left"
+/>

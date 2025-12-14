@@ -1,63 +1,19 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
+import ProductCard from './ProductCard.astro';
 import adora1pro from '~/assets/images/product/adora1-pro/adora-1-pro-black.png';
-import Hero from '~/components/widgets/Hero.astro';
 ---
 
-<div class="grid sm:grid-cols-2 gap-10 mx-auto mt-2 pt-20 pb-16">
-  <div class="relative order-2 sm:order-2">
-    <Image
-      format="avif"
-      src={adora1pro}
-      alt="Adora1 Pro"
-      loading="lazy"
-    />
-  </div>
-  <div class="place-self-center order-1 sm:order-1 px-6 sm:px-0">
-    <h3 class="text-2xl text-center md:text-start text-gray-800 tracking-tight -mt-2">
-      <span class="text-gray-600"><strong>ADORA1 Pro</strong></span>
-      {' '}
-    </h3>
-    <p class="text-lg max-w-sm mt-4 leading-relaxed text-slate-500">
-     ADORA1 Pro四轮机器人，标配直流无刷伺服电机轮毂，适合在室内外各类场景使用，大载重，可越野；机械臂具有7或6个自由度，设计轻量且灵活，适应多种应用场景；配备激光雷达和视觉传感器，能实时捕捉周围环境信息，实现精准定位避障，完成既定任务。
-
-    </p>
-    <ul class="grid mt-4 text-left gap-y-4">
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">室内外各类大载重场景</span>
-      </li>
-
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">多模态模仿与智能作业</span>
-      </li>
-
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">支持DORA等二次开发</span>
-      </li>
-            <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">具身智能科研生态支持</span>
-      </li>
-    </ul>
-    <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: '了解更多',
-        //text: 'Get Yours',
-        href: '/product-adora1-pro',
-        icon: 'tabler:arrow-right',
-        class: 'bg-yellow-200 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded', // Add Tailwind CSS classes here
-      },
-    ]}
-  </Hero>
-  </div>
-</div>
+<ProductCard
+  image={adora1pro}
+  imageAlt="Adora 1 Pro"
+  title="ADORA 1 Pro"
+  description="ADORA 1 Pro四轮机器人，标配直流无刷伺服电机轮毂，适合在室内外各类场景使用，大载重，可越野；机械臂具有7或6个自由度，设计轻量且灵活，适应多种应用场景；配备激光雷达和视觉传感器，能实时捕捉周围环境信息。"
+  features={[
+    { text: '室内外各类大载重场景', icon: 'outdoor' },
+    { text: '多模态模仿与智能作业', icon: 'ai' },
+    { text: '支持DORA等二次开发', icon: 'dora' },
+    { text: '具身智能科研生态支持', icon: 'ecosystem' },
+  ]}
+  ctaLink="/product-adora1-pro"
+  imagePosition="right"
+/>

@@ -10,22 +10,43 @@ import adora1miniapply1 from '~/assets/images/product/adora1-mini/adora1-mini-ap
 import adora1miniapply2 from '~/assets/images/product/adora1-mini/adora1-mini-apply2.png';
 
 const metadata = {
-  title: 'Adora1 Mini机器人',
+  title: 'Adora 1 Mini机器人',
 };
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full">
+      <img
+        src="/images/adora-1-mini-home-clean.png"
+        alt="ADORA 1 Mini"
+        class="w-full h-auto"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="bg-black/20 backdrop-blur-sm px-8 py-6 rounded-2xl">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold text-center">
+            ADORA 1 Mini
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mt-4 text-center">
+            轻量经济型的室内单臂轮式机器人
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <!-- features -->
     <Features4
     columns={2}
     isBeforeContent={true}
-    title="ADORA1 Mini"
-    subtitle="轻量经济型的室内单臂轮式机器人"
+    title="产品特点"
+    subtitle="ADORA 1 Mini 的核心优势"
     items={[
       {
         title: '采用AGV小车灵活小巧',
         description:
-          'Adora1 Mini机器人标配轻量级AGV移动底盘小车，灵活小巧，适合在室内窄小空间内使用;机械臂设计轻量且灵活，能执行复杂精细的操作；配备激光雷达和视觉传感器，能实时捕捉周围环境信息，实现精准定位避障。',
+          'Adora 1 Mini机器人标配轻量级AGV移动底盘小车，灵活小巧，适合在室内窄小空间内使用;机械臂设计轻量且灵活，能执行复杂精细的操作；配备激光雷达和视觉传感器，能实时捕捉周围环境信息，实现精准定位避障。',
         icon: '',
         image: {
           src: adora1minifeature1,
@@ -35,7 +56,7 @@ const metadata = {
       {
         title: '室内的多模态智能作业',
         description:
-          'Adora1 Mini机器人大脑具备视觉和语言输入理解能力，用户可以通过语言或视觉指令自然、轻松地与机器人互动，轻松掌握用户演示的家庭任务，让日常生活更加轻松。',
+          'Adora 1 Mini机器人大脑具备视觉和语言输入理解能力，用户可以通过语言或视觉指令自然、轻松地与机器人互动，轻松掌握用户演示的家庭任务，让日常生活更加轻松。',
         icon: '',
         image: {
           src: adora1minifeature2,
@@ -70,7 +91,7 @@ const metadata = {
     columns={2}
     isBeforeContent={true}
     title="应用场景"
-    subtitle="ADORA1 mini的应用场景"
+    subtitle="ADORA 1 mini的应用场景"
     items={[
       {
         title: '家务劳动',
@@ -117,7 +138,7 @@ const metadata = {
   
   <!-- 参数规格 -->
   <ParameterTable 
-    title="Adora1 Mini参数规格"
+    title="Adora 1 Mini参数规格"
     subtitle="主要的软件和硬件参数"
 
     MyTableHeads = {[

@@ -10,27 +10,27 @@ export const headerData = {
       text: '产品', //Products
       links: [
         {
-          text: 'ADORA1 Pro',
+          text: 'ADORA 1 Pro',
           href: '/product-adora1-pro',
         },
-//      {  
-//          text: 'ADORA1 Mini',
-//          href: '/product-adora1-mini',
-//        },
-        {  
-          text: 'ADORA1 Nano',
+        {
+          text: 'ADORA 1 Mini',
+          href: '/product-adora1-mini',
+        },
+        {
+          text: 'ADORA 1 Nano',
           href: '/product-adora1-nano',
         },
         {
-          text: 'ADORA2 Max',
+          text: 'ADORA 2 Max',
           href: '/product-adora2-max',
         },
         {
-          text: 'ADORA2 Pro',
+          text: 'ADORA 2 Pro',
           href: '/product-adora2-pro',
         },
         {
-          text: 'ADORA2 Mini',
+          text: 'ADORA 2 Mini',
           href: '/product-adora2-mini',
         },
              ],
@@ -82,27 +82,27 @@ export const footerData = {
       title: '产品',
       links: [
         {
-          text: 'ADORA1 Pro',
+          text: 'ADORA 1 Pro',
           href: '/product-adora1-pro',
         },
-//        {
-//          text: 'ADORA1 Mini',
-//          href: '/product-adora1-mini',
-//        },
         {
-          text: 'ADORA1 Nano',
+          text: 'ADORA 1 Mini',
+          href: '/product-adora1-mini',
+        },
+        {
+          text: 'ADORA 1 Nano',
           href: '/product-adora1-nano',
         },
         {
-          text: 'ADORA2 Max',
+          text: 'ADORA 2 Max',
           href: '/product-adora2-max',
         },
         {
-          text: 'ADORA2 Pro',
+          text: 'ADORA 2 Pro',
           href: '/product-adora2-pro',
         },
         {
-          text: 'ADORA2 Mini',
+          text: 'ADORA 2 Mini',
           href: '/product-adora2-mini',
         },
       ],

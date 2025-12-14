@@ -1,63 +1,19 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
+import ProductCard from './ProductCard.astro';
 import adora1mini from '~/assets/images/product/adora1-mini/adora-1-mini-white.png';
-import Hero from '~/components/widgets/Hero.astro';
 ---
 
-<div class="grid sm:grid-cols-2 gap-10 mx-auto mt-2 pt-20 pb-16">
-  <div class="relative order-2 sm:order-1">
-    <Image
-      format="avif"
-      src={adora1mini}
-      alt="Adora1 Mini"
-      loading="lazy"
-    />
-  </div>
-  <div class="place-self-center order-1 sm:order-2 px-6 sm:px-0">
-    <h3 class="text-2xl text-center md:text-start text-gray-800 tracking-tight -mt-2">
-      <span class="text-gray-600"><strong>ADORA1 Mini</strong></span>
-      {' '}
-    </h3>
-    <p class="text-lg max-w-sm mt-4 leading-relaxed text-slate-500">
-     ADORA1 Mini机器人，标配轻量级AGV移动底盘小车，灵活小巧，适合在室内场景使用；机械臂设计轻量且灵活，具有7或6个自由度，能执行复杂精细的操作；配备激光雷达和视觉传感器，能实时捕捉周围环境信息，实现精准定位避障，完成既定任务。
-
-    </p>
-    <ul class="grid mt-4 text-left gap-y-4">
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">室内的多模态智能作业</span>
-      </li>
-
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">高效精细动作数据采集</span>
-      </li>
-
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">支持DORA等二次开发</span>
-      </li>
-            <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">具身智能科研生态支持</span>
-      </li>
-    </ul>
-    <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: '了解更多',
-        //text: 'Get Yours',
-        href: '/product-adora1-mini',
-        icon: 'tabler:arrow-right',
-        class: 'bg-yellow-200 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded', // Add Tailwind CSS classes here
-      },
-    ]}
-  </Hero>
-  </div>
-</div>
+<ProductCard
+  image={adora1mini}
+  imageAlt="Adora 1 Mini"
+  title="ADORA 1 Mini"
+  description="ADORA 1 Mini机器人，标配轻量级AGV移动底盘小车，灵活小巧，适合在室内场景使用；机械臂设计轻量且灵活，具有7或6个自由度，能执行复杂精细的操作；配备激光雷达和视觉传感器。"
+  features={[
+    { text: '室内的多模态智能作业', icon: 'ai' },
+    { text: '高效精细动作数据采集', icon: 'data' },
+    { text: '支持DORA等二次开发', icon: 'dora' },
+    { text: '具身智能科研生态支持', icon: 'ecosystem' },
+  ]}
+  ctaLink="/product-adora1-mini"
+  imagePosition="right"
+/>

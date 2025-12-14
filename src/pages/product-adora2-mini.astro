@@ -11,22 +11,43 @@ import adora2miniapply2 from '~/assets/images/product/adora2-mini/adora1-mini-ap
 //import adora2miniapply3 from '~/assets/images/product/adora2-mini/adora1-mini-apply3.png';
 //import adora2miniapply4 from '~/assets/images/product/adora2-mini/adora1-mini-apply4.png';
 const metadata = {
-  title: 'Adora2 Mini机器人',
+  title: 'Adora 2 Mini机器人',
 };
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full">
+      <img
+        src="/images/adora-2-mini-school-clean.png"
+        alt="ADORA 2 Mini"
+        class="w-full h-auto"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="bg-black/20 backdrop-blur-sm px-8 py-6 rounded-2xl">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold text-center">
+            ADORA 2 Mini
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mt-4 text-center">
+            经济型室内轮式机器人
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <!-- features -->
     <Features4
     columns={2}
     isBeforeContent={true}
-    title="ADORA2 Mini"
-    subtitle="经济型室内轮式机器人"
+    title="产品特点"
+    subtitle="ADORA 2 Mini 的核心优势"
     items={[
       {
         title: '经济便捷的机器人平台',
         description:
-          'ADORA2 Mini机器人采用经济型设计，搭载便捷灵活的的底盘，适用于多种室内环境，方便用户进行机器人数据采集、研究与教学实践。',
+          'ADORA 2 Mini机器人采用经济型设计，搭载便捷灵活的的底盘，适用于多种室内环境，方便用户进行机器人数据采集、研究与教学实践。',
         icon: '',
         image: {
           src: adora1minifeature1,
@@ -36,7 +57,7 @@ const metadata = {
       {
         title: '高效精细动作数据采集',
         description:
-          'ADORA2 Mini机器人搭配低成本高精度机械臂和直观的数据采集工具，适用于进行批量数据采集的工作，包括家庭生活、科研学习、工厂生产等各种场景。',
+          'ADORA 2 Mini机器人搭配低成本高精度机械臂和直观的数据采集工具，适用于进行批量数据采集的工作，包括家庭生活、科研学习、工厂生产等各种场景。',
         icon: '',
         image: {
           src: adora1minifeature2,
@@ -71,7 +92,7 @@ const metadata = {
     columns={2}
     isBeforeContent={true}
     title="应用场景"
-    subtitle="ADORA2 Mini的应用场景"
+    subtitle="ADORA 2 Mini的应用场景"
     items={[
       {
         title: '数据采集',
@@ -118,7 +139,7 @@ const metadata = {
   
   <!-- 参数规格 -->
   <ParameterTable 
-    title="Adora2 Mini参数规格"
+    title="Adora 2 Mini参数规格"
     subtitle="主要的软件和硬件参数"
 
     MyTableHeads = {[

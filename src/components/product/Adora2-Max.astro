@@ -1,79 +1,19 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
+import ProductCard from './ProductCard.astro';
 import adora2max from '~/assets/images/product/adora2-max/adora-2-max-white.png';
-import Hero from '~/components/widgets/Hero.astro';
-//import { getPermalink } from '~/utils/permalinks';
-//import Button from '~/components/ui/Button.astro';
 ---
 
-<div class="grid sm:grid-cols-2 gap-10 mx-auto mt-2 pt-20 pb-16">
-  <div class="relative order-1 sm:order-1">
-    <Image
-      format="avif"
-      src={adora2max}
-      alt="Adora2 Max"
-      loading="lazy"
-    />
-  </div>
-
-  <div class="place-self-center order-2 sm:order-2 px-6 sm:px-0">
-    <h3 class="text-2xl text-center md:text-start text-gray-800 tracking-tight -mt-2">
-      <span class="text-gray-600"><strong>ADORA2 Max</strong></span>
-      {' '}
-    </h3>
-    <p class="text-lg max-w-sm mt-4 leading-relaxed text-slate-500">
-     四轮升降臂机器人ADORA2 MAX是基于Dora-rs开源机器人中间件自研的通用型移动式机器人，搭载了6或7自由度智能机械臂、多路视觉传感器、激光雷达、移动底盘等组件，主要用于室内具身智能机器人数据采集、自动化应用部署及智能化任务执行。作为一个经济型机器人平台，特别适用于教育科研机构、企事业单位的机器人相关研究、AI算法验证以及教学培训实践。
-
-    </p>
-    <ul class="grid mt-4 text-left gap-y-4">
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">升降臂使用场景更宽广</span>
-      </li>
-
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">高效精细动作数据采集</span>
-      </li>
-
-      <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">语音和视频多模态交互</span>
-      </li>
-            <li class="flex items-center gap-3 text-slate-800">
-        <Icon name="ph:check-circle-fill" class="w-5 h-5" />
-
-        <span class="text-slate-600">具身智能科研生态支持</span>
-      </li>
-    </ul>
-  <!-- Add button
-    <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade pt-5">
-     <Button
-      variant="primary"
-      text="了解更多"
-      href="/product-adora2-max"
-      icon="tabler:arrow-right"
-      type="button"
-      class="w-auto sm:mb-0 shadow-none  bg-blue-500 hover:bg-indigo-500 focus:outline-none"
-     >
-     </Button>
-    </div>
- -->
-    <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: '了解更多',
-        //text: 'Get Yours',
-        href: '/product-adora2-max',
-        icon: 'tabler:arrow-right',
-        class: 'bg-yellow-200 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded', // Add Tailwind CSS classes here
-      },
-    ]}
-    </Hero>
-  </div>
-</div>
+<ProductCard
+  image={adora2max}
+  imageAlt="Adora 2 Max"
+  title="ADORA 2 Max"
+  description="四轮升降臂机器人ADORA 2 MAX是基于Dora-rs开源机器人中间件自研的通用型移动式机器人，搭载了6或7自由度智能机械臂、多路视觉传感器、激光雷达、移动底盘等组件，主要用于室内具身智能机器人数据采集、自动化应用部署及智能化任务执行。"
+  features={[
+    { text: '升降臂使用场景更宽广', icon: 'lift' },
+    { text: '高效精细动作数据采集', icon: 'data' },
+    { text: '语音和视频多模态交互', icon: 'multimodal' },
+    { text: '具身智能科研生态支持', icon: 'ecosystem' },
+  ]}
+  ctaLink="/product-adora2-max"
+  imagePosition="left"
+/>
