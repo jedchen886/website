@@ -1,0 +1,67 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Features5 from '~/components/widgets/Features5.astro';
+import wechatQRCode from '~/assets/images/wechat-qrcode.png';
+
+const metadata = {
+  title: 'Customer Service',
+};
+---
+
+<Layout metadata={metadata}>
+    <Features5
+    id="customer-service"
+    columns={3}
+    isDark={false}
+    isBeforeContent={true}
+    title="Customer Service"
+    subtitle="Welcome to Adora Intelligent Customer Service. Xinxun Intelligence provides 24/7 diversified support plans and expert services to address your pre-sales and after-sales inquiries."
+    items={[
+      {
+        title: 'WeChat',
+        description: 'Add WeChat contact: nhuang',
+        icon: 'tabler:brand-wechat',
+      },
+      {
+        title: 'Email',
+        description: 'nhuang@dora-rs.org',
+        icon: 'tabler:mail',
+      },
+    ]}
+  />
+
+  <Features5
+    id="social-media"
+    columns={4}
+    isDark={false}
+    isBeforeContent={true}
+    title="Social Media"
+    subtitle=""
+    items={[
+      {
+        title: 'WeChat Official Account',
+        description: 'Scan to follow our WeChat Official Account:',
+        icon: 'tabler:brand-wechat',
+        image: {
+          src: wechatQRCode,
+          alt: 'WeChat QR Code'
+        },
+      },
+      {
+        title: 'YouTube',
+        description: 'Coming soon',
+        icon: 'tabler:brand-youtube',
+      },
+      {
+        title: 'Twitter/X',
+        description: 'Coming soon',
+        icon: 'tabler:brand-x',
+      },
+      {
+        title: 'GitHub',
+        description: 'Coming soon',
+        icon: 'tabler:brand-github',
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,861 @@
+/* ========================= Navigation Styles (Beijing2025 Style) ========================= */
+
+/* Logo Wrapper - toggle between white and dark logos */
+.logo-wrapper {
+  position: relative;
+  display: block;
+}
+
+.logo-wrapper .logo-asset {
+  display: block;
+  width: auto;
+  transition: opacity var(--nav-animation-primary);
+}
+
+.logo-wrapper .logo-asset--default {
+  opacity: 1;
+}
+
+.logo-wrapper .logo-asset--dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* Show dark logo when scrolled (nav has light background) */
+[data-scrolling-started="true"] .logo-wrapper .logo-asset--default {
+  opacity: 0;
+}
+
+[data-scrolling-started="true"] .logo-wrapper .logo-asset--dark {
+  opacity: 1;
+}
+
+/* Pages with light default theme (no hero) - show dark logo by default */
+[data-nav-default-theme="light"] .logo-wrapper .logo-asset--default {
+  opacity: 0;
+}
+
+[data-nav-default-theme="light"] .logo-wrapper .logo-asset--dark {
+  opacity: 1;
+}
+
+/* In dark mode, always show white logo */
+.dark .logo-wrapper .logo-asset--default {
+  opacity: 1;
+}
+
+.dark .logo-wrapper .logo-asset--dark {
+  opacity: 0;
+}
+
+/* Mobile nav always uses dark background, so show white logo */
+.mobile-nav-box .logo-wrapper .logo-asset--default {
+  opacity: 1;
+}
+
+.mobile-nav-box .logo-wrapper .logo-asset--dark {
+  opacity: 0;
+}
+
+/* ========================= Main Navigation Bar ========================= */
+
+.main-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--nav-row-gap) var(--nav-container-padding);
+  pointer-events: all;
+  transform: translateY(0%) rotate(0.001deg);
+  transition: transform var(--nav-animation-nav-smooth);
+  z-index: 200;
+}
+
+.main-nav-bar .nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.main-nav-bar .nav-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--nav-color-light);
+  transition: background-color var(--nav-animation-primary), opacity var(--nav-animation-primary);
+  z-index: -1;
+}
+
+.main-nav-bar .border-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--nav-color-border);
+  transition: background-color var(--nav-animation-primary), opacity var(--nav-animation-primary);
+}
+
+/* Hide nav-fill and border when mobile menu is active */
+[data-navigation-status="active"] .main-nav-bar .nav-fill,
+[data-navigation-status="active"] .main-nav-bar .border-bottom {
+  opacity: 0 !important;
+  transition: none;
+}
+
+/* Not scrolled - transparent background */
+[data-scrolling-started="false"] .main-nav-bar .nav-fill {
+  opacity: 0;
+}
+
+[data-scrolling-started="false"] .main-nav-bar .border-bottom {
+  opacity: 0;
+}
+
+/* Scrolled - show background */
+[data-scrolling-started="true"] .main-nav-bar .nav-fill {
+  opacity: 1;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Hide on scroll down */
+[data-scrolling-started="true"][data-scrolling-direction="down"] .main-nav-bar {
+  transform: translateY(calc(-100% - 2px)) rotate(0.001deg);
+}
+
+/* Dark theme nav */
+.dark .main-nav-bar .nav-fill,
+[data-theme-nav="dark"] .main-nav-bar .nav-fill {
+  background-color: var(--nav-color-dark);
+}
+
+.dark .main-nav-bar .border-bottom,
+[data-theme-nav="dark"] .main-nav-bar .border-bottom {
+  background-color: var(--nav-color-border-light);
+}
+
+[data-scrolling-started="true"] .dark .main-nav-bar .nav-fill {
+  background-color: rgba(28, 29, 36, 0.9);
+}
+
+/* ========================= Desktop Navigation ========================= */
+
+.main-nav-bar .desktop-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.main-nav-bar .desktop-nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: calc(var(--nav-col-gap) * 1.2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav-bar .desktop-nav li {
+  position: relative;
+}
+
+/* Nav Links with animated underline */
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.25em 0;
+}
+
+.nav-link .link-click {
+  position: relative;
+  padding: 0.25em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.nav-link .link-click span {
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--nav-color-white);
+  display: block;
+  position: relative;
+  font-weight: 500;
+  transition: color var(--nav-animation-primary);
+}
+
+/* When scrolled, use dark text on light background */
+[data-scrolling-started="true"] .nav-link .link-click span {
+  color: var(--nav-color-dark);
+}
+
+/* Pages with light default theme - use dark text by default */
+[data-nav-default-theme="light"] .nav-link .link-click span {
+  color: var(--nav-color-dark);
+}
+
+/* In dark mode, always use white text */
+.dark .nav-link .link-click span,
+[data-theme-nav="dark"] .nav-link .link-click span {
+  color: var(--nav-color-white);
+}
+
+/* Dropdown arrow */
+.nav-link .dropdown-arrow {
+  width: 10px;
+  height: 6px;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+.nav-link .dropdown-arrow path {
+  stroke: var(--nav-color-white);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: stroke var(--nav-animation-primary);
+}
+
+/* When scrolled, use dark arrow */
+[data-scrolling-started="true"] .nav-link .dropdown-arrow path {
+  stroke: var(--nav-color-dark);
+}
+
+/* Pages with light default theme - use dark arrow by default */
+[data-nav-default-theme="light"] .nav-link .dropdown-arrow path {
+  stroke: var(--nav-color-dark);
+}
+
+/* In dark mode, always use white arrow */
+.dark .nav-link .dropdown-arrow path {
+  stroke: var(--nav-color-white);
+}
+
+/* ========================= Dropdown Menu ========================= */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown .sub-links {
+  position: absolute;
+  top: 100%;
+  left: -1rem;
+  min-width: 200px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  display: block;
+  padding: 8px 0;
+  margin-top: 10px;
+  z-index: 1000;
+  list-style: none;
+}
+
+.nav-dropdown .sub-links::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
+.nav-dropdown:hover .sub-links,
+.nav-dropdown:focus-within .sub-links {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown .sub-links li {
+  padding: 0;
+}
+
+.nav-dropdown .sub-links li a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--nav-color-dark);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-dropdown .sub-links li a:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--nav-color-primary);
+}
+
+.dark .nav-dropdown .sub-links {
+  background-color: rgba(28, 29, 36, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.dark .nav-dropdown .sub-links li a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dark .nav-dropdown .sub-links li a:hover {
+  background: rgba(59, 130, 246, 0.2);
+  color: #5b9eff;
+}
+
+/* ========================= Horizontal Dropdown Menu ========================= */
+
+.nav-dropdown-horizontal .sub-links-horizontal {
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: row;
+  min-width: auto;
+  width: max-content;
+  padding: 8px 12px;
+  gap: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-dropdown-horizontal:hover .sub-links-horizontal,
+.nav-dropdown-horizontal:focus-within .sub-links-horizontal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-dropdown-horizontal .sub-links-horizontal li {
+  flex-shrink: 0;
+}
+
+.nav-dropdown-horizontal .sub-links-horizontal li a {
+  padding: 8px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  background: linear-gradient(135deg, rgba(43, 116, 255, 0.05), rgba(0, 200, 150, 0.05));
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.nav-dropdown-horizontal .sub-links-horizontal li a:hover {
+  background: linear-gradient(135deg, rgba(43, 116, 255, 0.15), rgba(0, 200, 150, 0.1));
+  border-color: rgba(43, 116, 255, 0.2);
+  color: var(--nav-color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(43, 116, 255, 0.15);
+}
+
+.dark .nav-dropdown-horizontal .sub-links-horizontal li a {
+  background: linear-gradient(135deg, rgba(43, 116, 255, 0.1), rgba(0, 200, 150, 0.08));
+}
+
+.dark .nav-dropdown-horizontal .sub-links-horizontal li a:hover {
+  background: linear-gradient(135deg, rgba(43, 116, 255, 0.25), rgba(0, 200, 150, 0.15));
+  border-color: rgba(43, 116, 255, 0.3);
+}
+
+/* ========================= CTA Button in Nav ========================= */
+
+.nav-cta-btn {
+  position: relative;
+  border: 0;
+  outline: 0;
+  border-radius: var(--nav-border-radius);
+  text-align: center;
+  overflow: hidden;
+}
+
+.nav-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.nav-cta-btn:hover::before {
+  left: 100%;
+}
+
+.nav-cta-btn .btn-click {
+  cursor: pointer;
+  background-color: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: var(--nav-btn-height);
+  border-radius: var(--nav-border-radius);
+  text-decoration: none;
+}
+
+.nav-cta-btn .btn-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.2em;
+  height: 100%;
+  border-radius: var(--nav-border-radius);
+  line-height: 1.3;
+}
+
+.nav-cta-btn .btn-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: var(--nav-border-radius);
+  background: linear-gradient(135deg, var(--nav-color-primary), #00c896);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  transition: background-position 0.6s ease;
+}
+
+.nav-cta-btn:hover .btn-fill {
+  background-position: 100% 50%;
+}
+
+.nav-cta-btn .btn-content span {
+  font-size: 0.85em;
+  color: #ffffff;
+  display: block;
+  position: relative;
+  font-weight: 500;
+}
+
+.nav-cta-btn .border-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--nav-border-radius);
+  border: 1px solid var(--nav-color-border);
+  pointer-events: none;
+  transition: opacity 0.1s ease-in-out 0.1s;
+}
+
+.nav-cta-btn.outline .btn-fill {
+  background: transparent;
+}
+
+.nav-cta-btn.outline .btn-content span {
+  color: var(--nav-color-white);
+}
+
+.nav-cta-btn.outline .border-box {
+  border-color: var(--nav-color-border-light);
+}
+
+/* When scrolled, use dark colors */
+[data-scrolling-started="true"] .nav-cta-btn.outline .btn-content span {
+  color: var(--nav-color-dark);
+}
+
+[data-scrolling-started="true"] .nav-cta-btn.outline .border-box {
+  border-color: var(--nav-color-border);
+}
+
+/* Pages with light default theme - use dark colors by default */
+[data-nav-default-theme="light"] .nav-cta-btn.outline .btn-content span {
+  color: var(--nav-color-dark);
+}
+
+[data-nav-default-theme="light"] .nav-cta-btn.outline .border-box {
+  border-color: var(--nav-color-border);
+}
+
+/* In dark mode, always use white */
+.dark .nav-cta-btn.outline .btn-content span {
+  color: var(--nav-color-white);
+}
+
+.dark .nav-cta-btn.outline .border-box {
+  border-color: var(--nav-color-border-light);
+}
+
+/* ========================= Nav Actions (CTA + Language Switcher) ========================= */
+
+.nav-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+}
+
+/* ========================= Language Switcher ========================= */
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4em 0.9em;
+  border-radius: var(--nav-border-radius);
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--nav-color-white);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all var(--nav-animation-primary);
+  text-decoration: none;
+  margin-right: 0.75em;
+}
+
+/* Small language switcher - beside CTA button */
+.lang-switcher-small {
+  padding: 0.25em 0.6em;
+  font-size: 0.75em;
+  margin: 0;
+  border-radius: 6px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.lang-switcher-small:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Scrolled state for small switcher */
+[data-scrolling-started="true"] .lang-switcher-small {
+  color: var(--nav-color-dark);
+  background: transparent;
+  border-color: rgba(43, 116, 255, 0.3);
+}
+
+[data-scrolling-started="true"] .lang-switcher-small:hover {
+  background: rgba(43, 116, 255, 0.1);
+  border-color: rgba(43, 116, 255, 0.5);
+}
+
+/* Pages with light default theme for small switcher */
+[data-nav-default-theme="light"] .lang-switcher-small {
+  color: var(--nav-color-dark);
+  background: transparent;
+  border-color: rgba(43, 116, 255, 0.3);
+}
+
+[data-nav-default-theme="light"] .lang-switcher-small:hover {
+  background: rgba(43, 116, 255, 0.1);
+  border-color: rgba(43, 116, 255, 0.5);
+}
+
+/* Dark mode for small switcher */
+.dark .lang-switcher-small {
+  color: var(--nav-color-white);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark .lang-switcher-small:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.lang-switcher:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Scrolled state - dark text */
+[data-scrolling-started="true"] .lang-switcher:not(.lang-switcher-small) {
+  color: var(--nav-color-dark);
+  background: rgba(43, 116, 255, 0.1);
+  border-color: rgba(43, 116, 255, 0.25);
+}
+
+[data-scrolling-started="true"] .lang-switcher:not(.lang-switcher-small):hover {
+  background: rgba(43, 116, 255, 0.2);
+  border-color: rgba(43, 116, 255, 0.4);
+}
+
+/* Pages with light default theme */
+[data-nav-default-theme="light"] .lang-switcher:not(.lang-switcher-small) {
+  color: var(--nav-color-dark);
+  background: rgba(43, 116, 255, 0.1);
+  border-color: rgba(43, 116, 255, 0.25);
+}
+
+[data-nav-default-theme="light"] .lang-switcher:not(.lang-switcher-small):hover {
+  background: rgba(43, 116, 255, 0.2);
+  border-color: rgba(43, 116, 255, 0.4);
+}
+
+/* Dark mode */
+.dark .lang-switcher:not(.lang-switcher-small) {
+  color: var(--nav-color-white);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Mobile language switcher */
+.lang-switcher-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75em 1.5em;
+  border-radius: var(--nav-border-radius);
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--nav-color-dark);
+  background: rgba(43, 116, 255, 0.1);
+  border: 1px solid rgba(43, 116, 255, 0.25);
+  transition: all var(--nav-animation-primary);
+  text-decoration: none;
+  margin-bottom: 0.75em;
+}
+
+.lang-switcher-mobile:hover {
+  background: rgba(43, 116, 255, 0.2);
+  border-color: rgba(43, 116, 255, 0.4);
+}
+
+.dark .lang-switcher-mobile {
+  color: var(--nav-color-white);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ========================= Mobile Navigation ========================= */
+
+/* Hamburger button - hidden on desktop */
+.hamburger {
+  display: none;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+}
+
+/* Mobile breakpoint */
+@media screen and (max-width: 930px) {
+  .main-nav-bar .desktop-nav {
+    display: none;
+  }
+
+  .main-nav-bar .nav-actions {
+    display: none;
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: flex;
+    gap: 0.25em;
+    width: calc(var(--nav-btn-height) * 1);
+    height: calc(var(--nav-btn-height) * 1);
+    border-radius: var(--nav-border-radius);
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    z-index: 300;
+  }
+
+  .hamburger .hamburger-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--nav-border-radius);
+    background-color: var(--nav-color-primary);
+    transition: background-color var(--nav-animation-primary);
+  }
+
+  .hamburger .bar {
+    position: absolute;
+    width: 35%;
+    height: 2px;
+    background-color: var(--nav-color-white);
+    transform: translateY(-0.15em) rotate(0.001deg);
+    transition: transform var(--nav-animation-primary), background-color var(--nav-animation-primary);
+  }
+
+  .hamburger .bar-bottom {
+    transform: translateY(0.15em) rotate(0.001deg);
+  }
+
+  /* Active state */
+  [data-navigation-status="active"] .hamburger .bar {
+    transform: translateY(0) rotate(45deg);
+    background-color: var(--nav-color-white);
+  }
+
+  [data-navigation-status="active"] .hamburger .bar-bottom {
+    transform: translateY(0) rotate(-45deg);
+  }
+
+  [data-navigation-status="active"] .hamburger .hamburger-fill {
+    background-color: var(--nav-color-dark);
+  }
+
+  /* Mobile Nav Panel */
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    align-items: flex-start;
+    z-index: 250;
+  }
+
+  [data-navigation-status="active"] .mobile-nav {
+    pointer-events: all;
+  }
+
+  .mobile-nav .overlay-dark {
+    display: none;
+  }
+
+  [data-navigation-status="active"] .mobile-nav .overlay-dark {
+    display: none;
+  }
+
+  .mobile-nav-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--nav-color-light-tint);
+    z-index: 2;
+    position: relative;
+    transform: translateY(-100%) rotate(0.001deg);
+    transition: var(--nav-animation-smooth);
+    padding: 15vh var(--nav-container-padding) 10vh var(--nav-container-padding);
+    gap: 3vh;
+  }
+
+  .dark .mobile-nav-box {
+    background-color: var(--nav-color-dark);
+  }
+
+  [data-navigation-status="active"] .mobile-nav-box {
+    transform: translateY(0%) rotate(0.001deg);
+  }
+
+  .mobile-nav-box .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .mobile-nav-box .mobile-nav-links li {
+    width: 100%;
+  }
+
+  .mobile-nav-box .mobile-nav-links .nav-link .link-click {
+    padding: 1vh 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mobile-nav-box .mobile-nav-links .nav-link .link-click span {
+    color: var(--nav-color-dark);
+    font-size: min(5vw, 1.5em);
+    font-weight: 600;
+  }
+
+  .dark .mobile-nav-box .mobile-nav-links .nav-link .link-click span {
+    color: var(--nav-color-white);
+  }
+
+  .mobile-nav-box .mobile-nav-links .nav-link .link-click::before {
+    display: none;
+  }
+
+  /* Mobile dropdown */
+  .mobile-nav-box .nav-dropdown .sub-links {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .mobile-nav-box .nav-dropdown.active .sub-links {
+    max-height: 500px;
+  }
+
+  .mobile-nav-box .nav-dropdown .sub-links li a {
+    padding: 12px 20px;
+    color: var(--nav-color-dark);
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .dark .mobile-nav-box .nav-dropdown .sub-links li a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .mobile-nav-box .nav-dropdown .sub-links li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--nav-color-primary);
+  }
+
+  .mobile-nav-box .nav-cta-btn {
+    margin-top: 2vh;
+  }
+
+  /* Floating hamburger on scroll */
+  .btn-floating.hamburger {
+    position: fixed;
+    right: var(--nav-container-padding);
+    top: var(--nav-container-padding);
+    transform: translateY(0%) scale(0.5) rotate(0.001deg);
+    transition: all var(--nav-animation-nav-smooth);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 300;
+  }
+
+  [data-scrolling-started="true"][data-scrolling-direction="down"] .btn-floating.hamburger,
+  [data-navigation-status="active"] .btn-floating.hamburger {
+    transform: translateY(0%) scale(1) rotate(0.001deg);
+    opacity: 1;
+    pointer-events: all;
+  }
+}

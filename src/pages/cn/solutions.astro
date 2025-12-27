@@ -1,0 +1,319 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import industrysolution1 from '~/assets/images/industrysolutions/medicalsolution1.png';
+import industrysolution2 from '~/assets/images/industrysolutions/medicalsolution2.png';
+
+const metadata = {
+  title: '行业方案',
+};
+
+const solutions = [
+  {
+    title: '医疗行业应用',
+    subtitle: 'Adora 2 Max用于医院导诊',
+    image: industrysolution1,
+    imageAlt: 'Adora 2 Max医疗应用场景',
+    features: [
+      {
+        title: '全国首款用于临床导诊的具身智能机器人',
+        description: '诊疗软件由名校重量级团队研发，可以为排队看病的患者提供预诊服务，同时完成步态、肌肉力量等一部分检查项目，随后对问诊和检查信息进行多模态分析，形成辅助诊断建议并发送给医生。',
+        icon: 'robot',
+      },
+      {
+        title: '预诊效率高可扩展性强',
+        description: '机器人助手每天可完成60名以上患者预诊，能提升医生诊疗效率，降低工作强度，同时增加患者临床评估的维度，保障诊疗质量，就诊体验会更好。在当前硬件基础上，还可以为很多医学亚学科和临床方向开发不同的智能体。',
+        icon: 'medical',
+      },
+    ],
+  },
+  {
+    title: '竞技体育应用',
+    subtitle: 'Adora 2 Pro参加世界机器人运动会',
+    image: industrysolution2,
+    imageAlt: 'Adora 2 Pro参加世界机器人运动会',
+    features: [
+      {
+        title: '参加首届世界机器人运动会',
+        description: '2025年世界人形机器人运动会是全球首个以人形机器人为主的综合性赛事，由中国北京市政府联合多家机构主办，包含竞技赛、表演赛和场景赛三大类26个项目。三支队伍使用Adora 2 Pro参加了开幕式和药品分拣等比赛项目，并取得较好成绩。',
+        icon: 'robot',
+      },
+      {
+        title: '经受赛事考验持续优化改进',
+        description: 'Adora 2 Pro机器人在赛事中表现出色，经受住多轮比赛的考验；同时在比赛及同行交流中也发现不少缺点和不足，后续将不断进行优化和改进，提升性能和稳定性。',
+        icon: 'run',
+      },
+    ],
+  },
+];
+
+// SVG icons
+const icons: Record<string, string> = {
+  robot: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="3"/><path d="M12 8v3"/><path d="M8 16h.01"/><path d="M16 16h.01"/></svg>`,
+  medical: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/><path d="M12 8v8M8 12h8"/></svg>`,
+  run: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="2"/><path d="M10 22l-2-4-4-1 3-3 .5-4.5L10 10l4 2 4-3-.5 4 3 3-4 1-2 4.5"/></svg>`,
+};
+---
+
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero Section -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full min-h-[50vh] bg-gradient-to-br from-slate-700 via-purple-600 to-emerald-600 overflow-hidden">
+      <!-- Industry/Solutions-themed large SVG illustration -->
+      <div class="absolute inset-0 z-0 opacity-25">
+        <svg class="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- Large gear system - left side -->
+          <g fill="none" stroke="#ffffff" stroke-width="2" transform="translate(30, 120)">
+            <!-- Main large gear -->
+            <circle cx="120" cy="120" r="100" opacity="0.4"/>
+            <circle cx="120" cy="120" r="75" opacity="0.3"/>
+            <circle cx="120" cy="120" r="35" opacity="0.5"/>
+            <circle cx="120" cy="120" r="15" fill="#ffffff" opacity="0.15"/>
+            <!-- Gear teeth -->
+            <path d="M120 15 L130 30 L110 30 Z" fill="#ffffff" opacity="0.3"/>
+            <path d="M120 225 L110 210 L130 210 Z" fill="#ffffff" opacity="0.3"/>
+            <path d="M15 120 L30 110 L30 130 Z" fill="#ffffff" opacity="0.3"/>
+            <path d="M225 120 L210 130 L210 110 Z" fill="#ffffff" opacity="0.3"/>
+            <path d="M45 45 L65 55 L55 65 Z" fill="#ffffff" opacity="0.3"/>
+            <path d="M195 195 L175 185 L185 175 Z" fill="#ffffff" opacity="0.3"/>
+            <path d="M195 45 L185 65 L175 55 Z" fill="#ffffff" opacity="0.3"/>
+            <path d="M45 195 L55 175 L65 185 Z" fill="#ffffff" opacity="0.3"/>
+            <!-- Connected smaller gear -->
+            <circle cx="250" cy="60" r="50" opacity="0.35"/>
+            <circle cx="250" cy="60" r="35" opacity="0.25"/>
+            <circle cx="250" cy="60" r="15" opacity="0.4"/>
+          </g>
+
+          <!-- Robot arm illustration - center -->
+          <g fill="none" stroke="#ffffff" stroke-width="2.5" transform="translate(450, 80)">
+            <!-- Base -->
+            <rect x="60" y="380" width="120" height="40" rx="8" fill="#ffffff" opacity="0.1"/>
+            <rect x="90" y="340" width="60" height="50" rx="6" opacity="0.5"/>
+            <!-- Arm segments -->
+            <path d="M120 340 L120 260 Q120 240 140 240 L200 200" stroke-width="3" opacity="0.5"/>
+            <path d="M200 200 L280 140" stroke-width="3" opacity="0.45"/>
+            <path d="M280 140 L320 100" stroke-width="2.5" opacity="0.4"/>
+            <!-- Joints -->
+            <circle cx="120" cy="280" r="18" fill="#ffffff" opacity="0.15"/>
+            <circle cx="120" cy="280" r="10" opacity="0.4"/>
+            <circle cx="200" cy="200" r="15" fill="#ffffff" opacity="0.15"/>
+            <circle cx="200" cy="200" r="8" opacity="0.4"/>
+            <circle cx="280" cy="140" r="12" fill="#ffffff" opacity="0.15"/>
+            <circle cx="280" cy="140" r="6" opacity="0.4"/>
+            <!-- End effector/gripper -->
+            <path d="M320 100 L340 80 M320 100 L340 120 M340 80 L355 75 M340 120 L355 125" stroke-width="2" opacity="0.5"/>
+            <circle cx="320" cy="100" r="10" fill="#ffffff" opacity="0.2"/>
+          </g>
+
+          <!-- Hospital/Medical building - right side -->
+          <g fill="none" stroke="#ffffff" stroke-width="2" transform="translate(850, 150)">
+            <!-- Main building -->
+            <rect x="0" y="100" width="200" height="250" rx="4" opacity="0.4"/>
+            <rect x="200" y="180" width="100" height="170" rx="4" opacity="0.35"/>
+            <!-- Windows -->
+            <rect x="20" y="130" width="35" height="45" rx="3" fill="#ffffff" opacity="0.08"/>
+            <rect x="70" y="130" width="35" height="45" rx="3" fill="#ffffff" opacity="0.08"/>
+            <rect x="120" y="130" width="35" height="45" rx="3" fill="#ffffff" opacity="0.08"/>
+            <rect x="20" y="200" width="35" height="45" rx="3" fill="#ffffff" opacity="0.08"/>
+            <rect x="70" y="200" width="35" height="45" rx="3" fill="#ffffff" opacity="0.08"/>
+            <rect x="120" y="200" width="35" height="45" rx="3" fill="#ffffff" opacity="0.08"/>
+            <rect x="220" y="210" width="30" height="40" rx="3" fill="#ffffff" opacity="0.08"/>
+            <rect x="260" y="210" width="30" height="40" rx="3" fill="#ffffff" opacity="0.08"/>
+            <!-- Medical cross on building -->
+            <rect x="70" y="40" width="60" height="60" rx="6" fill="#ffffff" opacity="0.1"/>
+            <path d="M100 55 L100 85 M85 70 L115 70" stroke-width="4" opacity="0.5"/>
+            <!-- Door -->
+            <rect x="70" y="290" width="60" height="60" rx="4" fill="#ffffff" opacity="0.1"/>
+          </g>
+
+          <!-- Heartbeat/pulse line - bottom -->
+          <g fill="none" stroke="#ffffff" stroke-width="2" transform="translate(100, 480)">
+            <path d="M0 50 L150 50 L170 20 L190 80 L210 10 L230 90 L250 30 L270 50 L500 50" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+
+          <!-- Connection lines/network -->
+          <g fill="none" stroke="#ffffff" stroke-width="1" opacity="0.2">
+            <line x1="280" y1="240" x2="450" y2="280"/>
+            <line x1="770" y1="220" x2="850" y2="250"/>
+            <circle cx="280" cy="240" r="5" fill="#ffffff"/>
+            <circle cx="770" cy="220" r="5" fill="#ffffff"/>
+          </g>
+
+          <!-- Decorative elements -->
+          <circle cx="700" cy="450" r="40" fill="#ffffff" opacity="0.06"/>
+          <circle cx="150" cy="500" r="35" fill="#ffffff" opacity="0.06"/>
+          <circle cx="1050" cy="80" r="30" fill="#ffffff" opacity="0.05"/>
+          <circle cx="400" cy="50" r="25" fill="#ffffff" opacity="0.05"/>
+
+          <!-- Small floating gears -->
+          <g fill="none" stroke="#ffffff" stroke-width="1.5" transform="translate(680, 60)">
+            <circle cx="30" cy="30" r="25" opacity="0.3"/>
+            <circle cx="30" cy="30" r="15" opacity="0.25"/>
+            <circle cx="30" cy="30" r="8" fill="#ffffff" opacity="0.1"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Gradient overlays -->
+      <div class="absolute inset-0 z-[1] bg-gradient-to-r from-purple-600/20 via-transparent to-emerald-500/20"></div>
+      <div class="absolute inset-0 z-[1] bg-gradient-to-t from-slate-900/50 via-transparent to-transparent"></div>
+
+      <!-- Floating decorative elements -->
+      <div class="absolute top-1/4 right-20 w-24 h-24 rounded-full bg-gradient-to-br from-purple-500/30 to-emerald-500/20 blur-2xl z-[1]"></div>
+      <div class="absolute bottom-1/4 left-16 w-36 h-36 rounded-full bg-gradient-to-br from-emerald-500/25 to-purple-500/15 blur-3xl z-[1]"></div>
+
+      <div class="absolute inset-0 z-[2] flex flex-col items-center justify-center pt-20">
+        <div class="text-center px-4">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold mb-6">行业方案</h1>
+          <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">ADORA机器人助力各行业智能化升级</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Sections -->
+  {solutions.map((solution, solutionIndex) => (
+    <section class={`py-16 md:py-24 ${solutionIndex % 2 === 1 ? 'news-section-gradient' : ''}`}>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800">{solution.title}</h2>
+          <p class="text-lg text-slate-600 mt-3">{solution.subtitle}</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+          <!-- Image -->
+          <div class={`${solutionIndex % 2 === 1 ? 'lg:order-2' : ''}`}>
+            <div
+              style="background: linear-gradient(145deg, rgba(192, 132, 252, 0.45) 0%, rgba(245, 235, 255, 1) 40%, rgba(230, 250, 245, 1) 60%, rgba(0, 200, 150, 0.35) 100%); padding: 0.75rem; border-radius: 1.5rem; box-shadow: 0 20px 50px rgba(147, 51, 234, 0.25); transition: all 0.3s ease;"
+              class="solution-image-box"
+            >
+              <Image
+                src={solution.image}
+                alt={solution.imageAlt}
+                class="w-full h-auto rounded-xl"
+                widths={[400, 768]}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+
+          <!-- Features -->
+          <div class={`space-y-6 ${solutionIndex % 2 === 1 ? 'lg:order-1' : ''}`}>
+            {solution.features.map((feature, featureIndex) => (
+              <div class={`solution-card ${featureIndex % 2 === 0 ? 'solution-card-gradient-1' : 'solution-card-gradient-2'}`}>
+                <div class="solution-card-inner">
+                  <div class="flex items-start gap-4">
+                    <div class="solution-icon-box">
+                      <div class="solution-icon" set:html={icons[feature.icon]} />
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold text-gray-800 mb-2">{feature.title}</h3>
+                      <p class="text-slate-600 leading-relaxed">{feature.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- CTA Section -->
+  <section class="section-gradient py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">定制您的行业解决方案</h2>
+      <p class="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+        我们的团队可以根据您的具体需求，提供专业的机器人解决方案
+      </p>
+      <a href="/cn/support#contact" class="cta-btn-gradient">
+        <span>联系我们</span>
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Solution Image Box */
+  .solution-image-box {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: linear-gradient(145deg,
+      rgba(192, 132, 252, 0.15) 0%,
+      rgba(245, 243, 255, 0.5) 50%,
+      rgba(0, 200, 150, 0.1) 100%
+    );
+    padding: 0.75rem;
+    box-shadow: 0 20px 50px rgba(147, 51, 234, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .solution-image-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 60px rgba(147, 51, 234, 0.2);
+  }
+
+  .solution-image-box :global(img) {
+    border-radius: 1rem;
+  }
+
+  /* Solution Card Styles */
+  .solution-card {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .solution-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(147, 51, 234, 0.12);
+  }
+
+  .solution-card-gradient-1 {
+    background: linear-gradient(145deg,
+      rgba(192, 132, 252, 0.35) 0%,
+      rgba(245, 235, 255, 1) 40%,
+      rgba(230, 250, 245, 1) 60%,
+      rgba(0, 200, 150, 0.25) 100%
+    );
+    box-shadow: 0 8px 30px rgba(147, 51, 234, 0.12);
+  }
+
+  .solution-card-gradient-2 {
+    background: linear-gradient(145deg,
+      rgba(0, 200, 150, 0.3) 0%,
+      rgba(230, 250, 245, 1) 40%,
+      rgba(245, 235, 255, 1) 60%,
+      rgba(192, 132, 252, 0.25) 100%
+    );
+    box-shadow: 0 8px 30px rgba(0, 200, 150, 0.12);
+  }
+
+  .solution-card-inner {
+    padding: 1.5rem;
+  }
+
+  .solution-icon-box {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.875rem;
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.9), rgba(0, 200, 150, 0.85));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(147, 51, 234, 0.25);
+    flex-shrink: 0;
+  }
+
+  .solution-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+  }
+
+  .solution-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+</style>

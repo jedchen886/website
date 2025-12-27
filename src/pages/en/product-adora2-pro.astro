@@ -1,0 +1,236 @@
+---
+import Features4 from '~/components/widgets/Features4.astro';
+import ParameterTable from '~/components/widgets/ParameterTable.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import adora2profeature1 from '~/assets/images/product/adora2-pro/adora2-pro-feature1.png';
+import adora2profeature2 from '~/assets/images/product/adora2-pro/adora2-pro-feature2.png';
+import adora2profeature3 from '~/assets/images/product/adora2-pro/adora2-pro-feature3.png';
+import adora2profeature4 from '~/assets/images/product/adora2-pro/adora2-pro-feature4.png';
+import adora2proapply1 from '~/assets/images/product/adora2-pro/adora2-pro-apply1.png';
+import adora2proapply2 from '~/assets/images/product/adora2-pro/adora2-pro-apply2.png';
+import adora2proapply3 from '~/assets/images/product/adora2-pro/adora2-pro-apply3.png';
+import adora2proapply4 from '~/assets/images/product/adora2-pro/adora2-pro-apply4.png';
+
+const metadata = {
+  title: 'Adora 2 Pro Robot',
+};
+---
+
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full">
+      <img
+        src="/images/adora-2-pro-lab-clean.png"
+        alt="ADORA 2 Pro"
+        class="w-full h-auto"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="bg-black/20 backdrop-blur-sm px-8 py-6 rounded-2xl">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold text-center">
+            ADORA 2 Pro
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mt-4 text-center">
+            Three-Wheeled Lifting Universal Mobile Robot
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- features -->
+    <Features4
+    columns={2}
+    isBeforeContent={true}
+    title="Product Features"
+    subtitle="Core advantages of ADORA 2 Pro"
+    items={[
+      {
+        title: 'Compact Three-Wheel Chassis for Flexible Movement',
+        description:
+          'ADORA 2 Pro robot features a small chassis design that provides flexible and convenient movement in relatively narrow indoor spaces.',
+        icon: '',
+        image: {
+          src: adora2profeature1,
+          alt: 'adora2 pro Feature 1'
+        },
+      },
+      {
+        title: 'Four Cameras and LiDAR Equipped',
+        description:
+          'With cameras at both wrist positions, head, and column top (four depth and wide-angle cameras total), plus LiDAR on the chassis, it achieves more precise environmental perception and navigation.',
+        icon: '',
+        image: {
+          src: adora2profeature2,
+          alt: 'adora2 pro Feature 2'
+        },
+      },
+      {
+        title: 'Voice and Video Multimodal Interaction',
+        description:
+          'ADORA 2 Pro robot brain has visual and language understanding capabilities, allowing users to interact naturally and effortlessly through voice or visual commands for seamless communication.',
+        icon: '',
+        image: {
+          src: adora2profeature3,
+          alt: 'adora2 pro Feature 3'
+        },
+      },
+      {
+        title: 'Ideal for Batch Motion Data Collection',
+        description:
+          'ADORA 2 Pro robot paired with low-cost high-precision robotic arms and intuitive data collection tools is suitable for batch data collection work, including household operations, industrial handling and transportation, and more.',
+        icon: '',
+        image: {
+          src: adora2profeature4,
+          alt: 'adora2 pro Feature 4'
+        },
+      },
+    ]}
+  />
+
+  <!-- Apply -->
+    <Features4
+    columns={2}
+    isBeforeContent={true}
+    title="Applications"
+    subtitle="Application scenarios for ADORA 2 Pro"
+    items={[
+      {
+        title: 'Data Collection',
+        description:
+          '',
+        icon: '',
+        image: {
+          src: adora2proapply1,
+          alt: 'adora2 Pro apply1'
+        },
+      },
+      {
+        title: 'Item Sorting',
+        description:
+          '',
+        icon: '',
+        image: {
+          src: adora2proapply2,
+          alt: 'adora2 Pro apply2'
+        },
+      },
+      {
+        title: 'Household Chores',
+        description:
+          '',
+        icon: '',
+        image: {
+          src: adora2proapply3,
+          alt: 'adora2 Pro apply3'
+        },
+      },
+      {
+        title: 'Sports Competitions',
+        description:
+          '',
+        icon: '',
+        image: {
+          src: adora2proapply4,
+          alt: 'adora2 Pro apply4'
+        },
+      },
+    ]}
+  />
+
+  <!-- Specifications -->
+  <ParameterTable
+    title="Adora 2 Pro Specifications"
+    subtitle="Main software and hardware parameters"
+
+    MyTableHeads = {[
+      {
+        tablehead1: "Module",
+        tablehead2: "Item",
+        tablehead3: "Parameter",
+      },
+    ]}
+
+    MyTableCells1 = {[
+	  {
+		 module: "System Parameters",
+		 content: "Product Weight",
+		 parameter: "Approx. 60KG",
+	  },
+	  {
+		 module: "System Parameters",
+		 content: "Product Dimensions",
+		 parameter: "420mm(H) × 520mm(Shoulder Width) × 1500mm(Depth) (excluding arm)",
+	  },
+    {
+		 module: "System Parameters",
+		 content: "Max Speed",
+		 parameter: "1.2m/s",
+	  },
+    {
+		 module: "System Parameters",
+		 content: "Working Duration",
+		 parameter: "2H",
+	  },
+   ]}
+
+   MyTableCells2 = {[
+	  {
+		 module: "Computing Unit",
+		 content: "Mainboard",
+		 parameter: "RK3588/NVIDIA NX/Ascend 310P",
+	  },
+	  {
+		 module: "Computing Unit",
+		 content: "Storage",
+		 parameter: "128GB NVMe SSD",
+	  },
+    {
+		 module: "Computing Unit",
+		 content: "Operating System",
+		 parameter: "Ubuntu/OpenHarmony OS",
+	  },
+    ]}
+
+    MyTableCells3 = {[
+	  {
+		 module: "Vision & Distance Sensors",
+		 content: "Depth Camera",
+		 parameter: "3 units",
+	  },
+	  {
+		 module: "Vision & Distance Sensors",
+		 content: "LiDAR",
+		 parameter: "None",
+	  },
+   ]}
+
+    MyTableCells4 = {[
+	  {
+		 module: "Robotic Arm & End Effector",
+		 content: "Arm Configuration",
+		 parameter: "2 arms / 7 DOF",
+	  },
+	  {
+		 module: "Robotic Arm & End Effector",
+		 content: "Arm Precision",
+		 parameter: "1mm",
+	  },
+    {
+		 module: "Robotic Arm & End Effector",
+		 content: "Arm Working Radius",
+		 parameter: "600mm",
+	  },
+	  {
+		 module: "Robotic Arm & End Effector",
+		 content: "End Effector",
+		 parameter: "Two-finger Gripper",
+	  },
+    {
+		 module: "Robotic Arm & End Effector",
+		 content: "Max Grip Weight",
+		 parameter: "2kg",
+	  },
+   ]}
+  />
+</Layout>

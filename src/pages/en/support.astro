@@ -1,0 +1,420 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import wechatQRCode from '~/assets/images/wechat-qrcode.png';
+
+const metadata = {
+  title: 'Service & Support',
+};
+
+// Contact methods
+const contactMethods = [
+  { title: 'WeChat', description: 'Please add WeChat ID: nhuang', icon: 'wechat' },
+  { title: 'Email', description: 'nhuang@dora-rs.org', icon: 'email' },
+];
+
+// Social media
+const socialMedia = [
+  { title: 'WeChat Official', description: 'Scan to follow', icon: 'wechat', hasQR: true },
+  { title: 'Bilibili', description: 'Coming soon', icon: 'bilibili' },
+  { title: 'YouTube', description: 'Coming soon', icon: 'youtube' },
+  { title: 'Twitter/X', description: 'Coming soon', icon: 'twitter' },
+];
+
+// FAQ items
+const faqItems = [
+  {
+    question: 'Robot does not start after pressing power button?',
+    answer: 'Check the voltage/battery indicator. If it is not lit or shows voltage/battery level in red zone, charge the robot immediately.',
+  },
+  {
+    question: 'Robot cannot be controlled remotely after startup?',
+    answer: 'First check if the remote controller is turned on and connected to the robot, then check if the emergency stop button is released. If everything is normal, check the remote controller mode settings according to the operation manual.',
+  },
+  {
+    question: 'Robot chassis cannot be controlled by host computer?',
+    answer: 'First check if the remote controller is on. Remote controller usually has highest priority. If on, you can turn it off or set the mode switch to middle position for remote brake function while supporting host computer communication.',
+  },
+  {
+    question: 'Robot arm is locked or unresponsive?',
+    answer: 'Check if the robot arm system network is normal by pinging the arm IP. Use the teach pendant software panel to check the issue. Restart the robot arm system and confirm if the problem persists.',
+  },
+  {
+    question: 'Gripper cannot open/close properly?',
+    answer: 'Confirm the robot arm is in normal state. The gripper will automatically self-test by opening/closing within 5 seconds after power on. You can unplug and replug the connector between the arm and gripper to restart the gripper.',
+  },
+  {
+    question: 'Robot battery indicator approaching red zone?',
+    answer: 'When the voltage/battery indicator shows values approaching the red zone, charge the robot as soon as possible.',
+  },
+];
+
+// SVG icons
+const icons: Record<string, string> = {
+  wechat: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348z"/></svg>`,
+  email: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
+  bilibili: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906z"/></svg>`,
+  youtube: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`,
+  twitter: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
+  question: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+  shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  document: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+};
+---
+
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero Section -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full min-h-[50vh] bg-gradient-to-br from-slate-700 via-purple-600 to-emerald-600 overflow-hidden">
+      <!-- Support-themed SVG illustration -->
+      <div class="absolute inset-0 z-0 opacity-20">
+        <svg class="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- Large question mark / help icon - left side -->
+          <g fill="none" stroke="#ffffff" stroke-width="2" transform="translate(80, 100)">
+            <circle cx="100" cy="80" r="60" opacity="0.5"/>
+            <circle cx="100" cy="80" r="40" opacity="0.3"/>
+            <text x="100" y="100" font-size="80" font-weight="bold" fill="#ffffff" text-anchor="middle" opacity="0.6">?</text>
+            <circle cx="100" cy="180" r="15" fill="#ffffff" opacity="0.4"/>
+          </g>
+
+          <!-- Chat bubbles / customer service - center -->
+          <g fill="none" stroke="#ffffff" stroke-width="2" transform="translate(400, 120)">
+            <!-- Main chat bubble -->
+            <path d="M0 80 Q0 0 120 0 L280 0 Q400 0 400 80 L400 160 Q400 240 280 240 L150 240 L100 300 L110 240 L80 240 Q0 240 0 160 Z" opacity="0.5"/>
+            <line x1="40" y1="60" x2="360" y2="60" opacity="0.4"/>
+            <line x1="40" y1="110" x2="300" y2="110" opacity="0.3"/>
+            <line x1="40" y1="160" x2="250" y2="160" opacity="0.4"/>
+            <!-- Small chat bubble -->
+            <path d="M450 180 Q450 120 500 120 L580 120 Q630 120 630 180 L630 220 Q630 280 580 280 L540 280 L520 320 L530 280 L510 280 Q450 280 450 220 Z" opacity="0.35"/>
+            <circle cx="540" cy="170" r="8" fill="#ffffff" opacity="0.3"/>
+          </g>
+
+          <!-- Shield / security icon - right side -->
+          <g fill="none" stroke="#ffffff" stroke-width="2" transform="translate(900, 140)">
+            <path d="M100 0 L200 40 L200 120 Q200 220 100 260 Q0 220 0 120 L0 40 Z" opacity="0.5"/>
+            <path d="M100 40 L160 65 L160 140 Q160 190 100 215 Q40 190 40 140 L40 65 Z" opacity="0.3"/>
+            <path d="M70 120 L90 140 L130 100" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+          </g>
+
+          <!-- Phone / contact icons - bottom left -->
+          <g fill="none" stroke="#ffffff" stroke-width="2" transform="translate(100, 380)">
+            <circle cx="80" cy="60" r="50" opacity="0.4"/>
+            <path d="M60 40 Q60 30 70 30 L90 30 Q100 30 100 40 L100 70 Q100 80 90 80 L80 80" opacity="0.5"/>
+            <circle cx="80" cy="60" r="10" fill="#ffffff" opacity="0.3"/>
+          </g>
+
+          <!-- Email icon - bottom center -->
+          <g fill="none" stroke="#ffffff" stroke-width="2" transform="translate(450, 400)">
+            <rect x="0" y="20" width="160" height="100" rx="10" opacity="0.4"/>
+            <rect x="0" y="20" width="160" height="35" rx="10" fill="#ffffff" opacity="0.15"/>
+            <polyline points="0,55 80,100 160,55" opacity="0.5"/>
+          </g>
+
+          <!-- Social media icons - bottom right -->
+          <g fill="none" stroke="#ffffff" stroke-width="2" transform="translate(850, 380)">
+            <!-- WeChat style -->
+            <circle cx="60" cy="60" r="40" opacity="0.4"/>
+            <circle cx="60" cy="60" r="8" fill="#ffffff" opacity="0.3"/>
+            <circle cx="45" cy="75" r="4" opacity="0.25"/>
+            <circle cx="75" cy="75" r="4" opacity="0.25"/>
+            <!-- TikTok style -->
+            <path d="M20 120 Q20 80 60 80 L100 80 Q140 80 140 120 L140 140 Q140 180 100 180 L60 180 Q20 180 20 140 Z" transform="translate(30, 20)" opacity="0.35"/>
+          </g>
+
+          <!-- Decorative dots -->
+          <circle cx="300" cy="50" r="8" fill="#ffffff" opacity="0.15"/>
+          <circle cx="600" cy="80" r="5" fill="#ffffff" opacity="0.2"/>
+          <circle cx="1050" cy="300" r="6" fill="#ffffff" opacity="0.18"/>
+          <circle cx="150" cy="280" r="4" fill="#ffffff" opacity="0.12"/>
+          <circle cx="750" cy="520" r="7" fill="#ffffff" opacity="0.15"/>
+          <circle cx="1100" cy="480" r="5" fill="#ffffff" opacity="0.2"/>
+        </svg>
+      </div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center pt-20">
+        <div class="text-center px-4">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold mb-6">Service & Support</h1>
+          <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">24/7 diverse support plans and expert services</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Navigation -->
+  <section class="py-8 bg-white/80 backdrop-blur sticky top-[76px] z-40 border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#faq" class="nav-pill">Help Center</a>
+        <a href="#policy" class="nav-pill">Terms & Policies</a>
+        <a href="#contact" class="nav-pill">Customer Service</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-16 md:py-24 news-section-gradient scroll-mt-32">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Help Center</h2>
+        <p class="text-lg text-slate-600 mt-3">Frequently Asked Questions</p>
+      </div>
+
+      <div class="space-y-4">
+        {faqItems.map((item, index) => (
+          <div class="faq-item">
+            <details class="group">
+              <summary class="faq-summary">
+                <div class="flex items-center gap-3">
+                  <span class="faq-number">{index + 1}</span>
+                  <span class="font-semibold text-gray-800">{item.question}</span>
+                </div>
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p class="text-slate-600 leading-relaxed">{item.answer}</p>
+              </div>
+            </details>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Policy Section -->
+  <section id="policy" class="py-16 md:py-24 scroll-mt-32">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Terms & Policies</h2>
+        <p class="text-lg text-slate-600 mt-3">Product acceptance, warranty & privacy policies</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        <div class="support-card support-card-gradient-1">
+          <div class="support-card-inner">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="support-icon-box">
+                <div class="support-icon" set:html={icons.document} />
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">Warranty Policy</h3>
+            </div>
+            <ul class="space-y-2 text-slate-600 text-sm">
+              <li>• 12-month warranty from acceptance date</li>
+              <li>• Covers material, workmanship or manufacturing defects</li>
+              <li>• Damage from abnormal use not covered</li>
+              <li>• Repairs may cause data loss, please backup</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="support-card support-card-gradient-2">
+          <div class="support-card-inner">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="support-icon-box">
+                <div class="support-icon" set:html={icons.shield} />
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">Privacy Policy</h3>
+            </div>
+            <ul class="space-y-2 text-slate-600 text-sm">
+              <li>• We value protecting user personal information</li>
+              <li>• Information collected to provide/improve services</li>
+              <li>• Personal info not shared with third parties</li>
+              <li>• You have rights to access and verify your data</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-text-box p-6">
+        <h4 class="font-bold text-gray-800 mb-4">Not Covered by Free Warranty</h4>
+        <div class="grid md:grid-cols-2 gap-4 text-sm text-slate-600">
+          <ul class="space-y-2">
+            <li>• Improper operation (dropping, liquid immersion, violent use)</li>
+            <li>• Use of non-original accessories</li>
+            <li>• Unauthorized modification, disassembly, or opening</li>
+            <li>• Use not following the manual</li>
+            <li>• Operation in harsh environments</li>
+          </ul>
+          <ul class="space-y-2">
+            <li>• Overloading beyond rated safety capacity</li>
+            <li>• Damage from self-development in developer mode</li>
+            <li>• Use of non-original battery packs</li>
+            <li>• Third-party product compatibility issues</li>
+            <li>• Forced operation when components are aging</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/privacy" class="text-blue-600 hover:text-blue-700 font-medium">
+          View Full Terms & Privacy Policy →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Service Section -->
+  <section id="contact" class="py-16 md:py-24 scroll-mt-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Customer Service</h2>
+        <p class="text-lg text-slate-600 mt-3">Welcome to ADORA Customer Service for pre-sales/after-sales support</p>
+      </div>
+
+      <!-- Contact Methods -->
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        {contactMethods.map((item, index) => (
+          <div class={`support-card ${index % 2 === 0 ? 'support-card-gradient-1' : 'support-card-gradient-2'}`}>
+            <div class="support-card-inner flex items-center gap-5">
+              <div class="support-icon-box">
+                <div class="support-icon" set:html={icons[item.icon]} />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 mb-1">{item.title}</h3>
+                <p class="text-slate-600">{item.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Social Media -->
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-bold text-gray-800">Social Media</h3>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {socialMedia.map((item) => (
+          <div class="product-text-box p-5 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center mx-auto mb-3">
+              <div class="w-6 h-6 text-white" set:html={icons[item.icon]} />
+            </div>
+            <h4 class="font-bold text-gray-800 mb-2">{item.title}</h4>
+            {item.hasQR ? (
+              <Image src={wechatQRCode} alt="WeChat QR Code" class="w-24 h-24 mx-auto rounded-lg" />
+            ) : (
+              <p class="text-sm text-slate-500">{item.description}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-gradient py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Need More Help?</h2>
+      <p class="text-lg text-white/90 mb-8">Our team is ready to support you</p>
+      <a href="mailto:nhuang@dora-rs.org" class="cta-btn-gradient">
+        <span>Send Email Inquiry</span>
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .nav-pill {
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #4b5563;
+    background: linear-gradient(135deg, rgba(43, 116, 255, 0.08), rgba(0, 200, 150, 0.06));
+    border: 1px solid rgba(43, 116, 255, 0.15);
+    transition: all 0.2s ease;
+  }
+  .nav-pill:hover {
+    background: linear-gradient(135deg, rgba(43, 116, 255, 0.15), rgba(0, 200, 150, 0.1));
+    border-color: rgba(43, 116, 255, 0.25);
+    color: #2563eb;
+    transform: translateY(-2px);
+  }
+  .support-card {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .support-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(43, 116, 255, 0.12);
+  }
+  .support-card-gradient-1 {
+    background: linear-gradient(145deg, rgba(43, 116, 255, 0.1) 0%, rgba(239, 246, 255, 0.95) 50%, rgba(0, 200, 150, 0.08) 100%);
+    border: 1px solid rgba(43, 116, 255, 0.15);
+  }
+  .support-card-gradient-2 {
+    background: linear-gradient(145deg, rgba(0, 200, 150, 0.08) 0%, rgba(236, 254, 250, 0.95) 50%, rgba(43, 116, 255, 0.08) 100%);
+    border: 1px solid rgba(0, 200, 150, 0.15);
+  }
+  .support-card-inner {
+    padding: 1.5rem;
+  }
+  .support-icon-box {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(43, 116, 255, 0.9), rgba(0, 200, 150, 0.85));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(43, 116, 255, 0.25);
+    flex-shrink: 0;
+  }
+  .support-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+  }
+  .support-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+  .faq-item {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(43, 116, 255, 0.1);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .faq-item:hover {
+    border-color: rgba(43, 116, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(43, 116, 255, 0.08);
+  }
+  .faq-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    list-style: none;
+  }
+  .faq-summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-number {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(135deg, rgba(43, 116, 255, 0.9), rgba(0, 200, 150, 0.85));
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .faq-arrow {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #9ca3af;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+  details[open] .faq-arrow {
+    transform: rotate(180deg);
+  }
+  .faq-answer {
+    padding: 0 1.25rem 1rem 4rem;
+  }
+</style>

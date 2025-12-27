@@ -1,0 +1,19 @@
+---
+import ProductCard from './ProductCard.astro';
+import adora1mini from '~/assets/images/product/adora1-mini/adora-1-mini-white.png';
+---
+
+<ProductCard
+  image={adora1mini}
+  imageAlt="Adora 1 Mini"
+  title="ADORA 1 Mini"
+  description="ADORA 1 Mini robot comes standard with a lightweight AGV mobile chassis that is compact and flexible, ideal for indoor use. The robotic arm is lightweight and agile with 7 or 6 DOF, capable of complex and delicate operations. Equipped with LiDAR and vision sensors."
+  features={[
+    { text: 'Indoor multimodal intelligent operations', icon: 'ai' },
+    { text: 'Efficient & precise motion data collection', icon: 'data' },
+    { text: 'DORA secondary development support', icon: 'dora' },
+    { text: 'Embodied AI research ecosystem support', icon: 'ecosystem' },
+  ]}
+  ctaLink="/en/product-adora1-mini"
+  imagePosition="right"
+/>

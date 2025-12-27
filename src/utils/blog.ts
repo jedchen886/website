@@ -137,6 +137,23 @@ export const fetchPosts = async (): Promise<Array<Post>> => {
   return _posts;
 };
 
+/** Detect if a post is English based on slug suffix */
+const isEnglishPost = (slug: string): boolean => {
+  return slug.endsWith('-en');
+};
+
+/** Fetch only English posts (slugs ending with -en) */
+export const fetchEnPosts = async (): Promise<Array<Post>> => {
+  const posts = await fetchPosts();
+  return posts.filter((post) => isEnglishPost(post.slug));
+};
+
+/** Fetch only Chinese posts (slugs NOT ending with -en) */
+export const fetchCnPosts = async (): Promise<Array<Post>> => {
+  const posts = await fetchPosts();
+  return posts.filter((post) => !isEnglishPost(post.slug));
+};
+
 /** */
 export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post>> => {
   if (!Array.isArray(slugs)) return [];
@@ -182,10 +199,50 @@ export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateF
   });
 };
 
+/** Get static paths for English blog list */
+export const getStaticPathsBlogListEn = async ({ paginate }: { paginate: PaginateFunction }) => {
+  if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
+  return paginate(await fetchEnPosts(), {
+    params: { blog: BLOG_BASE || undefined },
+    pageSize: blogPostsPerPage,
+  });
+};
+
+/** Get static paths for Chinese blog list */
+export const getStaticPathsBlogListCn = async ({ paginate }: { paginate: PaginateFunction }) => {
+  if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
+  return paginate(await fetchCnPosts(), {
+    params: { blog: BLOG_BASE || undefined },
+    pageSize: blogPostsPerPage,
+  });
+};
+
 /** */
 export const getStaticPathsBlogPost = async () => {
   if (!isBlogEnabled || !isBlogPostRouteEnabled) return [];
   return (await fetchPosts()).flatMap((post) => ({
+    params: {
+      blog: post.permalink,
+    },
+    props: { post },
+  }));
+};
+
+/** Get static paths for English blog posts */
+export const getStaticPathsBlogPostEn = async () => {
+  if (!isBlogEnabled || !isBlogPostRouteEnabled) return [];
+  return (await fetchEnPosts()).flatMap((post) => ({
+    params: {
+      blog: post.permalink,
+    },
+    props: { post },
+  }));
+};
+
+/** Get static paths for Chinese blog posts */
+export const getStaticPathsBlogPostCn = async () => {
+  if (!isBlogEnabled || !isBlogPostRouteEnabled) return [];
+  return (await fetchCnPosts()).flatMap((post) => ({
     params: {
       blog: post.permalink,
     },
@@ -198,6 +255,54 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
   if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
 
   const posts = await fetchPosts();
+  const categories = {};
+  posts.map((post) => {
+    if (post.category?.slug) {
+      categories[post.category?.slug] = post.category;
+    }
+  });
+
+  return Array.from(Object.keys(categories)).flatMap((categorySlug) =>
+    paginate(
+      posts.filter((post) => post.category?.slug && categorySlug === post.category?.slug),
+      {
+        params: { category: categorySlug, blog: CATEGORY_BASE || undefined },
+        pageSize: blogPostsPerPage,
+        props: { category: categories[categorySlug] },
+      }
+    )
+  );
+};
+
+/** Get static paths for English blog categories */
+export const getStaticPathsBlogCategoryEn = async ({ paginate }: { paginate: PaginateFunction }) => {
+  if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
+
+  const posts = await fetchEnPosts();
+  const categories = {};
+  posts.map((post) => {
+    if (post.category?.slug) {
+      categories[post.category?.slug] = post.category;
+    }
+  });
+
+  return Array.from(Object.keys(categories)).flatMap((categorySlug) =>
+    paginate(
+      posts.filter((post) => post.category?.slug && categorySlug === post.category?.slug),
+      {
+        params: { category: categorySlug, blog: CATEGORY_BASE || undefined },
+        pageSize: blogPostsPerPage,
+        props: { category: categories[categorySlug] },
+      }
+    )
+  );
+};
+
+/** Get static paths for Chinese blog categories */
+export const getStaticPathsBlogCategoryCn = async ({ paginate }: { paginate: PaginateFunction }) => {
+  if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
+
+  const posts = await fetchCnPosts();
   const categories = {};
   posts.map((post) => {
     if (post.category?.slug) {
@@ -243,12 +348,68 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
   );
 };
 
+/** Get static paths for English blog tags */
+export const getStaticPathsBlogTagEn = async ({ paginate }: { paginate: PaginateFunction }) => {
+  if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
+
+  const posts = await fetchEnPosts();
+  const tags = {};
+  posts.map((post) => {
+    if (Array.isArray(post.tags)) {
+      post.tags.map((tag) => {
+        tags[tag?.slug] = tag;
+      });
+    }
+  });
+
+  return Array.from(Object.keys(tags)).flatMap((tagSlug) =>
+    paginate(
+      posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem) => elem.slug === tagSlug)),
+      {
+        params: { tag: tagSlug, blog: TAG_BASE || undefined },
+        pageSize: blogPostsPerPage,
+        props: { tag: tags[tagSlug] },
+      }
+    )
+  );
+};
+
+/** Get static paths for Chinese blog tags */
+export const getStaticPathsBlogTagCn = async ({ paginate }: { paginate: PaginateFunction }) => {
+  if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
+
+  const posts = await fetchCnPosts();
+  const tags = {};
+  posts.map((post) => {
+    if (Array.isArray(post.tags)) {
+      post.tags.map((tag) => {
+        tags[tag?.slug] = tag;
+      });
+    }
+  });
+
+  return Array.from(Object.keys(tags)).flatMap((tagSlug) =>
+    paginate(
+      posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem) => elem.slug === tagSlug)),
+      {
+        params: { tag: tagSlug, blog: TAG_BASE || undefined },
+        pageSize: blogPostsPerPage,
+        props: { tag: tags[tagSlug] },
+      }
+    )
+  );
+};
+
 /** */
 export async function getRelatedPosts(originalPost: Post, maxResults: number = 4): Promise<Post[]> {
-  const allPosts = await fetchPosts();
+  // Determine if original post is English (slug ends with -en)
+  const isOriginalEnglish = originalPost.slug.endsWith('-en');
+
+  // Get posts in the same language
+  const sameLangPosts = isOriginalEnglish ? await fetchEnPosts() : await fetchCnPosts();
   const originalTagsSet = new Set(originalPost.tags ? originalPost.tags.map((tag) => tag.slug) : []);
 
-  const postsWithScores = allPosts.reduce((acc: { post: Post; score: number }[], iteratedPost: Post) => {
+  const postsWithScores = sameLangPosts.reduce((acc: { post: Post; score: number }[], iteratedPost: Post) => {
     if (iteratedPost.slug === originalPost.slug) return acc;
 
     let score = 0;

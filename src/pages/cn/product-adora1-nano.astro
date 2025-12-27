@@ -1,0 +1,212 @@
+---
+import ParameterTable from '~/components/widgets/ParameterTable.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import adora1nanofeature1 from '~/assets/images/product/adora1-nano/adora-1-nano-feature1.png';
+import adora1nanofeature2 from '~/assets/images/product/adora1-nano/adora-1-nano-feature2.png';
+import adora1nanoapply1 from '~/assets/images/product/adora1-nano/adora-1-nano-apply1.png';
+import adora1nanoapply2 from '~/assets/images/product/adora1-nano/adora-1-nano-apply2.png';
+import adora1nanoapply3 from '~/assets/images/product/adora1-nano/adora-1-nano-apply3.png';
+import adora1nanoapply4 from '~/assets/images/product/adora1-nano/adora-1-nano-apply4.png';
+
+const metadata = {
+  title: 'Adora 1 Nano机器人',
+};
+
+const features = [
+  {
+    title: '支持完整的AI模型学习',
+    description: 'ADORA 1 Nano内置全套AI训练管线、抓取、视觉模型、开箱即用；配套了AI和机器人学习课程数据采集与训练工具箱，支持完整的AI模型学习',
+    image: adora1nanofeature1,
+    alt: 'ADORA 1 Nano Feature 1'
+  },
+  {
+    title: '开源的硬件设计和代码',
+    description: 'ADORA 1 Nano机器人硬件设计和配套的Dora中间件代码开源，方便用户进行二次开发和定制。',
+    image: adora1nanofeature2,
+    alt: 'ADORA 1 Nano Feature 2'
+  },
+];
+
+const applications = [
+  { title: '具身智能学习', image: adora1nanoapply1, alt: 'ADORA 1 Nano 具身智能学习' },
+  { title: '科研教学', image: adora1nanoapply2, alt: 'ADORA 1 Nano 科研教学' },
+  { title: '展览和竞赛', image: adora1nanoapply3, alt: 'ADORA 1 Nano 展览和竞赛' },
+  { title: '社区生态支持', image: adora1nanoapply4, alt: 'ADORA 1 Nano 社区生态支持' },
+];
+---
+
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full">
+      <img
+        src="/images/adora-1-nano-school-clean.png"
+        alt="ADORA 1 Nano"
+        class="w-full h-auto"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="bg-black/20 backdrop-blur-sm px-8 py-6 rounded-2xl">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold text-center">
+            ADORA 1 Nano
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mt-4 text-center">
+            面向教学的低成本移动抓取机器人
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">产品特点</h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 mt-2">ADORA 1 Nano 的核心优势</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {features.map((feature, index) => (
+          <div class={`product-card-section ${index % 2 === 0 ? 'product-card-gradient' : ''}`}>
+            <div class="p-6 md:p-8">
+              <div class="relative overflow-hidden rounded-xl mb-6">
+                <Image
+                  format="avif"
+                  src={feature.image}
+                  alt={feature.alt}
+                  loading="lazy"
+                  class="w-full h-48 md:h-56 object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <div class="product-text-box">
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">{feature.title}</h3>
+                <p class="text-base text-slate-600 leading-relaxed">{feature.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications Section -->
+  <section class="py-16 md:py-20 news-section-gradient">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">应用场景</h2>
+        <p class="text-lg text-slate-600 mt-2">ADORA 1 Nano的应用场景</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {applications.map((app) => (
+          <div class="group">
+            <div class="product-text-box p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div class="relative overflow-hidden rounded-lg mb-3">
+                <Image
+                  format="avif"
+                  src={app.image}
+                  alt={app.alt}
+                  loading="lazy"
+                  class="w-full h-32 md:h-40 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <h3 class="text-center text-base md:text-lg font-semibold text-gray-800">{app.title}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 参数规格 -->
+  <ParameterTable
+    title="Adora 1 Nano参数规格"
+    subtitle="主要的软件和硬件参数"
+
+    MyTableHeads = {[
+      {
+        tablehead1: "模块",
+        tablehead2: "内容",
+        tablehead3: "参数",
+      },
+    ]}
+
+    MyTableCells1 = {[
+	  {
+		 module: "整机参数",
+		 content: "产品重量",
+		 parameter: "约5KG",
+	  },
+	  {
+		 module: "整机参数",
+		 content: "最大移动速度",
+		 parameter: "1.0m/s",
+	  },
+    {
+		 module: "整机参数",
+		 content: "最大坡度",
+		 parameter: "25°",
+	  },
+    {
+		 module: "整机参数",
+		 content: "工作时长",
+		 parameter: "3H",
+	  },
+   ]}
+
+   MyTableCells2 = {[
+	  {
+		 module: "算力单元",
+		 content: "主板配置",
+		 parameter: "Jetson/昇腾",
+	  },
+    {
+		 module: "算力单元",
+		 content: "操作系统",
+		 parameter: "Ubuntu/开源鸿蒙OS",
+	  },
+    ]}
+
+    MyTableCells3 = {[
+	  {
+		 module: "视觉和距离传感器",
+		 content: "相机",
+		 parameter: "3个",
+	  },
+	  {
+		 module: "视觉和距离传感器",
+		 content: "激光雷达",
+		 parameter: "无",
+	  },
+   ]}
+
+    MyTableCells4 = {[
+	  {
+		 module: "机械臂和末端执行器",
+		 content: "机械臂配置",
+		 parameter: "2只/6自由度",
+	  },
+    {
+		 module: "机械臂和末端执行器",
+		 content: "最大抓握重量",
+		 parameter: "0.2kg",
+	  },
+   ]}
+  />
+
+  <!-- CTA Section -->
+  <section class="section-gradient py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        了解更多关于 ADORA 1 Nano
+      </h2>
+      <p class="text-lg text-white/90 mb-8">
+        联系我们获取详细产品信息和报价
+      </p>
+      <a href="/customer-service" class="cta-btn-gradient">
+        <span>购买与合作</span>
+      </a>
+    </div>
+  </section>
+</Layout>

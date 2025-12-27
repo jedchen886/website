@@ -1,6 +1,5 @@
 ---
 import Logo from '~/components/Logo.astro';
-import { getHomePermalink } from '~/utils/permalinks';
 import { trimSlash } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
 
@@ -39,6 +38,31 @@ const {
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+
+// Language detection and switcher
+const pathname = Astro.url.pathname;
+const isChinesePage = pathname.startsWith('/cn/') || pathname === '/cn' || pathname === '/cn/';
+const isEnglishPage = pathname.startsWith('/en/') || pathname === '/en' || pathname === '/en/';
+
+// Get the path without language prefix for switching
+let pathWithoutLang = '';
+if (pathname.startsWith('/en/')) {
+  pathWithoutLang = pathname.slice(3);
+} else if (pathname.startsWith('/cn/')) {
+  pathWithoutLang = pathname.slice(3);
+}
+
+// Remove trailing slash and ensure proper format
+pathWithoutLang = pathWithoutLang.replace(/\/$/, '');
+if (pathWithoutLang && !pathWithoutLang.startsWith('/')) {
+  pathWithoutLang = '/' + pathWithoutLang;
+}
+
+const langSwitchLink = isEnglishPage ? `/cn${pathWithoutLang}` : `/en${pathWithoutLang}`;
+const langSwitchText = isEnglishPage ? '中文' : 'EN';
+
+// Home link based on language
+const homeLink = isChinesePage ? '/cn' : isEnglishPage ? '/en' : '/cn';
 ---
 
 <!-- Main Navigation Bar -->
@@ -49,7 +73,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   <div class="nav-row">
     <!-- Logo -->
     <div class="logo">
-      <a href={getHomePermalink()} aria-label="Go to homepage" class="logo-click">
+      <a href={homeLink} aria-label="Go to homepage" class="logo-click">
         <Logo />
       </a>
     </div>
@@ -58,8 +82,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     <nav class="desktop-nav" aria-label="Navigation Desktop">
       <ul>
         {
-          links.map(({ text, href, links: subLinks }) => (
-            <li class={subLinks?.length ? 'nav-dropdown' : ''}>
+          links.map(({ text, href, links: subLinks }) => {
+            // Check if this is the "服务与支持" menu for horizontal layout
+            const isHorizontalMenu = text === '服务与支持';
+            return (
+            <li class={`${subLinks?.length ? 'nav-dropdown' : ''} ${isHorizontalMenu ? 'nav-dropdown-horizontal' : ''}`}>
               {subLinks?.length ? (
                 <>
                   <div class="nav-link" data-link-status={href === currentPath ? 'active' : 'not-active'}>
@@ -70,7 +97,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                       </svg>
                     </button>
                   </div>
-                  <ul class="sub-links">
+                  <ul class={`sub-links ${isHorizontalMenu ? 'sub-links-horizontal' : ''}`}>
                     {subLinks.map(({ text: subText, href: subHref }) => (
                       <li>
                         <a href={subHref}>{subText}</a>
@@ -86,13 +113,17 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                 </div>
               )}
             </li>
-          ))
+          )})
         }
       </ul>
     </nav>
 
-    <!-- Desktop Actions (CTA Button) -->
+    <!-- Desktop Actions (Language Switcher + CTA Button) -->
     <div class="nav-actions">
+      <!-- Language Switcher (small, before CTA) -->
+      <a class="lang-switcher lang-switcher-small" href={langSwitchLink}>
+        {langSwitchText}
+      </a>
       {
         actions?.length ? (
           actions.map((btnProps) => (
@@ -124,7 +155,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   <div class="mobile-nav-box">
     <!-- Mobile Logo -->
     <div class="box-row-logo">
-      <a href={getHomePermalink()} aria-label="Go to homepage">
+      <a href={homeLink} aria-label="Go to homepage">
         <Logo />
       </a>
     </div>
@@ -166,18 +197,21 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       </ul>
     </nav>
 
-    <!-- Mobile CTA Button -->
-    {
-      actions?.length ? (
-        <div class="box-row-btn">
-          {actions.map((btnProps) => (
+    <!-- Mobile Language Switcher + CTA Button -->
+    <div class="box-row-btn">
+      <a class="lang-switcher-mobile" href={langSwitchLink}>
+        {langSwitchText}
+      </a>
+      {
+        actions?.length ? (
+          actions.map((btnProps) => (
             <a class="cta-btn-gradient" href={btnProps.href}>
               <span>{btnProps.text}</span>
             </a>
-          ))}
-        </div>
-      ) : null
-    }
+          ))
+        ) : null
+      }
+    </div>
   </div>
 </div>
 

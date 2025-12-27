@@ -1,0 +1,19 @@
+---
+import ProductCard from './ProductCard.astro';
+import adora2mini from '~/assets/images/product/adora2-mini/adora-2-mini-white.png';
+---
+
+<ProductCard
+  image={adora2mini}
+  imageAlt="Adora 2 Mini"
+  title="ADORA 2 Mini"
+  description="ADORA 2 Mini is an economical indoor wheeled robot research, algorithm validation, and educational platform developed based on the Dora open-source robot middleware, supporting embodied AI research, AI algorithm validation, and related educational practices."
+  features={[
+    { text: 'Economical & convenient robot platform', icon: 'lowcost' },
+    { text: 'Efficient & precise motion data collection', icon: 'data' },
+    { text: 'Easy algorithm development & deployment', icon: 'agile' },
+    { text: 'Embodied AI research ecosystem friendly', icon: 'ecosystem' },
+  ]}
+  ctaLink="/en/product-adora2-mini"
+  imagePosition="left"
+/>

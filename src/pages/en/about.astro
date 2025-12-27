@@ -1,0 +1,374 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'About Us',
+};
+
+const companyInfo = [
+  {
+    title: 'Team Nature',
+    description: 'Xinxun Intelligence is an ecosystem company of the DORA open-source robot middleware project. DORA (Dataflow Oriented Robotics Architecture) is an advanced edge-cloud collaborative autonomous driving and robot middleware framework, deeply adapted to domestic Ascend/Rockchip/NVIDIA chips, providing a high-performance dataflow computing platform.',
+    icon: 'team',
+  },
+  {
+    title: 'Core Members',
+    description: 'Team members come from well-known domestic and international universities, maintaining deep cooperation with Tsinghua University, USTC, BUPT, USTB, Chongqing University of Posts and Telecommunications, and organizations like the OpenAtom Foundation. The team is rooted in the DORA middleware community, focusing on embodied intelligent robot development and promotion.',
+    icon: 'members',
+  },
+  {
+    title: 'Robot Products',
+    description: 'The company has launched two series of single and dual-arm four-wheel mobile robots for education and industry, widely used in research, education, campus security, industrial automation, and smart home. Products achieve seamless integration with various operating system ecosystems through DORA middleware.',
+    icon: 'robot',
+  },
+];
+
+const visionItems = [
+  {
+    title: 'Vision',
+    description: 'Build a world-leading open-source robot ecosystem, bringing intelligent robots into homes and businesses as capable assistants for human life and work.',
+    icon: 'vision',
+  },
+  {
+    title: 'Mission',
+    description: 'Through open-source collaboration and technological innovation, lower the barriers to robot development, accelerate the popularization of embodied AI technology, and drive the new era of human-robot collaboration.',
+    icon: 'mission',
+  },
+  {
+    title: 'Culture',
+    description: 'Open, innovative, collaborative, win-win. We believe in the power of open source, encourage technology sharing and community contribution, and jointly build the future of robot technology.',
+    icon: 'culture',
+  },
+];
+
+const locations = [
+  { city: 'Beijing', address: 'Dongsheng Building, Zhongguancun East Road, Haidian District' },
+  { city: 'Liuzhou', address: 'Sunshine 100 City Plaza, Chengzhong District, Guangxi' },
+  { city: 'Chongqing', address: 'Xiantao Data Valley, Yubei District' },
+  { city: 'Shenzhen', address: 'Tianxi No.1, Tongle Road, Luohu District' },
+];
+
+// SVG icons
+const icons: Record<string, string> = {
+  team: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+    <path d="M16 3.13a4 4 0 010 7.75"/>
+  </svg>`,
+  members: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+    <path d="M12 14v7"/>
+  </svg>`,
+  robot: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="11" width="18" height="10" rx="2"/>
+    <circle cx="12" cy="5" r="3"/>
+    <path d="M12 8v3"/>
+    <path d="M8 16h.01"/>
+    <path d="M16 16h.01"/>
+  </svg>`,
+  vision: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <circle cx="12" cy="12" r="6"/>
+    <circle cx="12" cy="12" r="2"/>
+  </svg>`,
+  mission: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+  </svg>`,
+  culture: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+    <path d="M2 17l10 5 10-5"/>
+    <path d="M2 12l10 5 10-5"/>
+  </svg>`,
+  location: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>`,
+};
+---
+
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero Section -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full min-h-[60vh] bg-gradient-to-br from-slate-700 via-purple-600 to-emerald-600 overflow-hidden">
+      <!-- Gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-transparent to-emerald-500/20"></div>
+
+      <!-- Robotic themed SVG background -->
+      <svg class="absolute inset-0 w-full h-full opacity-15" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <!-- Circuit board pattern -->
+        <defs>
+          <pattern id="circuit-en" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+            <!-- Horizontal lines -->
+            <line x1="0" y1="20" x2="40" y2="20" stroke="#2B74FF" stroke-width="1"/>
+            <line x1="60" y1="20" x2="120" y2="20" stroke="#2B74FF" stroke-width="1"/>
+            <circle cx="40" cy="20" r="3" fill="#00C896"/>
+            <circle cx="60" cy="20" r="3" fill="#00C896"/>
+
+            <line x1="0" y1="60" x2="30" y2="60" stroke="#2B74FF" stroke-width="1"/>
+            <line x1="50" y1="60" x2="100" y2="60" stroke="#2B74FF" stroke-width="1"/>
+            <circle cx="30" cy="60" r="3" fill="#00C896"/>
+            <circle cx="50" cy="60" r="3" fill="#00C896"/>
+            <circle cx="100" cy="60" r="3" fill="#00C896"/>
+
+            <line x1="20" y1="100" x2="80" y2="100" stroke="#2B74FF" stroke-width="1"/>
+            <circle cx="20" cy="100" r="3" fill="#00C896"/>
+            <circle cx="80" cy="100" r="3" fill="#00C896"/>
+
+            <!-- Vertical lines -->
+            <line x1="40" y1="20" x2="40" y2="60" stroke="#2B74FF" stroke-width="1"/>
+            <line x1="60" y1="20" x2="60" y2="50" stroke="#2B74FF" stroke-width="1"/>
+            <line x1="30" y1="60" x2="30" y2="90" stroke="#2B74FF" stroke-width="1"/>
+            <circle cx="30" cy="90" r="3" fill="#00C896"/>
+            <line x1="50" y1="60" x2="50" y2="100" stroke="#2B74FF" stroke-width="1"/>
+            <line x1="100" y1="60" x2="100" y2="80" stroke="#2B74FF" stroke-width="1"/>
+            <circle cx="100" cy="80" r="3" fill="#00C896"/>
+          </pattern>
+        </defs>
+        <rect fill="url(#circuit-en)" width="100%" height="100%"/>
+
+        <!-- Floating robot elements -->
+        <!-- Robot head 1 -->
+        <g transform="translate(100, 100)" opacity="0.4">
+          <rect x="0" y="0" width="60" height="50" rx="8" fill="none" stroke="#2B74FF" stroke-width="2"/>
+          <circle cx="18" cy="20" r="8" fill="#00C896" opacity="0.6"/>
+          <circle cx="42" cy="20" r="8" fill="#00C896" opacity="0.6"/>
+          <rect x="20" y="35" width="20" height="4" rx="2" fill="#2B74FF"/>
+          <animateTransform attributeName="transform" type="translate" values="100,100; 110,95; 100,100" dur="6s" repeatCount="indefinite"/>
+        </g>
+
+        <!-- Robot head 2 -->
+        <g transform="translate(900, 400)" opacity="0.3">
+          <rect x="0" y="0" width="80" height="65" rx="10" fill="none" stroke="#00C896" stroke-width="2"/>
+          <circle cx="25" cy="25" r="10" fill="#2B74FF" opacity="0.5"/>
+          <circle cx="55" cy="25" r="10" fill="#2B74FF" opacity="0.5"/>
+          <rect x="28" y="45" width="24" height="5" rx="2" fill="#00C896"/>
+          <animateTransform attributeName="transform" type="translate" values="900,400; 890,410; 900,400" dur="8s" repeatCount="indefinite"/>
+        </g>
+
+        <!-- Robot arm/gripper 1 -->
+        <g transform="translate(750, 150)" opacity="0.25">
+          <circle cx="20" cy="20" r="15" fill="none" stroke="#2B74FF" stroke-width="2"/>
+          <rect x="32" y="15" width="40" height="10" rx="3" fill="#00C896" opacity="0.5"/>
+          <rect x="68" y="10" width="25" height="8" rx="2" fill="#2B74FF" opacity="0.4"/>
+          <rect x="68" y="22" width="25" height="8" rx="2" fill="#2B74FF" opacity="0.4"/>
+          <animateTransform attributeName="transform" type="translate" values="750,150; 760,140; 750,150" dur="7s" repeatCount="indefinite"/>
+        </g>
+
+        <!-- Robot arm/gripper 2 -->
+        <g transform="translate(200, 450)" opacity="0.3">
+          <circle cx="15" cy="15" r="12" fill="none" stroke="#00C896" stroke-width="2"/>
+          <rect x="24" y="11" width="35" height="8" rx="3" fill="#2B74FF" opacity="0.5"/>
+          <rect x="55" y="7" width="20" height="6" rx="2" fill="#00C896" opacity="0.4"/>
+          <rect x="55" y="17" width="20" height="6" rx="2" fill="#00C896" opacity="0.4"/>
+          <animateTransform attributeName="transform" type="translate" values="200,450; 190,460; 200,450" dur="9s" repeatCount="indefinite"/>
+        </g>
+
+        <!-- Data nodes/chips -->
+        <g transform="translate(500, 80)" opacity="0.35">
+          <rect x="0" y="0" width="40" height="40" rx="6" fill="none" stroke="#00C896" stroke-width="1.5"/>
+          <rect x="8" y="8" width="10" height="10" fill="#2B74FF" opacity="0.4"/>
+          <rect x="22" y="8" width="10" height="10" fill="#2B74FF" opacity="0.4"/>
+          <rect x="8" y="22" width="10" height="10" fill="#2B74FF" opacity="0.4"/>
+          <rect x="22" y="22" width="10" height="10" fill="#2B74FF" opacity="0.4"/>
+          <animateTransform attributeName="transform" type="translate" values="500,80; 510,85; 500,80" dur="5s" repeatCount="indefinite"/>
+        </g>
+
+        <g transform="translate(300, 350)" opacity="0.3">
+          <rect x="0" y="0" width="50" height="50" rx="8" fill="none" stroke="#2B74FF" stroke-width="1.5"/>
+          <circle cx="15" cy="15" r="6" fill="#00C896" opacity="0.5"/>
+          <circle cx="35" cy="15" r="6" fill="#00C896" opacity="0.5"/>
+          <circle cx="15" cy="35" r="6" fill="#00C896" opacity="0.5"/>
+          <circle cx="35" cy="35" r="6" fill="#00C896" opacity="0.5"/>
+          <animateTransform attributeName="transform" type="translate" values="300,350; 290,345; 300,350" dur="6s" repeatCount="indefinite"/>
+        </g>
+
+        <!-- Connection lines -->
+        <path d="M 160 125 Q 400 200 520 100" stroke="#00C896" stroke-width="1" fill="none" opacity="0.15" stroke-dasharray="5,5">
+          <animate attributeName="stroke-dashoffset" from="0" to="100" dur="8s" repeatCount="indefinite"/>
+        </path>
+        <path d="M 790 175 Q 650 250 330 455" stroke="#2B74FF" stroke-width="1" fill="none" opacity="0.15" stroke-dasharray="5,5">
+          <animate attributeName="stroke-dashoffset" from="100" to="0" dur="10s" repeatCount="indefinite"/>
+        </path>
+      </svg>
+
+      <div class="absolute inset-0 flex flex-col items-center justify-center pt-20">
+        <div class="text-center px-4">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold mb-6">
+            About Us
+          </h1>
+          <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
+            DORA Robotics — Open Source, Innovation, Intelligence
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Introduction Section -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Company Profile</h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 mt-3 max-w-2xl mx-auto">
+          DORA Robotics team operates through Liuzhou Xinxun Intelligence Technology Co., Ltd.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {companyInfo.map((item, index) => (
+          <div class={`about-card ${index % 2 === 0 ? 'about-card-gradient-1' : 'about-card-gradient-2'}`}>
+            <div class="about-card-inner">
+              <div class="about-icon-box">
+                <div class="about-icon" set:html={icons[item.icon]} />
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mt-5 mb-3">{item.title}</h3>
+              <p class="text-slate-600 leading-relaxed">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Mission Section -->
+  <section class="py-16 md:py-24 news-section-gradient">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Vision & Philosophy</h2>
+        <p class="text-lg text-slate-600 mt-3">Our values and direction</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {visionItems.map((item) => (
+          <div class="product-text-box p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center">
+                <div class="w-6 h-6 text-white" set:html={icons[item.icon]} />
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">{item.title}</h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Office Locations</h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 mt-3">Our office locations</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {locations.map((loc) => (
+          <div class="group">
+            <div class="product-text-box p-5 h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
+                  <div class="w-4 h-4 text-white" set:html={icons.location} />
+                </div>
+                <h3 class="text-lg font-bold text-gray-800">{loc.city}</h3>
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{loc.address}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-gradient py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Partner With Us
+      </h2>
+      <p class="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+        Whether you're looking for robot solutions or interested in joining our team, we look forward to connecting with you
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/en/customer-service" class="cta-btn-gradient">
+          <span>Contact Us</span>
+        </a>
+        <a href="http://www.dora-rs.ai" target="_blank" class="cta-btn-gradient">
+          <span>Visit DORA Community</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* About Card Styles */
+  .about-card {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .about-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(43, 116, 255, 0.15);
+  }
+
+  .about-card-gradient-1 {
+    background: linear-gradient(145deg,
+      rgba(43, 116, 255, 0.12) 0%,
+      rgba(43, 116, 255, 0.06) 25%,
+      rgba(239, 246, 255, 0.95) 50%,
+      rgba(0, 200, 150, 0.06) 75%,
+      rgba(0, 200, 150, 0.1) 100%
+    );
+    border: 1px solid rgba(43, 116, 255, 0.15);
+  }
+
+  .about-card-gradient-2 {
+    background: linear-gradient(145deg,
+      rgba(0, 200, 150, 0.1) 0%,
+      rgba(0, 200, 150, 0.05) 25%,
+      rgba(236, 254, 250, 0.95) 50%,
+      rgba(43, 116, 255, 0.05) 75%,
+      rgba(43, 116, 255, 0.08) 100%
+    );
+    border: 1px solid rgba(0, 200, 150, 0.15);
+  }
+
+  .about-card-inner {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .about-icon-box {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(43, 116, 255, 0.9), rgba(0, 200, 150, 0.85));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 8px 20px rgba(43, 116, 255, 0.25);
+    transition: all 0.3s ease;
+  }
+
+  .about-card:hover .about-icon-box {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(43, 116, 255, 0.35);
+  }
+
+  .about-icon {
+    width: 2rem;
+    height: 2rem;
+    color: white;
+  }
+
+  .about-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+</style>

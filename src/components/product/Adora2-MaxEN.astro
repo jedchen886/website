@@ -1,0 +1,19 @@
+---
+import ProductCard from './ProductCard.astro';
+import adora2max from '~/assets/images/product/adora2-max/adora-2-max-white.png';
+---
+
+<ProductCard
+  image={adora2max}
+  imageAlt="Adora 2 Max"
+  title="ADORA 2 Max"
+  description="The four-wheeled lifting arm robot ADORA 2 MAX is a universal mobile robot developed based on the DORA open-source robot middleware. Equipped with 6 or 7 DOF intelligent robotic arms, multi-channel vision sensors, LiDAR, and mobile chassis, it is primarily used for indoor embodied AI data collection, automation deployment, and intelligent task execution."
+  features={[
+    { text: 'Lifting arms for wider scenarios', icon: 'lift' },
+    { text: 'Efficient & precise motion data collection', icon: 'data' },
+    { text: 'Voice & video multimodal interaction', icon: 'multimodal' },
+    { text: 'Embodied AI research ecosystem support', icon: 'ecosystem' },
+  ]}
+  ctaLink="/en/product-adora2-max"
+  imagePosition="left"
+/>

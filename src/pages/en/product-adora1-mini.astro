@@ -1,0 +1,228 @@
+---
+import ParameterTable from '~/components/widgets/ParameterTable.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import adora1minifeature1 from '~/assets/images/product/adora1-mini/adora1-mini-feature1.png';
+import adora1minifeature2 from '~/assets/images/product/adora1-mini/adora1-mini-feature2.png';
+import adora1miniapply1 from '~/assets/images/product/adora1-mini/adora1-mini-apply1.png';
+import adora1miniapply2 from '~/assets/images/product/adora1-mini/adora1-mini-apply2.png';
+
+const metadata = {
+  title: 'Adora 1 Mini Robot',
+};
+
+const features = [
+  {
+    title: 'Compact & Flexible AGV Platform',
+    description: 'Adora 1 Mini robot comes with a lightweight AGV mobile chassis that is compact and flexible, ideal for use in narrow indoor spaces. The robotic arm is lightweight and agile, capable of performing complex and delicate operations. Equipped with LiDAR and vision sensors, it captures real-time environmental information for precise positioning and obstacle avoidance.',
+    image: adora1minifeature1,
+    alt: 'ADORA 1 Mini Feature 1'
+  },
+  {
+    title: 'Indoor Multimodal Intelligent Operations',
+    description: 'Adora 1 Mini robot brain has visual and language understanding capabilities, allowing users to interact naturally and effortlessly through voice or visual commands, easily mastering household tasks demonstrated by users for a more convenient daily life.',
+    image: adora1minifeature2,
+    alt: 'ADORA 1 Mini Feature 2'
+  },
+];
+
+const applications = [
+  { title: 'Household Chores', image: adora1miniapply1, alt: 'ADORA 1 Mini Household Chores' },
+  { title: 'Data Collection', image: adora1miniapply2, alt: 'ADORA 1 Mini Data Collection' },
+];
+---
+
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full">
+      <img
+        src="/images/adora-1-mini-home-clean.png"
+        alt="ADORA 1 Mini"
+        class="w-full h-auto"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="bg-black/20 backdrop-blur-sm px-8 py-6 rounded-2xl">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold text-center">
+            ADORA 1 Mini
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mt-4 text-center">
+            Lightweight & Economical Indoor Single-Arm Wheeled Robot
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Product Features</h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 mt-2">Core advantages of ADORA 1 Mini</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {features.map((feature, index) => (
+          <div class={`product-card-section ${index % 2 === 0 ? 'product-card-gradient' : ''}`}>
+            <div class="p-6 md:p-8">
+              <div class="relative overflow-hidden rounded-xl mb-6">
+                <Image
+                  format="avif"
+                  src={feature.image}
+                  alt={feature.alt}
+                  loading="lazy"
+                  class="w-full h-48 md:h-56 object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <div class="product-text-box">
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">{feature.title}</h3>
+                <p class="text-base text-slate-600 leading-relaxed">{feature.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications Section -->
+  <section class="py-16 md:py-20 news-section-gradient">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Applications</h2>
+        <p class="text-lg text-slate-600 mt-2">Application scenarios for ADORA 1 Mini</p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto">
+        {applications.map((app) => (
+          <div class="group">
+            <div class="product-text-box p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div class="relative overflow-hidden rounded-lg mb-3">
+                <Image
+                  format="avif"
+                  src={app.image}
+                  alt={app.alt}
+                  loading="lazy"
+                  class="w-full h-32 md:h-40 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <h3 class="text-center text-base md:text-lg font-semibold text-gray-800">{app.title}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Specifications -->
+  <ParameterTable
+    title="Adora 1 Mini Specifications"
+    subtitle="Main software and hardware parameters"
+
+    MyTableHeads = {[
+      {
+        tablehead1: "Module",
+        tablehead2: "Item",
+        tablehead3: "Parameter",
+      },
+    ]}
+
+    MyTableCells1 = {[
+	  {
+		 module: "System Parameters",
+		 content: "Product Weight",
+		 parameter: "Approx. 60KG",
+	  },
+	  {
+		 module: "System Parameters",
+		 content: "Product Dimensions",
+		 parameter: "420mm(H) × 520mm(Shoulder Width) × 1500mm(Depth) (excluding arm)",
+	  },
+    {
+		 module: "System Parameters",
+		 content: "Max Speed",
+		 parameter: "1.2m/s",
+	  },
+    {
+		 module: "System Parameters",
+		 content: "Working Duration",
+		 parameter: "2H",
+	  },
+   ]}
+
+   MyTableCells2 = {[
+	  {
+		 module: "Computing Unit",
+		 content: "Mainboard",
+		 parameter: "RK3588/NVIDIA NX/Ascend 310P",
+	  },
+	  {
+		 module: "Computing Unit",
+		 content: "Storage",
+		 parameter: "128GB NVMe SSD",
+	  },
+    {
+		 module: "Computing Unit",
+		 content: "Operating System",
+		 parameter: "Ubuntu/OpenHarmony OS",
+	  },
+    ]}
+
+    MyTableCells3 = {[
+	  {
+		 module: "Vision & Distance Sensors",
+		 content: "Depth Camera",
+		 parameter: "3 units",
+	  },
+	  {
+		 module: "Vision & Distance Sensors",
+		 content: "LiDAR",
+		 parameter: "None",
+	  },
+   ]}
+
+    MyTableCells4 = {[
+	  {
+		 module: "Robotic Arm & End Effector",
+		 content: "Arm Configuration",
+		 parameter: "2 arms / 7 DOF",
+	  },
+	  {
+		 module: "Robotic Arm & End Effector",
+		 content: "Arm Precision",
+		 parameter: "1mm",
+	  },
+    {
+		 module: "Robotic Arm & End Effector",
+		 content: "Arm Working Radius",
+		 parameter: "600mm",
+	  },
+	  {
+		 module: "Robotic Arm & End Effector",
+		 content: "End Effector",
+		 parameter: "Two-finger Gripper",
+	  },
+    {
+		 module: "Robotic Arm & End Effector",
+		 content: "Max Grip Weight",
+		 parameter: "2kg",
+	  },
+   ]}
+  />
+
+  <!-- CTA Section -->
+  <section class="section-gradient py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Learn More About ADORA 1 Mini
+      </h2>
+      <p class="text-lg text-white/90 mb-8">
+        Contact us for detailed product information and pricing
+      </p>
+      <a href="/en/customer-service" class="cta-btn-gradient">
+        <span>Purchase & Collaborate</span>
+      </a>
+    </div>
+  </section>
+</Layout>

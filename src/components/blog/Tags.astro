@@ -12,6 +12,10 @@ export interface Props {
 }
 
 const { tags, class: className = 'text-sm', title = undefined, isCategory = false } = Astro.props;
+
+// Detect current language from URL path
+const currentPath = Astro.url.pathname;
+const langPrefix = currentPath.startsWith('/en/') ? '/en' : currentPath.startsWith('/cn/') ? '/cn' : '';
 ---
 
 {
@@ -29,7 +33,7 @@ const { tags, class: className = 'text-sm', title = undefined, isCategory = fals
               tag.title
             ) : (
               <a
-                href={getPermalink(tag.slug, isCategory ? 'category' : 'tag')}
+                href={`${langPrefix}${getPermalink(tag.slug, isCategory ? 'category' : 'tag')}`}
                 class="text-muted dark:text-slate-300 hover:text-primary dark:hover:text-gray-200"
               >
                 {tag.title}

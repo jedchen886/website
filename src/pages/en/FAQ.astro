@@ -1,0 +1,51 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+const metadata = {
+  title: 'FAQ',
+  description: 'Help center',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <FAQs
+    title="Help Center"
+    subtitle="Product Usage"
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: '1. The robot does not start properly after pressing the power switch?',
+        description:
+          "Check the voltage/battery gauge. If the gauge is not lit or shows voltage/battery level in the red zone, immediately charge the robot.",
+      },
+      {
+        title: '2. The robot cannot be controlled remotely after power-on, or the robot does not move when operating the remote control?',
+        description:
+          'First check if the remote control is turned on and connected to the robot, then verify that the emergency stop button on the robot is released. If the above checks are fine, follow the remote control operating instructions to confirm that the remote control mode settings are correct.',
+      },
+      {
+        title: '3. The robot chassis cannot be controlled by the host computer?',
+        description:
+          "First check if the remote control is turned on. Generally, the remote control has the highest priority. If the remote control is on, you can either turn off the remote control or set the remote control mode switch to the middle position for remote braking functionality while also supporting host computer communication.",
+      },
+      {
+        title: "4. The robotic arm is locked or unresponsive?",
+        description:
+          "Check if the robotic arm system network is working properly by pinging the arm's IP address. Use the teach pendant software panel to check the cause of the problem. Restart the robotic arm system and confirm if the issue persists.",
+      },
+      {
+        title: '5. The gripper does not open/close correctly?',
+        description:
+          "Ensure the robotic arm is in normal state. The gripper will automatically perform an open/close self-test 5 seconds after power-on. You can unplug and replug the connector cable between the arm and gripper to repower the gripper.",
+      },
+      {
+        title: '6. The robot voltage/battery gauge is approaching the red zone (low battery, low voltage)?',
+        description:
+          "When the voltage/battery gauge shows levels approaching the red zone, charge the robot as soon as possible.",
+      },
+    ]}
+  />
+</Layout>

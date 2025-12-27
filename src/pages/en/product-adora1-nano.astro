@@ -1,0 +1,212 @@
+---
+import ParameterTable from '~/components/widgets/ParameterTable.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import adora1nanofeature1 from '~/assets/images/product/adora1-nano/adora-1-nano-feature1.png';
+import adora1nanofeature2 from '~/assets/images/product/adora1-nano/adora-1-nano-feature2.png';
+import adora1nanoapply1 from '~/assets/images/product/adora1-nano/adora-1-nano-apply1.png';
+import adora1nanoapply2 from '~/assets/images/product/adora1-nano/adora-1-nano-apply2.png';
+import adora1nanoapply3 from '~/assets/images/product/adora1-nano/adora-1-nano-apply3.png';
+import adora1nanoapply4 from '~/assets/images/product/adora1-nano/adora-1-nano-apply4.png';
+
+const metadata = {
+  title: 'Adora 1 Nano Robot',
+};
+
+const features = [
+  {
+    title: 'Complete AI Model Learning Support',
+    description: 'ADORA 1 Nano comes with a complete AI training pipeline, grasping models, and vision models ready to use out of the box. It includes AI and robotics learning curriculum with data collection and training toolboxes, supporting comprehensive AI model learning.',
+    image: adora1nanofeature1,
+    alt: 'ADORA 1 Nano Feature 1'
+  },
+  {
+    title: 'Open-Source Hardware Design & Code',
+    description: 'ADORA 1 Nano robot hardware design and the accompanying Dora middleware code are open-source, making it easy for users to customize and develop secondary applications.',
+    image: adora1nanofeature2,
+    alt: 'ADORA 1 Nano Feature 2'
+  },
+];
+
+const applications = [
+  { title: 'Embodied AI Learning', image: adora1nanoapply1, alt: 'ADORA 1 Nano Embodied AI Learning' },
+  { title: 'Research & Education', image: adora1nanoapply2, alt: 'ADORA 1 Nano Research & Education' },
+  { title: 'Exhibitions & Competitions', image: adora1nanoapply3, alt: 'ADORA 1 Nano Exhibitions & Competitions' },
+  { title: 'Community Ecosystem Support', image: adora1nanoapply4, alt: 'ADORA 1 Nano Community Ecosystem Support' },
+];
+---
+
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full">
+      <img
+        src="/images/adora-1-nano-school-clean.png"
+        alt="ADORA 1 Nano"
+        class="w-full h-auto"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="bg-black/20 backdrop-blur-sm px-8 py-6 rounded-2xl">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold text-center">
+            ADORA 1 Nano
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mt-4 text-center">
+            Low-Cost Mobile Manipulation Robot for Education
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Product Features</h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 mt-2">Core advantages of ADORA 1 Nano</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {features.map((feature, index) => (
+          <div class={`product-card-section ${index % 2 === 0 ? 'product-card-gradient' : ''}`}>
+            <div class="p-6 md:p-8">
+              <div class="relative overflow-hidden rounded-xl mb-6">
+                <Image
+                  format="avif"
+                  src={feature.image}
+                  alt={feature.alt}
+                  loading="lazy"
+                  class="w-full h-48 md:h-56 object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <div class="product-text-box">
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">{feature.title}</h3>
+                <p class="text-base text-slate-600 leading-relaxed">{feature.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications Section -->
+  <section class="py-16 md:py-20 news-section-gradient">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Applications</h2>
+        <p class="text-lg text-slate-600 mt-2">Application scenarios for ADORA 1 Nano</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {applications.map((app) => (
+          <div class="group">
+            <div class="product-text-box p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div class="relative overflow-hidden rounded-lg mb-3">
+                <Image
+                  format="avif"
+                  src={app.image}
+                  alt={app.alt}
+                  loading="lazy"
+                  class="w-full h-32 md:h-40 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <h3 class="text-center text-base md:text-lg font-semibold text-gray-800">{app.title}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Specifications -->
+  <ParameterTable
+    title="Adora 1 Nano Specifications"
+    subtitle="Main software and hardware parameters"
+
+    MyTableHeads = {[
+      {
+        tablehead1: "Module",
+        tablehead2: "Item",
+        tablehead3: "Parameter",
+      },
+    ]}
+
+    MyTableCells1 = {[
+	  {
+		 module: "System Parameters",
+		 content: "Product Weight",
+		 parameter: "Approx. 5KG",
+	  },
+	  {
+		 module: "System Parameters",
+		 content: "Max Speed",
+		 parameter: "1.0m/s",
+	  },
+    {
+		 module: "System Parameters",
+		 content: "Max Slope",
+		 parameter: "25°",
+	  },
+    {
+		 module: "System Parameters",
+		 content: "Working Duration",
+		 parameter: "3H",
+	  },
+   ]}
+
+   MyTableCells2 = {[
+	  {
+		 module: "Computing Unit",
+		 content: "Mainboard",
+		 parameter: "Jetson/Ascend",
+	  },
+    {
+		 module: "Computing Unit",
+		 content: "Operating System",
+		 parameter: "Ubuntu/OpenHarmony OS",
+	  },
+    ]}
+
+    MyTableCells3 = {[
+	  {
+		 module: "Vision & Distance Sensors",
+		 content: "Camera",
+		 parameter: "3 units",
+	  },
+	  {
+		 module: "Vision & Distance Sensors",
+		 content: "LiDAR",
+		 parameter: "None",
+	  },
+   ]}
+
+    MyTableCells4 = {[
+	  {
+		 module: "Robotic Arm & End Effector",
+		 content: "Arm Configuration",
+		 parameter: "2 arms / 6 DOF",
+	  },
+    {
+		 module: "Robotic Arm & End Effector",
+		 content: "Max Grip Weight",
+		 parameter: "0.2kg",
+	  },
+   ]}
+  />
+
+  <!-- CTA Section -->
+  <section class="section-gradient py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Learn More About ADORA 1 Nano
+      </h2>
+      <p class="text-lg text-white/90 mb-8">
+        Contact us for detailed product information and pricing
+      </p>
+      <a href="/en/customer-service" class="cta-btn-gradient">
+        <span>Purchase & Collaborate</span>
+      </a>
+    </div>
+  </section>
+</Layout>

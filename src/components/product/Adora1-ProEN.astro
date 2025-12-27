@@ -1,0 +1,19 @@
+---
+import ProductCard from './ProductCard.astro';
+import adora1pro from '~/assets/images/product/adora1-pro/adora-1-pro-black.png';
+---
+
+<ProductCard
+  image={adora1pro}
+  imageAlt="Adora 1 Pro"
+  title="ADORA 1 Pro"
+  description="ADORA 1 Pro is a four-wheeled robot equipped with DC brushless servo motor wheel hubs, suitable for various indoor and outdoor scenarios with heavy payload capacity and off-road capability. The robotic arm features 7 or 6 DOF, with a lightweight and flexible design for multiple applications. Equipped with LiDAR and vision sensors for real-time environmental perception."
+  features={[
+    { text: 'Heavy-load indoor/outdoor scenarios', icon: 'outdoor' },
+    { text: 'Multimodal imitation & intelligent operations', icon: 'ai' },
+    { text: 'DORA secondary development support', icon: 'dora' },
+    { text: 'Embodied AI research ecosystem support', icon: 'ecosystem' },
+  ]}
+  ctaLink="/en/product-adora1-pro"
+  imagePosition="right"
+/>

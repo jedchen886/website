@@ -14,7 +14,12 @@ export interface Props {
 const { post } = Astro.props;
 const image = await findImage(post.image);
 
-const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
+// Detect current language from URL path
+const currentPath = Astro.url.pathname;
+const langPrefix = currentPath.startsWith('/en/') ? '/en' : currentPath.startsWith('/cn/') ? '/cn' : '';
+
+const baseLink = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
+const link = baseLink ? `${langPrefix}${baseLink}` : '';
 ---
 
 <article class="news-grid-item mb-4 transition intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">

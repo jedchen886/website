@@ -13,6 +13,13 @@ export interface Props {
 const { post } = Astro.props;
 
 const relatedPosts = post.tags ? await getRelatedPosts(post, 4) : [];
+
+// Detect current language from URL path
+const currentPath = Astro.url.pathname;
+const isEnglish = currentPath.startsWith('/en/');
+const langPrefix = isEnglish ? '/en' : currentPath.startsWith('/cn/') ? '/cn' : '';
+const relatedTitle = isEnglish ? 'Related News' : '相关新闻';
+const viewAllText = isEnglish ? 'View All News' : '查看所有新闻';
 ---
 
 {
@@ -22,9 +29,9 @@ const relatedPosts = post.tags ? await getRelatedPosts(post, 4) : [];
         container:
           'pt-0 lg:pt-0 md:pt-0 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
       }}
-      title="相关新闻"
-      linkText="查看所有新闻"
-      linkUrl={getBlogPermalink()}
+      title={relatedTitle}
+      linkText={viewAllText}
+      linkUrl={`${langPrefix}${getBlogPermalink()}`}
       postIds={relatedPosts.map((post) => post.id)}
     />
   ) : null

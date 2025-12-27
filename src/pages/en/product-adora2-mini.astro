@@ -1,0 +1,192 @@
+---
+import Features4 from '~/components/widgets/Features4.astro';
+import ParameterTable from '~/components/widgets/ParameterTable.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import adora1minifeature1 from '~/assets/images/product/adora2-mini/adora1-mini-feature1.png';
+import adora1minifeature2 from '~/assets/images/product/adora2-mini/adora1-mini-feature2.png';
+import adora2miniapply1 from '~/assets/images/product/adora2-mini/adora1-mini-apply1.png';
+import adora2miniapply2 from '~/assets/images/product/adora2-mini/adora1-mini-apply2.png';
+
+const metadata = {
+  title: 'Adora 2 Mini Robot',
+};
+---
+
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full">
+      <img
+        src="/images/adora-2-mini-school-clean.png"
+        alt="ADORA 2 Mini"
+        class="w-full h-auto"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="bg-black/20 backdrop-blur-sm px-8 py-6 rounded-2xl">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold text-center">
+            ADORA 2 Mini
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mt-4 text-center">
+            Economical Indoor Wheeled Robot
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- features -->
+    <Features4
+    columns={2}
+    isBeforeContent={true}
+    title="Product Features"
+    subtitle="Core advantages of ADORA 2 Mini"
+    items={[
+      {
+        title: 'Economical & Convenient Robot Platform',
+        description:
+          'ADORA 2 Mini robot features an economical design with a convenient and flexible chassis, suitable for various indoor environments, facilitating robot data collection, research, and educational practice.',
+        icon: '',
+        image: {
+          src: adora1minifeature1,
+          alt: 'adora2 Mini Feature 1'
+        },
+      },
+      {
+        title: 'Efficient & Precise Motion Data Collection',
+        description:
+          'ADORA 2 Mini robot paired with low-cost high-precision robotic arms and intuitive data collection tools is suitable for batch data collection work across home life, research learning, factory production, and various other scenarios.',
+        icon: '',
+        image: {
+          src: adora1minifeature2,
+          alt: 'adora2 Mini Feature 2'
+        },
+      },
+    ]}
+  />
+
+  <!-- Apply -->
+    <Features4
+    columns={2}
+    isBeforeContent={true}
+    title="Applications"
+    subtitle="Application scenarios for ADORA 2 Mini"
+    items={[
+      {
+        title: 'Data Collection',
+        description:
+          '',
+        icon: '',
+        image: {
+          src: adora2miniapply1,
+          alt: 'adora2 Mini apply1'
+        },
+      },
+      {
+        title: 'Research & Education',
+        description:
+          '',
+        icon: '',
+        image: {
+          src: adora2miniapply2,
+          alt: 'adora2 Mini apply2'
+        },
+      },
+    ]}
+  />
+
+  <!-- Specifications -->
+  <ParameterTable
+    title="Adora 2 Mini Specifications"
+    subtitle="Main software and hardware parameters"
+
+    MyTableHeads = {[
+      {
+        tablehead1: "Module",
+        tablehead2: "Item",
+        tablehead3: "Parameter",
+      },
+    ]}
+
+    MyTableCells1 = {[
+	  {
+		 module: "System Parameters",
+		 content: "Product Weight",
+		 parameter: "Approx. 60KG",
+	  },
+	  {
+		 module: "System Parameters",
+		 content: "Product Dimensions",
+		 parameter: "420mm(H) × 520mm(Shoulder Width) × 1500mm(Depth) (excluding arm)",
+	  },
+    {
+		 module: "System Parameters",
+		 content: "Max Speed",
+		 parameter: "1.2m/s",
+	  },
+    {
+		 module: "System Parameters",
+		 content: "Working Duration",
+		 parameter: "2H",
+	  },
+   ]}
+
+   MyTableCells2 = {[
+	  {
+		 module: "Computing Unit",
+		 content: "Mainboard",
+		 parameter: "RK3588/NVIDIA NX/Ascend 310P",
+	  },
+	  {
+		 module: "Computing Unit",
+		 content: "Storage",
+		 parameter: "128GB NVMe SSD",
+	  },
+    {
+		 module: "Computing Unit",
+		 content: "Operating System",
+		 parameter: "Ubuntu/OpenHarmony OS",
+	  },
+    ]}
+
+    MyTableCells3 = {[
+	  {
+		 module: "Vision & Distance Sensors",
+		 content: "Depth Camera",
+		 parameter: "3 units",
+	  },
+	  {
+		 module: "Vision & Distance Sensors",
+		 content: "LiDAR",
+		 parameter: "None",
+	  },
+   ]}
+
+    MyTableCells4 = {[
+	  {
+		 module: "Robotic Arm & End Effector",
+		 content: "Arm Configuration",
+		 parameter: "2 arms / 7 DOF",
+	  },
+	  {
+		 module: "Robotic Arm & End Effector",
+		 content: "Arm Precision",
+		 parameter: "1mm",
+	  },
+    {
+		 module: "Robotic Arm & End Effector",
+		 content: "Arm Working Radius",
+		 parameter: "600mm",
+	  },
+	  {
+		 module: "Robotic Arm & End Effector",
+		 content: "End Effector",
+		 parameter: "Two-finger Gripper",
+	  },
+    {
+		 module: "Robotic Arm & End Effector",
+		 content: "Max Grip Weight",
+		 parameter: "2kg",
+	  },
+   ]}
+  />
+</Layout>

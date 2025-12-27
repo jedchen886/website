@@ -28,7 +28,16 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   site: 'https://www.dorarobotics.com/',
   base: '/',
+  trailingSlash: 'ignore',
   output: 'static',
+
+  i18n: {
+    defaultLocale: 'cn',
+    locales: ['cn', 'en'],
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
 
   integrations: [tailwind({
     applyBaseStyles: false,
@@ -86,5 +95,22 @@ export default defineConfig({
         '~': path.resolve(__dirname, './src'),
       },
     },
+    plugins: [
+      {
+        name: 'trailing-slash-redirect',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            // Remove trailing slash for all paths except root
+            if (req.url && req.url.endsWith('/') && req.url !== '/') {
+              const urlWithoutSlash = req.url.slice(0, -1);
+              res.writeHead(301, { Location: urlWithoutSlash });
+              res.end();
+              return;
+            }
+            next();
+          });
+        },
+      },
+    ],
   },
 });

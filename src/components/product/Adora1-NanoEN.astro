@@ -1,0 +1,19 @@
+---
+import ProductCard from './ProductCard.astro';
+import adora1nano from '~/assets/images/product/adora1-nano/adora-1-nano-white.png';
+---
+
+<ProductCard
+  image={adora1nano}
+  imageAlt="Adora 1 Nano"
+  title="Adora 1 Nano"
+  description="ADORA 1 Nano is a low-cost mobile manipulation robot designed for education. Equipped with a lightweight 6 DOF intelligent robotic arm, vision sensors, and mobile chassis, it comes with open-source software providing complete AI model training services from data collection to training and inference."
+  features={[
+    { text: 'Complete AI model learning support', icon: 'ai' },
+    { text: 'Open-source hardware design & code', icon: 'opensource' },
+    { text: 'Low-cost for education & research', icon: 'lowcost' },
+    { text: 'Multiple AI algorithms & simulation support', icon: 'simulation' },
+  ]}
+  ctaLink="/en/product-adora1-nano"
+  imagePosition="left"
+/>

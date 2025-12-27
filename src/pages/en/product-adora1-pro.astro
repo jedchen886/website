@@ -1,0 +1,458 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import adora1profeature1 from '~/assets/images/product/adora1-pro/adora1-pro-feature1.png';
+import adora1profeature2 from '~/assets/images/product/adora1-pro/adora1-pro-feature2.png';
+import adora1profeature3 from '~/assets/images/product/adora1-pro/adora1-pro-feature3.png';
+import adora1profeature4 from '~/assets/images/product/adora1-pro/adora1-pro-feature4.png';
+import adora1proapply1 from '~/assets/images/product/adora1-pro/adora1-pro-apply1.png';
+import adora1proapply2 from '~/assets/images/product/adora1-pro/adora1-pro-apply2.png';
+import adora1proapply3 from '~/assets/images/product/adora1-pro/adora1-pro-apply3.png';
+import adora1proapply4 from '~/assets/images/product/adora1-pro/adora1-pro-apply4.png';
+
+const metadata = {
+  title: 'Adora 1 Pro Robot',
+};
+
+const features = [
+  {
+    title: 'Suitable for Various Heavy-Load Indoor/Outdoor Scenarios',
+    description: 'ADORA 1 Pro four-wheeled robot features a rigid chassis with DC brushless servo motor wheel hubs, capable of carrying up to 80KG payload, adapting to complex terrain with light off-road capability.',
+    image: adora1profeature1,
+    alt: 'ADORA 1 Pro Feature 1'
+  },
+  {
+    title: 'Autonomous Navigation with Multi-Robot Coordination',
+    description: 'ADORA 1 Pro is equipped with LiDAR and vision sensors, supported by the DORA system, enabling autonomous navigation, obstacle avoidance, and multi-robot coordination.',
+    image: adora1profeature2,
+    alt: 'ADORA 1 Pro Feature 2'
+  },
+  {
+    title: 'Multimodal Natural Interaction',
+    description: 'ADORA 1 Pro brain has visual and language understanding capabilities, allowing users to interact naturally and effortlessly through voice or visual commands for seamless communication.',
+    image: adora1profeature3,
+    alt: 'ADORA 1 Pro Feature 3'
+  },
+  {
+    title: 'DORA Secondary Development Support',
+    description: 'ADORA 1 Pro connects to an active community, supporting secondary development through shared knowledge and experience to continuously enhance robot capabilities.',
+    image: adora1profeature4,
+    alt: 'ADORA 1 Pro Feature 4'
+  },
+];
+
+const applications = [
+  { title: 'Data Collection', image: adora1proapply1, alt: 'ADORA 1 Pro Data Collection' },
+  { title: 'Production Transport', image: adora1proapply2, alt: 'ADORA 1 Pro Production Transport' },
+  { title: 'Event Support', image: adora1proapply3, alt: 'ADORA 1 Pro Event Support' },
+  { title: 'Agricultural Harvesting', image: adora1proapply4, alt: 'ADORA 1 Pro Agricultural Harvesting' },
+];
+
+// Specs data organized by category
+const specsData = [
+  {
+    category: 'System Parameters',
+    icon: 'robot',
+    items: [
+      { label: 'Product Weight', value: 'Approx. 35KG' },
+      { label: 'Product Dimensions', value: '600mm(H) × 450mm(W) × 200mm(D)' },
+      { label: 'Max Speed', value: '2.2m/s' },
+      { label: 'Max Slope', value: '25°' },
+      { label: 'Max Step Height', value: '200mm' },
+      { label: 'Working Duration', value: '4H' },
+    ]
+  },
+  {
+    category: 'Computing Unit',
+    icon: 'cpu',
+    items: [
+      { label: 'Mainboard', value: 'RK3588/NVIDIA NX/Ascend 310P/O6' },
+      { label: 'Storage', value: '128GB NVMe SSD' },
+      { label: 'Operating System', value: 'Ubuntu/OpenHarmony OS' },
+    ]
+  },
+  {
+    category: 'Vision & Distance Sensors',
+    icon: 'sensor',
+    items: [
+      { label: 'Depth Camera', value: '1 unit' },
+      { label: 'LiDAR', value: '1 unit' },
+    ]
+  },
+  {
+    category: 'Robotic Arm & End Effector',
+    icon: 'arm',
+    items: [
+      { label: 'Arm Configuration', value: '1 arm / 7 DOF' },
+      { label: 'Arm Precision', value: '1mm' },
+      { label: 'Arm Working Radius', value: '600mm' },
+      { label: 'End Effector', value: 'Two-finger Gripper' },
+      { label: 'Max Grip Weight', value: '2kg' },
+    ]
+  },
+];
+
+// SVG icons for each category
+const icons: Record<string, string> = {
+  robot: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="11" width="18" height="10" rx="2"/>
+    <circle cx="12" cy="5" r="3"/>
+    <path d="M12 8v3"/>
+    <path d="M8 16h.01"/>
+    <path d="M16 16h.01"/>
+    <path d="M9 20v2"/>
+    <path d="M15 20v2"/>
+  </svg>`,
+  cpu: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="4" width="16" height="16" rx="2"/>
+    <rect x="9" y="9" width="6" height="6"/>
+    <path d="M9 1v3"/>
+    <path d="M15 1v3"/>
+    <path d="M9 20v3"/>
+    <path d="M15 20v3"/>
+    <path d="M20 9h3"/>
+    <path d="M20 14h3"/>
+    <path d="M1 9h3"/>
+    <path d="M1 14h3"/>
+  </svg>`,
+  sensor: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="3"/>
+    <path d="M12 1v2"/>
+    <path d="M12 21v2"/>
+    <path d="M4.22 4.22l1.42 1.42"/>
+    <path d="M18.36 18.36l1.42 1.42"/>
+    <path d="M1 12h2"/>
+    <path d="M21 12h2"/>
+    <path d="M4.22 19.78l1.42-1.42"/>
+    <path d="M18.36 5.64l1.42-1.42"/>
+    <circle cx="12" cy="12" r="8" stroke-dasharray="4 2"/>
+  </svg>`,
+  arm: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 22v-5"/>
+    <path d="M9 8V2"/>
+    <path d="M15 8V2"/>
+    <path d="M18 8v4a2 2 0 01-2 2H8a2 2 0 01-2-2V8"/>
+    <path d="M6 8h12"/>
+    <circle cx="12" cy="17" r="2"/>
+    <path d="M7 17h-2"/>
+    <path d="M19 17h-2"/>
+  </svg>`,
+};
+---
+
+<Layout metadata={metadata} defaultNavTheme="dark">
+  <!-- Hero -->
+  <section class="relative -mt-[76px] not-prose">
+    <div class="relative w-full">
+      <img
+        src="/images/adora-1-pro-warehouse-clean.png"
+        alt="ADORA 1 Pro"
+        class="w-full h-auto"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="bg-black/20 backdrop-blur-sm px-8 py-6 rounded-2xl">
+          <h1 class="text-white text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold text-center">
+            ADORA 1 Pro
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mt-4 text-center">
+            Four-Wheeled Single-Arm Robot
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Product Features</h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 mt-2">Core advantages of ADORA 1 Pro</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {features.map((feature, index) => (
+          <div class={`product-card-section ${index % 2 === 0 ? 'product-card-gradient' : ''}`}>
+            <div class="p-6 md:p-8">
+              <div class="relative overflow-hidden rounded-xl mb-6">
+                <Image
+                  format="avif"
+                  src={feature.image}
+                  alt={feature.alt}
+                  loading="lazy"
+                  class="w-full h-48 md:h-56 object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <div class="product-text-box">
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">{feature.title}</h3>
+                <p class="text-base text-slate-600 leading-relaxed">{feature.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications Section -->
+  <section class="py-16 md:py-20 news-section-gradient">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Applications</h2>
+        <p class="text-lg text-slate-600 mt-2">Application scenarios for ADORA 1 Pro</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {applications.map((app) => (
+          <div class="group">
+            <div class="product-text-box p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div class="relative overflow-hidden rounded-lg mb-3">
+                <Image
+                  format="avif"
+                  src={app.image}
+                  alt={app.alt}
+                  loading="lazy"
+                  class="w-full h-32 md:h-40 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <h3 class="text-center text-base md:text-lg font-semibold text-gray-800">{app.title}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Beautiful Specs Section -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Specifications</h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 mt-2">Main software and hardware parameters of ADORA 1 Pro</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {specsData.map((spec, index) => (
+          <div class={`spec-card group ${index % 2 === 0 ? 'spec-card-gradient-1' : 'spec-card-gradient-2'}`}>
+            <div class="spec-card-inner">
+              <!-- Header with icon -->
+              <div class="flex items-center gap-4 mb-6">
+                <div class="spec-icon-box">
+                  <div class="spec-icon" set:html={icons[spec.icon]} />
+                </div>
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800">{spec.category}</h3>
+              </div>
+
+              <!-- Specs list -->
+              <div class="space-y-3">
+                {spec.items.map((item, itemIndex) => (
+                  <div class={`spec-row ${itemIndex % 2 === 0 ? 'spec-row-even' : 'spec-row-odd'}`}>
+                    <span class="spec-label">{item.label}</span>
+                    <span class="spec-value">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-gradient py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Learn More About ADORA 1 Pro
+      </h2>
+      <p class="text-lg text-white/90 mb-8">
+        Contact us for detailed product information and pricing
+      </p>
+      <a href="/en/customer-service" class="cta-btn-gradient">
+        <span>Purchase & Collaborate</span>
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Spec Card Styles */
+  .spec-card {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .spec-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(43, 116, 255, 0.15);
+  }
+
+  .spec-card-gradient-1 {
+    background: linear-gradient(145deg,
+      rgba(43, 116, 255, 0.15) 0%,
+      rgba(43, 116, 255, 0.08) 25%,
+      rgba(239, 246, 255, 0.95) 50%,
+      rgba(0, 200, 150, 0.08) 75%,
+      rgba(0, 200, 150, 0.12) 100%
+    );
+    border: 1px solid rgba(43, 116, 255, 0.18);
+    box-shadow: 0 4px 20px rgba(43, 116, 255, 0.08);
+  }
+
+  .spec-card-gradient-2 {
+    background: linear-gradient(145deg,
+      rgba(0, 200, 150, 0.12) 0%,
+      rgba(0, 200, 150, 0.06) 25%,
+      rgba(236, 254, 250, 0.95) 50%,
+      rgba(43, 116, 255, 0.06) 75%,
+      rgba(43, 116, 255, 0.1) 100%
+    );
+    border: 1px solid rgba(0, 200, 150, 0.18);
+    box-shadow: 0 4px 20px rgba(0, 200, 150, 0.08);
+  }
+
+  .spec-card-gradient-1:hover {
+    background: linear-gradient(145deg,
+      rgba(43, 116, 255, 0.2) 0%,
+      rgba(43, 116, 255, 0.12) 25%,
+      rgba(239, 246, 255, 1) 50%,
+      rgba(0, 200, 150, 0.12) 75%,
+      rgba(0, 200, 150, 0.18) 100%
+    );
+    border-color: rgba(43, 116, 255, 0.25);
+  }
+
+  .spec-card-gradient-2:hover {
+    background: linear-gradient(145deg,
+      rgba(0, 200, 150, 0.18) 0%,
+      rgba(0, 200, 150, 0.1) 25%,
+      rgba(236, 254, 250, 1) 50%,
+      rgba(43, 116, 255, 0.1) 75%,
+      rgba(43, 116, 255, 0.15) 100%
+    );
+    border-color: rgba(0, 200, 150, 0.25);
+  }
+
+  .spec-card-inner {
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .spec-card-inner {
+      padding: 2rem;
+    }
+  }
+
+  /* Icon Box */
+  .spec-icon-box {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(43, 116, 255, 0.9), rgba(0, 200, 150, 0.85));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(43, 116, 255, 0.25);
+    transition: all 0.3s ease;
+  }
+
+  .spec-card:hover .spec-icon-box {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(43, 116, 255, 0.35);
+  }
+
+  .spec-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: white;
+  }
+
+  .spec-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Spec Row */
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.875rem 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Even rows - Azure gradient */
+  .spec-row-even {
+    background: linear-gradient(135deg, rgba(43, 116, 255, 0.12) 0%, rgba(43, 116, 255, 0.04) 50%, rgba(0, 200, 150, 0.08) 100%);
+    border-color: rgba(43, 116, 255, 0.12);
+  }
+
+  /* Odd rows - Aqua gradient */
+  .spec-row-odd {
+    background: linear-gradient(135deg, rgba(0, 200, 150, 0.08) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(43, 116, 255, 0.06) 100%);
+    border-color: rgba(0, 200, 150, 0.1);
+  }
+
+  .spec-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .spec-row:hover::before {
+    left: 100%;
+  }
+
+  .spec-row:hover {
+    transform: translateX(6px);
+    box-shadow: 0 4px 15px rgba(43, 116, 255, 0.15);
+  }
+
+  .spec-row-even:hover {
+    background: linear-gradient(135deg, rgba(43, 116, 255, 0.18) 0%, rgba(43, 116, 255, 0.08) 50%, rgba(0, 200, 150, 0.12) 100%);
+    border-color: rgba(43, 116, 255, 0.25);
+  }
+
+  .spec-row-odd:hover {
+    background: linear-gradient(135deg, rgba(0, 200, 150, 0.14) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(43, 116, 255, 0.1) 100%);
+    border-color: rgba(0, 200, 150, 0.2);
+  }
+
+  .spec-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #4b5563;
+  }
+
+  .spec-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1f2937;
+    text-align: right;
+    max-width: 60%;
+  }
+
+  @media (max-width: 640px) {
+    .spec-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+
+    .spec-value {
+      text-align: left;
+      max-width: 100%;
+      color: rgba(43, 116, 255, 0.9);
+    }
+  }
+</style>

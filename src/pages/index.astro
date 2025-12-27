@@ -1,182 +1,71 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-
-import Hero from '~/components/widgets/Hero.astro';
-//import StepDORA from '~/components/widgets/StepsDORA.astro'
-import Adora1Mini from '~/components/product/Adora1-Mini.astro';
-import Adora1Pro from '~/components/product/Adora1-Pro.astro';
-import Adora2Pro from '~/components/product/Adora2-Pro.astro';
-import Adora2Max from '~/components/product/Adora2-Max.astro';
-import Adora2Mini from '~/components/product/Adora2-Mini.astro';
-import ProductFeatureCN from '~/components/product/ProductFeatureCN.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import Adora1Nano from '~/components/product/Adora1-Nano.astro';
-
-const metadata = {
-  title: 'DORA Robotics',
-  //description: 'DORA Robotics is a collaborative open-source robot for home and business.',
-  description: 'ADORA是一款用于家庭和商业的协作DORA开源机器人',
-  ignoreTitleTemplate: true,
-};
+// Root page redirects to Chinese version by default
+// This site uses i18n with prefixDefaultLocale: true, so / is the entry point
+// and /cn/ is the actual default locale home
 ---
 
-<Layout metadata={metadata} defaultNavTheme="dark">
-
-  <!-- Hero Widget ******************* -->
-  <Hero
-    bg={`
-      <div class="absolute inset-0">
-        <div class="w-full h-full bg-cover bg-center" style="background-image: url('/images/robot-family-pixar.png');"></div>
-      </div>
-    `}
-  >
-    <Fragment slot="title">
-      <div class="mt-40">
-        <span class="text-gray-50 text-5xl md:text-6xl lg:text-7xl tracking-tight dark:text-white highlight">
-          我是你的机器人朋友</span
-        >
-      </div>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      <div class="mt-40">
-        <span class="hidden sm:inline text-2xl text-white">
-          <!-- GOSIM Widget *******************
-          <span class="font-semibold">ADORA</span> is an open-source robot project for home and business. <br />  -->
-          <span class="font-semibold">ADORA</span> 是用于家庭和商业的DORA开源社区机器人 <br />
-        </span>
-      </div>
-    </Fragment>
-  </Hero>
-
-  <!-- GOSIM Widget ******************* -->
-  <div id="adora2-Max">
-    <Adora2Max />
-  </div>
-  <div id="adora2-pro">
-    <Adora2Pro />
-  </div>
-  <div id="adora2-mini">
-    <Adora2Mini />
-  </div>
-  <div id="adora1-pro">
-    <Adora1Pro />
-  </div>
-  <!--
-  <div id="adora1-mini">
-    <Adora1Mini />
-  </div>
--->
-  <div id="adora1-pro">
-    <Adora1Nano />
-  </div>
-  <ProductFeatureCN />
-
-  <BlogLatestPosts title="新闻中心" information={``} />
-
-  <!-- Gradient CTA Section (Beijing2025 style) -->
-  <section class="section-gradient py-16 md:py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-        开启您的机器人之旅
-      </h2>
-      <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-        ADORA机器人助力科研教育、商业应用与家庭生活，让智能触手可及
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/customer-service" class="cta-btn-gradient">
-          <span>购买与合作</span>
-        </a>
-        <a href="/about" class="cta-btn-gradient">
-          <span>了解更多</span>
-        </a>
-      </div>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DORA Robotics - 机器人朋友</title>
+    <meta http-equiv="refresh" content="0;url=/cn" />
+    <script>
+      // Immediate JavaScript redirect for better UX
+      window.location.replace('/cn');
+    </script>
+    <style>
+      /* Minimal styles for the redirect page */
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: linear-gradient(135deg, rgb(43, 116, 255), rgb(0, 200, 150));
+      }
+      .redirect-container {
+        text-align: center;
+        color: white;
+        padding: 2rem;
+      }
+      .redirect-container h1 {
+        margin: 0 0 1rem 0;
+        font-size: 1.5rem;
+      }
+      .redirect-container p {
+        margin: 0 0 1.5rem 0;
+        opacity: 0.9;
+      }
+      .redirect-container a {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        margin: 0.25rem;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .redirect-container a:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="redirect-container">
+      <h1>欢迎访问 DORA Robotics</h1>
+      <p>正在跳转至中文版...</p>
+      <noscript>
+        <p>请选择您的语言 / Please select your language:</p>
+        <a href="/cn">中文</a>
+        <a href="/en">English</a>
+      </noscript>
     </div>
-  </section>
-
-   <!--
-  <StepsDORA
-    id="order"
-    title="How to Order"
-    subtitle="Contact us via email or via WeChat"
-    items={[
-      {
-        title: 'Email us',
-        description: 'info@xinxun-robot.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'WeChat us',
-        description: 'ID: nhuang',
-        icon: 'tabler:link',
-      },
-    ]}
-  />
- -->
-  
-  <!--
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  />
--->
-
-  <!-- CallToAction Widget ***********
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
-
-  -->
-</Layout>
+  </body>
+</html>

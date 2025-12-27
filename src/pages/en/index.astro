@@ -1,0 +1,87 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Adora1MiniEN from '~/components/product/Adora1-MiniEN.astro';
+import Adora1ProEN from '~/components/product/Adora1-ProEN.astro';
+import Adora2ProEN from '~/components/product/Adora2-ProEN.astro';
+import Adora2MaxEN from '~/components/product/Adora2-MaxEN.astro';
+import Adora2MiniEN from '~/components/product/Adora2-MiniEN.astro';
+import ProductFeatureEN from '~/components/product/ProductFeatureEN.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Adora1NanoEN from '~/components/product/Adora1-NanoEN.astro';
+
+const metadata = {
+  title: 'DORA Robotics',
+  description: 'ADORA is a family of open-source robots for home and business.',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata} defaultNavTheme="dark">
+
+  <!-- Hero Widget ******************* -->
+  <Hero
+    bg={`
+      <div class="absolute inset-0">
+        <div class="w-full h-full bg-cover bg-center" style="background-image: url('/images/robot-family-pixar.png');"></div>
+      </div>
+    `}
+  >
+    <Fragment slot="title">
+      <div class="mt-40">
+        <span class="text-gray-50 text-5xl md:text-6xl lg:text-7xl tracking-tight dark:text-white highlight">
+          We Are Your Robot Friends</span
+        >
+      </div>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <div>
+        <span class="hidden sm:inline text-2xl text-white">
+          <span class="font-semibold">ADORA</span> is a family of open-source robots for home and business <br />
+        </span>
+      </div>
+    </Fragment>
+  </Hero>
+
+  <!-- Product Sections ******************* -->
+  <div id="adora2-Max">
+    <Adora2MaxEN />
+  </div>
+  <div id="adora2-pro">
+    <Adora2ProEN />
+  </div>
+  <div id="adora2-mini">
+    <Adora2MiniEN />
+  </div>
+  <div id="adora1-pro">
+    <Adora1ProEN />
+  </div>
+  <div id="adora1-nano">
+    <Adora1NanoEN />
+  </div>
+  <ProductFeatureEN />
+
+  <BlogLatestPosts title="News Center" information={``} />
+
+  <!-- Gradient CTA Section -->
+  <section class="section-gradient py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Start Your Robot Journey
+      </h2>
+      <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        ADORA robots empower research, education, business applications, and home life with accessible intelligence
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/en/customer-service" class="cta-btn-gradient">
+          <span>Purchase & Partner</span>
+        </a>
+        <a href="/en/about" class="cta-btn-gradient">
+          <span>Learn More</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
